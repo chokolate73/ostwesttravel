@@ -1,6 +1,7 @@
 import Header from '@/components/layout/Header';
 import StickyPanel from '@/components/layout/StickyPanel';
 import FloatingPhone from '@/components/ui/FloatingPhone';
+import CookieBanner from '@/components/ui/CookieBanner';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import WhyMe from '@/components/sections/WhyMe';
@@ -57,6 +58,8 @@ export default function Home() {
       <StickyPanel />
       {/* Floating phone button */}
       <FloatingPhone />
+      {/* Cookie consent banner */}
+      <CookieBanner />
     </>
   );
 }
