@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Преимущества — Почему со мной спокойно</title>
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Section ── */
+  .advantages {
+    position: relative;
+    padding: 96px 24px 120px;
+    background: #F8F6F1;
+    overflow: hidden;
+  }
+
+  .advantages__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .advantages__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .advantages__label-line {
+    width: 32px;
+    height: 1px;
+    background: #C5A55A;
+  }
+
+  .advantages__label-text {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C5A55A;
+  }
+
+  .advantages__title {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #1B2A4A;
+    line-height: 1.25;
+    margin-bottom: 56px;
+  }
+
+  /* ── Grid ── */
+  .advantages__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  /* ── Card ── */
+  .advantage-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 28px;
+    border-left: 3px solid #C5A55A;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  .advantage-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(27, 42, 74, 0.10), 0 8px 16px rgba(27, 42, 74, 0.06);
+  }
+
+  /* ── Icon circle ── */
+  .advantage-card__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(197, 165, 90, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+  }
+
+  .advantage-card__icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: #C5A55A;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease;
+  }
+
+  .advantage-card:hover .advantage-card__icon {
+    background: #C5A55A;
+  }
+
+  .advantage-card:hover .advantage-card__icon svg {
+    stroke: #fff;
+  }
+
+  /* ── Text ── */
+  .advantage-card__title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1B2A4A;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .advantage-card__text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #6B7280;
+  }
+
+  /* ── Wave decoration ── */
+  .advantages__wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    pointer-events: none;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .advantages__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .advantages__title {
+      font-size: 32px;
+    }
+    .advantages {
+      padding: 72px 20px 100px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .advantages__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .advantages__title {
+      font-size: 26px;
+      margin-bottom: 40px;
+    }
+    .advantages {
+      padding: 56px 16px 88px;
+    }
+    .advantage-card {
+      padding: 24px 22px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section class="advantages">
+  <div class="advantages__inner">
+
+    <!-- Header -->
+    <div class="advantages__label">
+      <span class="advantages__label-line"></span>
+      <span class="advantages__label-text">Преимущества</span>
+      <span class="advantages__label-line"></span>
+    </div>
+    <h2 class="advantages__title">Почему со мной спокойно</h2>
+
+    <!-- Grid -->
+    <div class="advantages__grid">
+
+      <!-- 1. Персональный подбор — Anchor -->
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="5" r="2"/>
+            <line x1="12" y1="7" x2="12" y2="21"/>
+            <path d="M5 12H2a10 10 0 0 0 20 0h-3"/>
+          </svg>
+        </div>
+        <h3 class="advantage-card__title">Персональный подбор</h3>
+        <p class="advantage-card__text">Не массовая рассылка из системы — индивидуальная работа под ваш запрос</p>
+      </div>
+
+      <!-- 2. Проверенные варианты — Ship -->
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 15l2-6h12l2 6"/>
+            <path d="M9 9V5h6v4"/>
+            <line x1="12" y1="5" x2="12" y2="2"/>
+            <path d="M2 19c1.5-1.5 3-2 4.5-2s3 .5 4.5 2c1.5-1.5 3-2 4.5-2s3 .5 4.5 2"/>
+          </svg>
+        </div>
+        <h3 class="advantage-card__title">Проверенные варианты</h3>
+        <p class="advantage-card__text">Лично инспектирую отели — рекомендую только то, в чём уверена</p>
+      </div>
+
+      <!-- 3. Экономия времени — Clock with wave -->
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="10" r="7"/>
+            <polyline points="12 6 12 10 15 12"/>
+            <path d="M3 20c2-1.5 4-2 6-1s4 .5 6-1 4-2 6-1"/>
+          </svg>
+        </div>
+        <h3 class="advantage-card__title">Экономия времени</h3>
+        <p class="advantage-card__text">Вы отдыхаете — я работаю. Всё от подбора до бронирования беру на себя</p>
+      </div>
+
+      <!-- 4. Поддержка 24/7 — Headset -->
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 13a8 8 0 0 1 16 0"/>
+            <path d="M4 13v3a2 2 0 0 0 2 2h1v-5H4z"/>
+            <path d="M20 13v3a2 2 0 0 1-2 2h-1v-5h3z"/>
+            <path d="M18 18a2 2 0 0 1-2 2h-3"/>
+            <circle cx="12" cy="20" r="1"/>
+          </svg>
+        </div>
+        <h3 class="advantage-card__title">Поддержка 24/7</h3>
+        <p class="advantage-card__text">На связи до, во время и после поездки — помогу с любым вопросом</p>
+      </div>
+
+      <!-- 5. Русскоязычный комфорт — Globe -->
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <ellipse cx="12" cy="12" rx="4" ry="9"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <path d="M5 7h14M5 17h14"/>
+          </svg>
+        </div>
+        <h3 class="advantage-card__title">Русскоязычный комфорт</h3>
+        <p class="advantage-card__text">Всё общение на вашем языке — без языковых барьеров и недоразумений</p>
+      </div>
+
+      <!-- 6. Опыт с 2008 года — Captain wheel -->
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="12" r="3"/>
+            <line x1="12" y1="3" x2="12" y2="9"/>
+            <line x1="12" y1="15" x2="12" y2="21"/>
+            <line x1="3" y1="12" x2="9" y2="12"/>
+            <line x1="15" y1="12" x2="21" y2="12"/>
+            <line x1="5.64" y1="5.64" x2="9.88" y2="9.88"/>
+            <line x1="14.12" y1="14.12" x2="18.36" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="14.12" y2="9.88"/>
+            <line x1="9.88" y1="14.12" x2="5.64" y2="18.36"/>
+          </svg>
+        </div>
+        <h3 class="advantage-card__title">Опыт с 2008 года</h3>
+        <p class="advantage-card__text">Знаю нюансы изнутри — от тонкостей бронирования до особенностей каждого лайнера</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Wave decoration at bottom -->
+  <svg class="advantages__wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,32 C240,64 480,0 720,32 C960,64 1200,0 1440,32 L1440,80 L0,80 Z" fill="#EDE9E0"/>
+    <path d="M0,48 C240,72 480,24 720,48 C960,72 1200,24 1440,48 L1440,80 L0,80 Z" fill="#E8E3D9"/>
+  </svg>
+</section>
+
+</body>
+</html>
