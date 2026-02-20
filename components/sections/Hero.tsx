@@ -14,9 +14,8 @@ export default function Hero() {
     >
       {/* Background */}
       <div className="absolute inset-0">
-        {/* TODO: заменить на реальное фото Васили или живое фото с круиза */}
         <Image
-          src="https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1920&q=80"
+          src="/images/hero-cruise.webp"
           alt="Круизный лайнер в открытом море — OST-West Travel"
           fill
           className="object-cover"

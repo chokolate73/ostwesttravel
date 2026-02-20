@@ -12,6 +12,7 @@ export default function Cruises() {
           label="Флагман"
           title="Групповые круизы с сопровождением"
           subtitle="Путешествуйте в компании единомышленников — с моим личным сопровождением на борту"
+          headingId="cruises-heading"
         />
 
         <div className="grid md:grid-cols-2 gap-10 items-center mb-12">

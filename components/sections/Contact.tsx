@@ -61,6 +61,7 @@ export default function Contact() {
           label="Заявка"
           title="Заказать путешествие"
           subtitle="Заполните форму, и я свяжусь с вами в ближайшее время"
+          headingId="contact-heading"
         />
 
         {submitted ? (

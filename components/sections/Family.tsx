@@ -44,6 +44,7 @@ export default function Family() {
           label="Семьям"
           title="Семейный отдых"
           subtitle="Family-friendly отели, детские клубы, аквапарки и удобная логистика"
+          headingId="family-heading"
         />
 
         <div className="grid md:grid-cols-3 gap-6 mb-10">

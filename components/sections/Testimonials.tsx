@@ -126,7 +126,7 @@ export default function Testimonials() {
       aria-labelledby="testimonials-heading"
     >
       <div className="max-w-[1120px] mx-auto px-6">
-        <SectionHeader label="Отзывы" title="Что говорят мои путешественники" />
+        <SectionHeader label="Отзывы" title="Что говорят мои путешественники" headingId="testimonials-heading" />
 
         <div
           onMouseEnter={() => { hovered.current = true; }}

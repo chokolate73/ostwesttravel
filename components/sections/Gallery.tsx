@@ -38,6 +38,7 @@ export default function Gallery() {
           label="Наши путешествия"
           title="Реальные фото из поездок"
           subtitle="Группы, лайнеры, экскурсии — живые моменты наших путешествий"
+          headingId="gallery-heading"
         />
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[240px] md:auto-rows-[280px]">

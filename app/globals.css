@@ -75,10 +75,9 @@ html {
   animation: slideUp 0.5s ease-out forwards;
 }
 
-/* Phone button pulse — GPU-composited with transform+opacity */
-.animate-phone-pulse {
-  position: relative;
-}
+/* Phone button pulse — GPU-composited with transform+opacity
+   NOTE: no `position: relative` here — the parent already has `position: fixed`
+   (via Tailwind's .fixed class) which establishes the containing block for ::before */
 .animate-phone-pulse::before {
   content: '';
   position: absolute;

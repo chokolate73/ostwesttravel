@@ -41,6 +41,7 @@ export default function Individual() {
           label="Индивидуально"
           title="Индивидуальные путешествия"
           subtitle='Персональный отдых «под ключ» — подберу идеальный вариант через проверенных туроператоров'
+          headingId="individual-heading"
         />
 
         <div className="grid md:grid-cols-3 gap-6 mb-10">
