@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Отзывы — Что говорят мои путешественники</title>
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Section ── */
+  .testimonials {
+    padding: 96px 24px 88px;
+    background: #F8F6F1;
+    overflow: hidden;
+  }
+
+  .testimonials__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .testimonials__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .testimonials__label-line {
+    width: 32px;
+    height: 1px;
+    background: #C5A55A;
+  }
+
+  .testimonials__label-text {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C5A55A;
+  }
+
+  .testimonials__title {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1B2A4A;
+    line-height: 1.25;
+    margin-bottom: 56px;
+  }
+
+  /* ── Carousel viewport ── */
+  .carousel {
+    position: relative;
+  }
+
+  .carousel__viewport {
+    overflow: hidden;
+  }
+
+  .carousel__track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .carousel__slide {
+    flex: 0 0 calc(100% / 3);
+    padding: 0 12px;
+    min-width: 0;
+  }
+
+  /* ── Card ── */
+  .tcard {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Decorative quote mark */
+  .tcard__deco {
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    font-family: Georgia, serif;
+    font-size: 120px;
+    line-height: 1;
+    color: rgba(197, 165, 90, 0.10);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Stars */
+  .tcard__stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .tcard__stars svg {
+    width: 18px;
+    height: 18px;
+    fill: #C5A55A;
+  }
+
+  /* Quote text */
+  .tcard__quote {
+    font-size: 16px;
+    line-height: 1.7;
+    font-style: italic;
+    color: #1B2A4A;
+    flex: 1;
+    position: relative;
+  }
+
+  /* Divider */
+  .tcard__divider {
+    width: 100%;
+    height: 1px;
+    background: #E5E7EB;
+    margin: 24px 0 20px;
+  }
+
+  /* Author row */
+  .tcard__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tcard__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #C5A55A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .tcard__avatar span {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .tcard__name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1B2A4A;
+    margin-bottom: 2px;
+  }
+
+  .tcard__meta {
+    font-size: 13px;
+    color: #6B7280;
+  }
+
+  /* ── Navigation arrows ── */
+  .carousel__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .carousel__arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #C5A55A;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .carousel__arrow svg {
+    width: 20px;
+    height: 20px;
+    stroke: #C5A55A;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease;
+  }
+
+  .carousel__arrow:hover {
+    background: #C5A55A;
+    border-color: #C5A55A;
+  }
+
+  .carousel__arrow:hover svg {
+    stroke: #fff;
+  }
+
+  /* ── Dot indicators ── */
+  .carousel__dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .carousel__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    border: none;
+    background: #D1D5DB;
+    cursor: pointer;
+    padding: 0;
+    transition: width 0.3s ease, background 0.3s ease;
+  }
+
+  .carousel__dot--active {
+    width: 24px;
+    background: #C5A55A;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .carousel__slide {
+      flex: 0 0 50%;
+    }
+    .testimonials__title {
+      font-size: 30px;
+    }
+    .testimonials {
+      padding: 72px 20px 72px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .carousel__slide {
+      flex: 0 0 100%;
+    }
+    .testimonials__title {
+      font-size: 26px;
+      margin-bottom: 40px;
+    }
+    .testimonials {
+      padding: 56px 16px 56px;
+    }
+    .tcard {
+      padding: 28px 22px 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section class="testimonials">
+  <div class="testimonials__inner">
+
+    <!-- Header -->
+    <div class="testimonials__label">
+      <span class="testimonials__label-line"></span>
+      <span class="testimonials__label-text">Отзывы</span>
+      <span class="testimonials__label-line"></span>
+    </div>
+    <h2 class="testimonials__title">Что говорят мои путешественники</h2>
+
+    <!-- Carousel -->
+    <div class="carousel" id="carousel">
+      <div class="carousel__viewport">
+        <div class="carousel__track" id="carouselTrack">
+
+          <!-- Card 1 -->
+          <div class="carousel__slide">
+            <div class="tcard">
+              <span class="tcard__deco" aria-hidden="true">&ldquo;</span>
+              <div class="tcard__stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="tcard__quote">&laquo;Лучший групповой тур в нашей жизни! Василя подобрала идеальный маршрут по Средиземноморью. Каждый день был наполнен впечатлениями!&raquo;</p>
+              <div class="tcard__divider"></div>
+              <div class="tcard__author">
+                <div class="tcard__avatar"><span>И</span></div>
+                <div>
+                  <div class="tcard__name">Ирина &amp; Сергей</div>
+                  <div class="tcard__meta">Франкфурт &bull; Круиз</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="carousel__slide">
+            <div class="tcard">
+              <span class="tcard__deco" aria-hidden="true">&ldquo;</span>
+              <div class="tcard__stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="tcard__quote">&laquo;Василя организовала нам медовый месяц мечты. Каюта с балконом, романтический ужин от капитана — всё было идеально до мелочей.&raquo;</p>
+              <div class="tcard__divider"></div>
+              <div class="tcard__author">
+                <div class="tcard__avatar"><span>А</span></div>
+                <div>
+                  <div class="tcard__name">Анна</div>
+                  <div class="tcard__meta">Мюнхен &bull; Круиз</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="carousel__slide">
+            <div class="tcard">
+              <span class="tcard__deco" aria-hidden="true">&ldquo;</span>
+              <div class="tcard__stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="tcard__quote">&laquo;Уже третий раз бронируем через Василю. Всегда находит лучшие предложения и каюты, которые не найдёшь на сайтах.&raquo;</p>
+              <div class="tcard__divider"></div>
+              <div class="tcard__author">
+                <div class="tcard__avatar"><span>Д</span></div>
+                <div>
+                  <div class="tcard__name">Дмитрий &amp; Ольга</div>
+                  <div class="tcard__meta">Берлин &bull; Круиз</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="carousel__slide">
+            <div class="tcard">
+              <span class="tcard__deco" aria-hidden="true">&ldquo;</span>
+              <div class="tcard__stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="tcard__quote">&laquo;Первый круиз и сразу влюбились! Василя терпеливо объяснила все нюансы, помогла с визами и трансфером.&raquo;</p>
+              <div class="tcard__divider"></div>
+              <div class="tcard__author">
+                <div class="tcard__avatar"><span>М</span></div>
+                <div>
+                  <div class="tcard__name">Марина</div>
+                  <div class="tcard__meta">Вена &bull; Круиз</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="carousel__slide">
+            <div class="tcard">
+              <span class="tcard__deco" aria-hidden="true">&ldquo;</span>
+              <div class="tcard__stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="tcard__quote">&laquo;Поддержка 24/7 — это не просто слова. Когда изменили расписание рейса, Василя решила всё за час.&raquo;</p>
+              <div class="tcard__divider"></div>
+              <div class="tcard__author">
+                <div class="tcard__avatar"><span>А</span></div>
+                <div>
+                  <div class="tcard__name">Алексей</div>
+                  <div class="tcard__meta">Цюрих &bull; Круиз</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="carousel__slide">
+            <div class="tcard">
+              <span class="tcard__deco" aria-hidden="true">&ldquo;</span>
+              <div class="tcard__stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="tcard__quote">&laquo;Брали круиз по Норвежским фьордам — зрелище невероятное. Василя посоветовала каюту именно по правому борту, чтобы видеть лучшие виды. Такое внимание к деталям дорогого стоит!&raquo;</p>
+              <div class="tcard__divider"></div>
+              <div class="tcard__author">
+                <div class="tcard__avatar"><span>Н</span></div>
+                <div>
+                  <div class="tcard__name">Наталья &amp; Виктор</div>
+                  <div class="tcard__meta">Дюссельдорф &bull; Круиз</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="carousel__slide">
+            <div class="tcard">
+              <span class="tcard__deco" aria-hidden="true">&ldquo;</span>
+              <div class="tcard__stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="tcard__quote">&laquo;Летели с двумя детьми — переживали очень. Василя подобрала лайнер с детским клубом и аквапарком, дети были в восторге. Уже планируем следующий!&raquo;</p>
+              <div class="tcard__divider"></div>
+              <div class="tcard__author">
+                <div class="tcard__avatar"><span>Е</span></div>
+                <div>
+                  <div class="tcard__name">Елена</div>
+                  <div class="tcard__meta">Штутгарт &bull; Круиз</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="carousel__nav">
+        <button class="carousel__arrow" id="prevBtn" aria-label="Предыдущий отзыв">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="carousel__dots" id="dots"></div>
+        <button class="carousel__arrow" id="nextBtn" aria-label="Следующий отзыв">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var track = document.getElementById('carouselTrack');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var dotsContainer = document.getElementById('dots');
+  var carousel = document.getElementById('carousel');
+
+  var totalSlides = track.children.length;
+  var currentIndex = 0;
+  var autoplayInterval = null;
+  var visibleCount = getVisibleCount();
+
+  // Build dots
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    var count = totalSlides - visibleCount + 1;
+    for (var i = 0; i < count; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel__dot' + (i === currentIndex ? ' carousel__dot--active' : '');
+      dot.setAttribute('aria-label', 'Отзыв ' + (i + 1));
+      dot.dataset.index = i;
+      dot.addEventListener('click', function () {
+        goTo(parseInt(this.dataset.index));
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function getVisibleCount() {
+    var w = window.innerWidth;
+    if (w <= 600) return 1;
+    if (w <= 960) return 2;
+    return 3;
+  }
+
+  function getMaxIndex() {
+    return Math.max(0, totalSlides - visibleCount);
+  }
+
+  function updateTrack() {
+    var pct = (100 / visibleCount) * currentIndex;
+    track.style.transform = 'translateX(-' + pct + '%)';
+  }
+
+  function updateDots() {
+    var dots = dotsContainer.children;
+    for (var i = 0; i < dots.length; i++) {
+      if (i === currentIndex) {
+        dots[i].classList.add('carousel__dot--active');
+      } else {
+        dots[i].classList.remove('carousel__dot--active');
+      }
+    }
+  }
+
+  function goTo(index) {
+    var max = getMaxIndex();
+    if (index < 0) index = max;
+    if (index > max) index = 0;
+    currentIndex = index;
+    updateTrack();
+    updateDots();
+  }
+
+  function goNext() {
+    goTo(currentIndex + 1);
+  }
+
+  function goPrev() {
+    goTo(currentIndex - 1);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayInterval = setInterval(goNext, 5000);
+  }
+
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
+    }
+  }
+
+  // Events
+  prevBtn.addEventListener('click', function () {
+    goPrev();
+    startAutoplay();
+  });
+
+  nextBtn.addEventListener('click', function () {
+    goNext();
+    startAutoplay();
+  });
+
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+
+  // Recalc on resize
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      var newCount = getVisibleCount();
+      if (newCount !== visibleCount) {
+        visibleCount = newCount;
+        if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex();
+        buildDots();
+        updateTrack();
+      }
+    }, 150);
+  });
+
+  // Init
+  buildDots();
+  updateTrack();
+  startAutoplay();
+})();
+</script>
+</body>
+</html>
