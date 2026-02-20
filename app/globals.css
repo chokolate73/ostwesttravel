@@ -83,3 +83,13 @@ html {
 .faq-content.open {
   max-height: 500px;
 }
+
+/* Phone button pulse */
+@keyframes phone-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
+  70% { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+.animate-phone-pulse {
+  animation: phone-pulse 2s ease-in-out infinite;
+}
