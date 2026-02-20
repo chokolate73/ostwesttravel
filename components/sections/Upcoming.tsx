@@ -138,16 +138,16 @@ function Countdown({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
 
   return (
-    <div className="grid grid-cols-4 gap-2">
+    <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
       {[
         { v: timeLeft.d, l: 'дней' },
         { v: timeLeft.h, l: 'часов' },
         { v: timeLeft.m, l: 'минут' },
         { v: timeLeft.s, l: 'секунд' },
       ].map((u) => (
-        <div key={u.l} className="text-center bg-ocean-deep/5 rounded-xl p-3">
-          <div className="text-2xl md:text-3xl font-serif text-ocean-deep">{u.v}</div>
-          <div className="text-xs text-gray-500 uppercase tracking-wider">{u.l}</div>
+        <div key={u.l} className="text-center bg-ocean-deep/5 rounded-xl p-2 md:p-3">
+          <div className="text-xl md:text-3xl font-serif text-ocean-deep">{u.v}</div>
+          <div className="text-[10px] md:text-xs text-gray-500 uppercase tracking-wider">{u.l}</div>
         </div>
       ))}
     </div>
@@ -178,14 +178,14 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header image */}
-        <div className="relative h-48 rounded-t-3xl overflow-hidden">
+        <div className="relative h-36 md:h-48 rounded-t-3xl overflow-hidden">
           <Image src={tour.image} alt={tour.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/70 to-transparent" />
-          <div className="absolute bottom-4 left-6 right-6">
-            <span className="inline-block px-3 py-1 bg-gold text-ocean-deep text-xs font-bold rounded-full uppercase mb-2">
+          <div className="absolute bottom-3 left-4 right-4 md:bottom-4 md:left-6 md:right-6">
+            <span className="inline-block px-3 py-1 bg-gold text-ocean-deep text-xs font-bold rounded-full uppercase mb-1 md:mb-2">
               {tour.format}
             </span>
-            <h3 className="text-2xl font-serif text-white">{tour.title}</h3>
+            <h3 className="text-xl md:text-2xl font-serif text-white">{tour.title}</h3>
             <p className="text-white/80 text-sm">{tour.dates}</p>
           </div>
           <button
@@ -197,7 +197,7 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
           </button>
         </div>
 
-        <div className="p-6 md:p-8 space-y-6">
+        <div className="p-4 sm:p-6 md:p-8 space-y-5 md:space-y-6">
           {/* Ship & price */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-ocean-deep/5 rounded-2xl p-4">
@@ -231,7 +231,7 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
             <div className="space-y-3">
               {p.itinerary.map((step) => (
                 <div key={step.day} className="flex gap-3">
-                  <span className="shrink-0 w-20 text-xs font-bold text-gold uppercase bg-gold/10 rounded-lg px-2 py-1.5 text-center">
+                  <span className="shrink-0 w-16 md:w-20 text-xs font-bold text-gold uppercase bg-gold/10 rounded-lg px-2 py-1.5 text-center">
                     {step.day}
                   </span>
                   <p className="text-sm text-gray-700 pt-1">{step.desc}</p>
@@ -242,7 +242,7 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
 
           {/* CTA */}
           <div className="pt-2">
-            <WhatsAppButton size="sm">Забронировать место</WhatsAppButton>
+            <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Забронировать место</WhatsAppButton>
           </div>
         </div>
       </div>
@@ -301,11 +301,11 @@ export default function Upcoming() {
                         <span key={tag} className="px-3 py-1 bg-gold/10 text-gold-dark rounded-full text-sm">{tag}</span>
                       ))}
                     </div>
-                    <div className="flex flex-wrap gap-3">
-                      <WhatsAppButton size="sm">Запросить программу</WhatsAppButton>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Запросить программу</WhatsAppButton>
                       <button
                         onClick={() => setOpenTour(i)}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-ocean-deep/20 text-ocean-deep rounded-full text-sm font-semibold hover:bg-ocean-deep hover:text-white transition-all"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 border-2 border-ocean-deep/20 text-ocean-deep rounded-full text-sm font-semibold hover:bg-ocean-deep hover:text-white transition-all"
                       >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
                         Подробнее о программе

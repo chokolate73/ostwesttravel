@@ -18,7 +18,7 @@ export default function About() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-gold rounded-2xl -z-10" />
+            <div className="hidden md:block absolute -bottom-4 -right-4 w-full h-full border-2 border-gold rounded-2xl -z-10" />
             {/* TODO: добавить 1-2 мини-фото рабочих кадров */}
           </ScrollReveal>
 
