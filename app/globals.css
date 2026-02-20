@@ -53,6 +53,15 @@ html {
   transform: translateX(0);
 }
 
+/* Smooth hero background reveal — prevents image flash on load */
+@keyframes heroReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.hero-bg-reveal {
+  animation: heroReveal 1.2s ease-out both;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
