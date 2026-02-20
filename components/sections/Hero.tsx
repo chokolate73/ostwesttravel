@@ -33,9 +33,16 @@ export default function Hero() {
           Путешествия мечты с личным экспертом
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-white/80 mb-10 tracking-wide max-w-2xl mx-auto">
-          Василя Нигматова — с 2008 года организую круизы, семейный отдых и индивидуальные туры для русскоязычных клиентов в Германии.
+        <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold font-semibold drop-shadow-lg mb-6">
+          Василя Нигматова
         </p>
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+          {['Круизы', 'Семейный отдых', 'Индивидуальные туры'].map((tag) => (
+            <span key={tag} className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-medium text-sm px-4 py-1.5 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <WhatsAppButton size="lg">Написать в WhatsApp</WhatsAppButton>
@@ -44,7 +51,7 @@ export default function Hero() {
           </CTAButton>
         </div>
 
-        <p className="text-white/50 text-sm mt-5">Ответ в течение часа</p>
+        <p className="text-white font-semibold text-sm mt-5">Ответ в течение часа</p>
       </div>
 
       {/* Scroll indicator */}

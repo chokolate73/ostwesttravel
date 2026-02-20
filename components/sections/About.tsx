@@ -28,7 +28,7 @@ export default function About() {
             </div>
 
             <h2 id="about-heading" className="text-3xl md:text-4xl font-serif text-ocean-deep mb-6">
-              Vasilya Nigmatova
+              Василя Нигматова
             </h2>
 
             {/* Short facts */}
