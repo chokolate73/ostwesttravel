@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 
@@ -47,11 +48,12 @@ export default function Gallery() {
               className={gridClasses[i] || ''}
             >
               <figure className="relative group overflow-hidden rounded-2xl h-full">
-                <img
+                <Image
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 50vw, 33vw"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent pt-12 pb-4 px-4">
                   <p className="text-white font-serif text-lg">{photo.caption}</p>

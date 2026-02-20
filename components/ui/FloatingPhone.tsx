@@ -6,8 +6,13 @@ export default function FloatingPhone() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    let last = false;
     function onScroll() {
-      setVisible(window.scrollY > window.innerHeight * 0.3);
+      const next = window.scrollY > window.innerHeight * 0.3;
+      if (next !== last) {
+        last = next;
+        setVisible(next);
+      }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();

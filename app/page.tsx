@@ -1,6 +1,8 @@
+import dynamic from 'next/dynamic';
 import Header from '@/components/layout/Header';
 import StickyPanel from '@/components/layout/StickyPanel';
 import FloatingPhone from '@/components/ui/FloatingPhone';
+import CookieBanner from '@/components/ui/CookieBanner';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import WhyMe from '@/components/sections/WhyMe';
@@ -8,14 +10,16 @@ import Cruises from '@/components/sections/Cruises';
 import Individual from '@/components/sections/Individual';
 import Family from '@/components/sections/Family';
 import Gallery from '@/components/sections/Gallery';
-import Testimonials from '@/components/sections/Testimonials';
-import Upcoming from '@/components/sections/Upcoming';
 import Process from '@/components/sections/Process';
 import Deposit from '@/components/sections/Deposit';
-import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
 import Instagram from '@/components/sections/Instagram';
 import Footer from '@/components/sections/Footer';
+
+// Heavy client components — lazy-loaded to reduce initial JS bundle
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials'));
+const Upcoming = dynamic(() => import('@/components/sections/Upcoming'));
+const FAQ = dynamic(() => import('@/components/sections/FAQ'));
 
 export default function Home() {
   return (
@@ -57,6 +61,8 @@ export default function Home() {
       <StickyPanel />
       {/* Floating phone button */}
       <FloatingPhone />
+      {/* Cookie consent banner */}
+      <CookieBanner />
     </>
   );
 }

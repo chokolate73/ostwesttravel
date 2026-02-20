@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 
 export default function About() {
@@ -7,11 +8,14 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Photos */}
           <ScrollReveal direction="left" className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-              <img
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
                 src="/images/elena.webp"
                 alt="Василя Нигматова — персональный эксперт по путешествиям, OST-West Travel"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-gold rounded-2xl -z-10" />

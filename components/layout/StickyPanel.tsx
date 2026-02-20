@@ -6,11 +6,16 @@ export default function StickyPanel() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    let last = false;
     function onScroll() {
-      // Show sticky panel after scrolling past hero (~100vh)
-      setVisible(window.scrollY > window.innerHeight * 0.7);
+      const next = window.scrollY > window.innerHeight * 0.7;
+      if (next !== last) {
+        last = next;
+        setVisible(next);
+      }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 

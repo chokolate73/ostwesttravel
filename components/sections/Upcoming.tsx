@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
@@ -178,7 +179,7 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
       >
         {/* Header image */}
         <div className="relative h-48 rounded-t-3xl overflow-hidden">
-          <img src={tour.image} alt={tour.alt} className="w-full h-full object-cover" />
+          <Image src={tour.image} alt={tour.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/70 to-transparent" />
           <div className="absolute bottom-4 left-6 right-6">
             <span className="inline-block px-3 py-1 bg-gold text-ocean-deep text-xs font-bold rounded-full uppercase mb-2">
@@ -269,11 +270,12 @@ export default function Upcoming() {
               <article className="bg-white rounded-3xl overflow-hidden shadow-2xl">
                 <div className="grid md:grid-cols-2">
                   <div className="relative h-56 md:h-[360px]">
-                    <img
+                    <Image
                       src={tour.image}
                       alt={tour.alt}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/50 to-transparent md:bg-gradient-to-r" />
                     <div className="absolute top-4 left-4 px-3 py-1 bg-gold text-ocean-deep text-xs font-bold rounded-full uppercase">

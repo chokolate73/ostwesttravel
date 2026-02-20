@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import CTAButton from '@/components/ui/CTAButton';
@@ -46,12 +47,13 @@ export default function Individual() {
           {destinations.map((dest, i) => (
             <ScrollReveal key={dest.title} delay={i * 100}>
               <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all h-full flex flex-col">
-                <div className="relative overflow-hidden">
-                  <img
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <Image
                     src={dest.image}
                     alt={dest.alt}
-                    className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute top-3 left-3 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-ocean-deep">
                     {dest.subtitle}
