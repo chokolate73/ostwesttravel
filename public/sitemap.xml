@@ -10,28 +10,4 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://touragent.de/de/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://touragent.de/" />
   </url>
-  <url>
-    <loc>https://touragent.de/#about</loc>
-    <lastmod>2026-02-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://touragent.de/#services</loc>
-    <lastmod>2026-02-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://touragent.de/#tours</loc>
-    <lastmod>2026-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://touragent.de/#contact</loc>
-    <lastmod>2026-02-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>
