@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
@@ -16,6 +16,30 @@ const tours = [
     /* TODO: заменить на реальное фото направления */
     image: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=700&h=500&fit=crop&crop=center&q=80',
     alt: 'Круиз по Карибским островам — апрель 2026',
+    program: {
+      ship: 'Royal Caribbean — Symphony of the Seas',
+      cabin: 'Каюта с балконом (категория D5)',
+      price: 'от 2 890 € на человека',
+      included: [
+        'Перелёт Франкфурт — Майами — Франкфурт',
+        'Трансфер аэропорт — порт — аэропорт',
+        'Проживание в каюте с балконом (12 ночей)',
+        'Питание All-Inclusive на борту',
+        'Развлекательная программа и шоу',
+        'Русскоговорящий координатор группы',
+      ],
+      itinerary: [
+        { day: 'День 1', desc: 'Вылет из Франкфурта, прибытие в Майами, посадка на лайнер' },
+        { day: 'День 2', desc: 'День в море — знакомство с лайнером, бассейны, SPA' },
+        { day: 'День 3–4', desc: 'Коста-Майя и Козумель (Мексика) — руины майя, сноркелинг' },
+        { day: 'День 5', desc: 'Роатан (Гондурас) — коралловые рифы, дайвинг' },
+        { day: 'День 6', desc: 'Белиз — заповедник Blue Hole, катамаран' },
+        { day: 'День 7–8', desc: 'Ямайка — экскурсия на водопады Даннс-Ривер, Монтего-Бэй' },
+        { day: 'День 9–10', desc: 'Дни в море — отдых, вечерние шоу, дегустации' },
+        { day: 'День 11–12', desc: 'Багамские острова — пляж, Нассау, Атлантис' },
+        { day: 'День 13', desc: 'Возвращение в Майами, перелёт во Франкфурт' },
+      ],
+    },
   },
   {
     title: 'Средиземноморский круиз',
@@ -27,6 +51,32 @@ const tours = [
     /* TODO: заменить на реальное фото */
     image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=700&h=500&fit=crop&crop=center&q=80',
     alt: 'Средиземноморский круиз — июнь 2026',
+    program: {
+      ship: 'MSC World Europa',
+      cabin: 'Каюта с балконом (категория Fantastica)',
+      price: 'от 1 690 € на человека',
+      included: [
+        'Посадка в порту Генуя (Италия)',
+        'Проживание в каюте с балконом (10 ночей)',
+        'Полный пансион на борту',
+        'Развлечения и анимация на борту',
+        'Портовые сборы и налоги',
+        'Русскоговорящий координатор группы',
+      ],
+      itinerary: [
+        { day: 'День 1', desc: 'Генуя (Италия) — посадка на лайнер, приветственный ужин' },
+        { day: 'День 2', desc: 'Чивитавеккья — экскурсия в Рим, Колизей, Ватикан' },
+        { day: 'День 3', desc: 'Неаполь — Помпеи, побережье Амальфи' },
+        { day: 'День 4', desc: 'День в море — SPA, мастер-классы, вечернее шоу' },
+        { day: 'День 5', desc: 'Санторини (Греция) — белоснежные домики, закат в Ойе' },
+        { day: 'День 6', desc: 'Афины (Пирей) — Акрополь, район Плака' },
+        { day: 'День 7', desc: 'Корфу (Греция) — старый город, пляжи Палеокастрица' },
+        { day: 'День 8', desc: 'Дубровник (Хорватия) — прогулка по крепостным стенам' },
+        { day: 'День 9', desc: 'Сплит (Хорватия) — дворец Диоклетиана, набережная Рива' },
+        { day: 'День 10', desc: 'День в море — прощальный гала-ужин' },
+        { day: 'День 11', desc: 'Возвращение в Геную, высадка' },
+      ],
+    },
   },
   {
     title: 'Норвежские фьорды',
@@ -38,6 +88,31 @@ const tours = [
     /* TODO: заменить на реальное фото */
     image: 'https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?w=700&h=500&fit=crop&crop=center&q=80',
     alt: 'Круиз по норвежским фьордам — сентябрь 2026',
+    program: {
+      ship: 'Costa Firenze',
+      cabin: 'Каюта с балконом (категория Premium)',
+      price: 'от 2 190 € на человека',
+      included: [
+        'Посадка в порту Гамбург (Германия)',
+        'Проживание в каюте с балконом (9 ночей)',
+        'Полный пансион на борту',
+        'Развлечения, шоу и анимация',
+        'Портовые сборы и налоги',
+        'Русскоговорящий координатор группы',
+      ],
+      itinerary: [
+        { day: 'День 1', desc: 'Гамбург (Германия) — посадка на лайнер' },
+        { day: 'День 2', desc: 'День в море — знакомство с лайнером, SPA' },
+        { day: 'День 3', desc: 'Берген (Норвегия) — рыбный рынок, фуникулёр Флёйбанен' },
+        { day: 'День 4', desc: 'Согнефьорд — самый длинный фьорд Норвегии, каякинг' },
+        { day: 'День 5', desc: 'Гейрангерфьорд — водопады «Семь сестёр», смотровые площадки' },
+        { day: 'День 6', desc: 'Олесунн — город в стиле ар-нуво, панорама с горы Аксла' },
+        { day: 'День 7', desc: 'Тромсё — арктический собор, охота за северным сиянием' },
+        { day: 'День 8', desc: 'Нордкап — самая северная точка Европы, «Полуночное солнце»' },
+        { day: 'День 9', desc: 'День в море — прощальный гала-ужин, дегустация аквавита' },
+        { day: 'День 10', desc: 'Возвращение в Гамбург, высадка' },
+      ],
+    },
   },
 ];
 
@@ -78,7 +153,107 @@ function Countdown({ targetDate }: { targetDate: string }) {
   );
 }
 
+function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: () => void }) {
+  const p = tour.program;
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose();
+    }
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="absolute inset-0 bg-ocean-deep/60 backdrop-blur-sm" />
+      <div
+        className="relative bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header image */}
+        <div className="relative h-48 rounded-t-3xl overflow-hidden">
+          <img src={tour.image} alt={tour.alt} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/70 to-transparent" />
+          <div className="absolute bottom-4 left-6 right-6">
+            <span className="inline-block px-3 py-1 bg-gold text-ocean-deep text-xs font-bold rounded-full uppercase mb-2">
+              {tour.format}
+            </span>
+            <h3 className="text-2xl font-serif text-white">{tour.title}</h3>
+            <p className="text-white/80 text-sm">{tour.dates}</p>
+          </div>
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center text-ocean-deep hover:bg-white transition-colors"
+            aria-label="Закрыть"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+        </div>
+
+        <div className="p-6 md:p-8 space-y-6">
+          {/* Ship & price */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-ocean-deep/5 rounded-2xl p-4">
+              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Лайнер</p>
+              <p className="font-semibold text-ocean-deep">{p.ship}</p>
+              <p className="text-sm text-gray-500 mt-1">{p.cabin}</p>
+            </div>
+            <div className="bg-gold/10 rounded-2xl p-4">
+              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Стоимость</p>
+              <p className="font-semibold text-ocean-deep text-lg">{p.price}</p>
+              <p className="text-sm text-gray-500 mt-1">Осталось {tour.spots}</p>
+            </div>
+          </div>
+
+          {/* Included */}
+          <div>
+            <h4 className="font-serif text-ocean-deep text-lg mb-3">Что включено</h4>
+            <ul className="space-y-2">
+              {p.included.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+                  <svg className="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Itinerary */}
+          <div>
+            <h4 className="font-serif text-ocean-deep text-lg mb-3">Программа по дням</h4>
+            <div className="space-y-3">
+              {p.itinerary.map((step) => (
+                <div key={step.day} className="flex gap-3">
+                  <span className="shrink-0 w-20 text-xs font-bold text-gold uppercase bg-gold/10 rounded-lg px-2 py-1.5 text-center">
+                    {step.day}
+                  </span>
+                  <p className="text-sm text-gray-700 pt-1">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="pt-2">
+            <WhatsAppButton size="sm">Забронировать место</WhatsAppButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Upcoming() {
+  const [openTour, setOpenTour] = useState<number | null>(null);
+
+  const closeModal = useCallback(() => setOpenTour(null), []);
+
   return (
     <section id="upcoming" className="py-20 md:py-24 bg-ocean-deep" aria-labelledby="upcoming-heading">
       <div className="max-w-6xl mx-auto px-6">
@@ -123,13 +298,26 @@ export default function Upcoming() {
                         <span key={tag} className="px-3 py-1 bg-gold/10 text-gold-dark rounded-full text-sm">{tag}</span>
                       ))}
                     </div>
-                    <WhatsAppButton size="sm">Запросить программу</WhatsAppButton>
+                    <div className="flex flex-wrap gap-3">
+                      <WhatsAppButton size="sm">Запросить программу</WhatsAppButton>
+                      <button
+                        onClick={() => setOpenTour(i)}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-ocean-deep/20 text-ocean-deep rounded-full text-sm font-semibold hover:bg-ocean-deep hover:text-white transition-all"
+                      >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                        Подробнее о программе
+                      </button>
+                    </div>
                   </div>
                 </div>
               </article>
             </ScrollReveal>
           ))}
         </div>
+
+        {openTour !== null && (
+          <ProgramModal tour={tours[openTour]} onClose={closeModal} />
+        )}
       </div>
     </section>
   );

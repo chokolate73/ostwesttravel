@@ -61,7 +61,7 @@ export default function Process() {
                     {step.num}
                   </div>
                   {/* Content */}
-                  <div className={`flex-1 md:flex-none bg-white rounded-xl p-5 shadow-sm md:w-[calc(50%-3.5rem)] ${i % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                  <div className={`flex-1 md:flex-none bg-white rounded-xl p-5 shadow-sm text-center md:w-[calc(50%-3.5rem)] ${i % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
                     <h3 className="font-semibold text-ocean-deep mb-1">{step.title}</h3>
                     <p className="text-sm text-gray-500">{step.text}</p>
                   </div>
