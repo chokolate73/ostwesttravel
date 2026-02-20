@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как проходит работа</title>
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    background: #F8F6F1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Section ── */
+  .process {
+    padding: 80px 24px;
+    background: #fff;
+  }
+
+  .process__inner {
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .process__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .process__label-line {
+    width: 32px;
+    height: 1px;
+    background: #C5A55A;
+  }
+
+  .process__label-text {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C5A55A;
+  }
+
+  .process__title {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1B2A4A;
+    line-height: 1.25;
+    margin-bottom: 64px;
+  }
+
+  /* ── Timeline (desktop) ── */
+  .timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+
+  /* Horizontal connecting line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 24px; /* center of 48px circle */
+    left: calc(10% + 24px);
+    right: calc(10% + 24px);
+    height: 2px;
+    background: rgba(197, 165, 90, 0.4);
+    z-index: 0;
+  }
+
+  /* ── Step ── */
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step__circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #C5A55A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px rgba(197, 165, 90, 0.2);
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  .step__num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .step__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1B2A4A;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .step__text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #6B7280;
+    max-width: 180px;
+  }
+
+  /* ── Tablet ── */
+  @media (max-width: 1024px) {
+    .process__title {
+      font-size: 30px;
+      margin-bottom: 48px;
+    }
+
+    .timeline {
+      gap: 8px;
+    }
+
+    .step__title {
+      font-size: 15px;
+    }
+
+    .step__text {
+      font-size: 13px;
+      max-width: 160px;
+    }
+
+    .step__circle {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 16px;
+    }
+
+    .step__num {
+      font-size: 16px;
+    }
+
+    .timeline::before {
+      top: 22px;
+    }
+  }
+
+  /* ── Mobile: vertical timeline ── */
+  @media (max-width: 768px) {
+    .process {
+      padding: 56px 20px;
+    }
+
+    .process__title {
+      font-size: 26px;
+      margin-bottom: 40px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-left: 24px;
+    }
+
+    /* Vertical line on the left */
+    .timeline::before {
+      top: 24px;
+      bottom: 24px;
+      left: 23px; /* center of 48px circle at left:0 */
+      right: auto;
+      width: 2px;
+      height: auto;
+    }
+
+    .step {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      padding-bottom: 36px;
+    }
+
+    .step:last-child {
+      padding-bottom: 0;
+    }
+
+    .step__circle {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+
+    .step__num {
+      font-size: 18px;
+    }
+
+    .step__content {
+      padding-top: 10px;
+    }
+
+    .step__text {
+      max-width: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section class="process">
+  <div class="process__inner">
+
+    <!-- Header -->
+    <div class="process__label">
+      <span class="process__label-line"></span>
+      <span class="process__label-text">Как работаем</span>
+      <span class="process__label-line"></span>
+    </div>
+    <h2 class="process__title">Как проходит работа</h2>
+
+    <!-- Timeline -->
+    <div class="timeline">
+
+      <div class="step">
+        <div class="step__circle"><span class="step__num">1</span></div>
+        <div class="step__content">
+          <div class="step__title">Оставляете запрос</div>
+          <p class="step__text">Через форму на сайте или WhatsApp</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__circle"><span class="step__num">2</span></div>
+        <div class="step__content">
+          <div class="step__title">Первичная связь</div>
+          <p class="step__text">Короткое уточнение вашего запроса и пожеланий</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__circle"><span class="step__num">3</span></div>
+        <div class="step__content">
+          <div class="step__title">Подготовка вариантов</div>
+          <p class="step__text">Презентация с фото/видео, плюсы и минусы каждого варианта</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__circle"><span class="step__num">4</span></div>
+        <div class="step__content">
+          <div class="step__title">Бронирование</div>
+          <p class="step__text">Оформление пакетного тура через официального туроператора</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__circle"><span class="step__num">5</span></div>
+        <div class="step__content">
+          <div class="step__title">Поддержка в поездке</div>
+          <p class="step__text">На связи до, во время и после путешествия</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
