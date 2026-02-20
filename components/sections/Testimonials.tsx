@@ -54,8 +54,6 @@ export default function Testimonials() {
     return () => clearInterval(interval);
   }, [next]);
 
-  const t = testimonials[current];
-
   return (
     <section id="testimonials" className="py-20 md:py-24 bg-white" aria-labelledby="testimonials-heading">
       <div className="max-w-4xl mx-auto px-6">
@@ -63,35 +61,46 @@ export default function Testimonials() {
 
         {/* TODO: добавить место под скриншоты отзывов и видео */}
         <div className="relative">
-          <div className="bg-gray-50 rounded-3xl p-8 md:p-12 relative overflow-hidden min-h-[280px]">
+          <div className="bg-gray-50 rounded-3xl p-8 md:p-12 relative overflow-hidden">
             {/* Quote watermark */}
             <svg className="absolute top-4 right-4 w-16 h-16 text-gold/10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1} aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg>
 
-            {/* Stars */}
-            <div className="flex gap-1 mb-6" aria-label="5 из 5 звёзд">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <svg key={i} className="w-5 h-5 fill-gold text-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
-              ))}
-            </div>
+            {/* Grid: all testimonials stacked in same cell, height = tallest */}
+            <div className="grid [&>*]:col-start-1 [&>*]:row-start-1">
+              {testimonials.map((t, i) => (
+                <div
+                  key={i}
+                  className={`transition-opacity duration-500 ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                  aria-hidden={i !== current}
+                >
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-6" aria-label="5 из 5 звёзд">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <svg key={j} className="w-5 h-5 fill-gold text-gold" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+                    ))}
+                  </div>
 
-            <blockquote>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 font-light italic">
-                &ldquo;{t.text}&rdquo;
-              </p>
-            </blockquote>
+                  <blockquote>
+                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 font-light italic">
+                      &ldquo;{t.text}&rdquo;
+                    </p>
+                  </blockquote>
 
-            <div className="flex items-center gap-4">
-              {t.image ? (
-                <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover border-2 border-gold/20" loading="lazy" />
-              ) : (
-                <div className="w-12 h-12 rounded-full bg-ocean-deep/10 flex items-center justify-center border-2 border-gold/20">
-                  <span className="text-lg font-serif text-ocean-deep">{t.initials}</span>
+                  <div className="flex items-center gap-4">
+                    {t.image ? (
+                      <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover border-2 border-gold/20" loading="lazy" />
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-ocean-deep/10 flex items-center justify-center border-2 border-gold/20">
+                        <span className="text-lg font-serif text-ocean-deep">{'initials' in t ? t.initials : t.name[0]}</span>
+                      </div>
+                    )}
+                    <div>
+                      <cite className="font-semibold text-ocean-deep not-italic">{t.name}</cite>
+                      <p className="text-sm text-gray-500">{t.city} &bull; {t.type}</p>
+                    </div>
+                  </div>
                 </div>
-              )}
-              <div>
-                <cite className="font-semibold text-ocean-deep not-italic">{t.name}</cite>
-                <p className="text-sm text-gray-500">{t.city} &bull; {t.type}</p>
-              </div>
+              ))}
             </div>
           </div>
 
