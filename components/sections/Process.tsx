@@ -55,7 +55,7 @@ export default function Process() {
           <div className="space-y-8">
             {steps.map((step, i) => (
               <ScrollReveal key={step.num} delay={i * 60}>
-                <div className={`relative flex items-start gap-6 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                <div className={`relative flex items-center gap-6 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Step number circle */}
                   <div className="relative z-10 shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-white font-bold text-sm shadow-lg md:absolute md:left-1/2 md:-translate-x-1/2">
                     {step.num}

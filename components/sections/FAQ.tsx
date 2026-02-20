@@ -206,12 +206,16 @@ function FAQAccordionItem({ item, isOpen, toggle }: { item: FAQItem; isOpen: boo
 
 export default function FAQ() {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
+  const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
 
   // Deep-link support: open specific FAQ on hash navigation
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
     if (hash.startsWith("faq-")) {
       setOpenItems(new Set([hash]));
+      // Find and open the category containing this item
+      const catIndex = faqData.findIndex((cat) => cat.items.some((item) => item.id === hash));
+      if (catIndex !== -1) setOpenCategories(new Set([catIndex]));
       setTimeout(() => {
         document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 300);
@@ -227,32 +231,58 @@ export default function FAQ() {
     });
   }
 
+  function toggleCategory(index: number) {
+    setOpenCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
+  }
+
   return (
     <section id="faq" className="py-20 md:py-24 bg-white" aria-labelledby="faq-heading">
       <div className="max-w-4xl mx-auto px-6">
         <SectionHeader label="FAQ" title="Часто задаваемые вопросы" />
 
-        <div className="space-y-6">
-          {faqData.map((cat, ci) => (
-            <ScrollReveal key={cat.title} delay={ci * 60}>
-              <div className="bg-gray-50 rounded-2xl p-5 md:p-6">
-                <h3 className="text-base font-semibold text-ocean-deep mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-gold/10 text-gold text-xs flex items-center justify-center font-bold">
-                    {ci + 1}
-                  </span>
-                  {cat.title}
-                </h3>
-                {cat.items.map((item) => (
-                  <FAQAccordionItem
-                    key={item.id}
-                    item={item}
-                    isOpen={openItems.has(item.id)}
-                    toggle={() => toggle(item.id)}
-                  />
-                ))}
-              </div>
-            </ScrollReveal>
-          ))}
+        <div className="space-y-4">
+          {faqData.map((cat, ci) => {
+            const isOpen = openCategories.has(ci);
+            return (
+              <ScrollReveal key={cat.title} delay={ci * 60}>
+                <div className="bg-gray-50 rounded-2xl overflow-hidden">
+                  <button
+                    onClick={() => toggleCategory(ci)}
+                    className="w-full flex items-center justify-between p-5 md:p-6 text-left"
+                    aria-expanded={isOpen}
+                  >
+                    <h3 className="text-base font-semibold text-ocean-deep">{cat.title}</h3>
+                    <svg
+                      className={`w-5 h-5 shrink-0 text-gold transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div className={`transition-all duration-300 ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"} overflow-hidden`}>
+                    <div className="px-5 pb-5 md:px-6 md:pb-6">
+                      {cat.items.map((item) => (
+                        <FAQAccordionItem
+                          key={item.id}
+                          item={item}
+                          isOpen={openItems.has(item.id)}
+                          toggle={() => toggle(item.id)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            );
+          })}
         </div>
 
         <ScrollReveal className="mt-10">
