@@ -177,6 +177,19 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
         className="relative bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Sticky close button — stays visible while scrolling */}
+        <div className="sticky top-0 z-20 pointer-events-none">
+          <div className="absolute top-4 right-4 pointer-events-auto">
+            <button
+              onClick={onClose}
+              className="w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-ocean-deep hover:bg-white transition-colors shadow-md"
+              aria-label="Закрыть"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+          </div>
+        </div>
+
         {/* Header image */}
         <div className="relative h-36 md:h-48 rounded-t-3xl overflow-hidden">
           <Image src={tour.image} alt={tour.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
@@ -188,16 +201,9 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
             <h3 className="text-xl md:text-2xl font-serif text-white">{tour.title}</h3>
             <p className="text-white/80 text-sm">{tour.dates}</p>
           </div>
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center text-ocean-deep hover:bg-white transition-colors"
-            aria-label="Закрыть"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-          </button>
         </div>
 
-        <div className="p-4 sm:p-6 md:p-8 space-y-5 md:space-y-6">
+        <div className="p-4 sm:p-6 md:p-8 pb-24 md:pb-8 space-y-5 md:space-y-6">
           {/* Ship & price */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-ocean-deep/5 rounded-2xl p-4">
