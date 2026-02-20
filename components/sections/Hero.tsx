@@ -30,11 +30,11 @@ export default function Hero() {
           id="hero-heading"
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-6"
         >
-          Василя Нигматова — ваш персональный эксперт по путешествиям в Германии
+          Путешествия мечты с личным экспертом
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl text-white/80 mb-10 tracking-wide max-w-2xl mx-auto">
-          Для русскоязычных клиентов в Германии. Опыт с 2008 года. Личное сопровождение каждого путешествия.
+          Василя Нигматова — с 2008 года организую круизы, семейный отдых и индивидуальные туры для русскоязычных клиентов в Германии.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
