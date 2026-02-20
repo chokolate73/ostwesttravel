@@ -14,72 +14,65 @@ const steps = [
   },
   {
     num: 3,
-    title: 'Депозит за подбор',
-    text: 'Для новых клиентов — возвратный депозит за персональную работу',
-  },
-  {
-    num: 4,
     title: 'Подготовка вариантов',
     text: 'Презентация с фото/видео, плюсы и минусы каждого варианта',
   },
   {
-    num: 5,
+    num: 4,
     title: 'Бронирование',
     text: 'Оформление пакетного тура через официального туроператора',
   },
   {
-    num: 6,
-    title: 'Страховка',
-    text: 'Подбор страхового решения по вашему желанию',
-  },
-  {
-    num: 7,
-    title: 'Сопровождение',
-    text: 'Поддержка до, во время и после поездки',
+    num: 5,
+    title: 'Поддержка в поездке',
+    text: 'На связи до, во время и после путешествия',
   },
 ];
 
 export default function Process() {
   return (
-    <section id="process" className="py-20 md:py-24 bg-gray-50" aria-labelledby="process-heading">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="process" className="py-20 md:py-24 bg-white" aria-labelledby="process-heading">
+      <div className="max-w-[1060px] mx-auto px-6">
         <SectionHeader
           label="Как работаем"
           title="Как проходит работа"
         />
 
+        {/* Desktop: horizontal timeline */}
         <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gold/20 -translate-x-1/2" />
+          {/* Connecting line — horizontal on md+, vertical on mobile */}
+          <div className="
+            absolute
+            left-6 top-6 bottom-6 w-0.5 bg-gold/40
+            md:left-[10%] md:right-[10%] md:top-6 md:bottom-auto md:h-0.5 md:w-auto
+          " />
 
-          <div className="space-y-8">
+          <div className="
+            flex flex-col gap-0
+            md:grid md:grid-cols-5 md:gap-0
+          ">
             {steps.map((step, i) => (
-              <ScrollReveal key={step.num} delay={i * 60}>
-                <div className={`relative flex items-center gap-6 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  {/* Step number circle */}
-                  <div className="relative z-10 shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-white font-bold text-sm shadow-lg md:absolute md:left-1/2 md:-translate-x-1/2">
-                    {step.num}
+              <ScrollReveal key={step.num} delay={i * 80}>
+                {/* Mobile: horizontal row; Desktop: vertical column */}
+                <div className="
+                  flex items-start gap-5 pl-0 pb-9 last:pb-0
+                  md:flex-col md:items-center md:text-center md:pb-0 md:gap-0
+                ">
+                  {/* Circle */}
+                  <div className="relative z-10 w-12 h-12 rounded-full bg-gold flex items-center justify-center shadow-[0_0_0_4px_rgba(197,165,90,0.2)] shrink-0 md:mb-5">
+                    <span className="text-white font-bold text-lg leading-none">{step.num}</span>
                   </div>
-                  {/* Content */}
-                  <div className={`flex-1 md:flex-none bg-white rounded-xl p-5 shadow-sm text-center md:w-[calc(50%-3.5rem)] ${i % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                    <h3 className="font-semibold text-ocean-deep mb-1">{step.title}</h3>
-                    <p className="text-sm text-gray-500">{step.text}</p>
+
+                  {/* Text */}
+                  <div className="pt-2.5 md:pt-0">
+                    <h3 className="text-base font-bold text-ocean-deep mb-1.5 md:mb-2">{step.title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed md:max-w-[180px] md:mx-auto">{step.text}</p>
                   </div>
                 </div>
               </ScrollReveal>
             ))}
           </div>
         </div>
-
-        {/* Important note */}
-        <ScrollReveal className="mt-10">
-          <div className="bg-ocean-deep/5 border border-ocean-deep/10 rounded-xl p-5 text-center">
-            <p className="text-sm text-ocean-deep font-medium">
-              <svg className="w-4 h-4 inline-block mr-1 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
-              Авиабилеты отдельно не продаются — только в составе пакетных туров
-            </p>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
