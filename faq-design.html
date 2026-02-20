@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ответы на ваши вопросы</title>
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Section ── */
+  .faq {
+    padding: 80px 24px;
+    background: #F8F6F1;
+  }
+
+  .faq__inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .faq__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .faq__label-line {
+    width: 32px;
+    height: 1px;
+    background: #C5A55A;
+  }
+
+  .faq__label-text {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C5A55A;
+  }
+
+  .faq__title {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1B2A4A;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .faq__subtitle {
+    text-align: center;
+    font-size: 15px;
+    color: #6B7280;
+    margin-bottom: 56px;
+  }
+
+  .faq__subtitle a {
+    color: #C5A55A;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .faq__subtitle a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Two-column layout ── */
+  .faq__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+    align-items: start;
+  }
+
+  .faq__col {}
+
+  /* ── Subheading ── */
+  .faq__subheading {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #C5A55A;
+    margin-bottom: 16px;
+  }
+
+  .faq__subheading--spaced {
+    margin-top: 32px;
+  }
+
+  /* ── Accordion item ── */
+  .faq-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 8px;
+    overflow: hidden;
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .faq-item--open {
+    border-left-color: #C5A55A;
+  }
+
+  .faq-item__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1B2A4A;
+    line-height: 1.4;
+  }
+
+  .faq-item__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .faq-item__icon::before,
+  .faq-item__icon::after {
+    content: '';
+    position: absolute;
+    background: #C5A55A;
+    border-radius: 1px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Horizontal bar */
+  .faq-item__icon::before {
+    width: 16px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Vertical bar (becomes + ; rotates to × on open) */
+  .faq-item__icon::after {
+    width: 2px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .faq-item--open .faq-item__icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .faq-item__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-item__answer-inner {
+    padding: 0 20px 20px;
+  }
+
+  .faq-item__answer-inner::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: rgba(197, 165, 90, 0.2);
+    margin-bottom: 12px;
+  }
+
+  .faq-item__answer-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #6B7280;
+  }
+
+  /* ── CTA block ── */
+  .faq-cta {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 28px 24px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .faq-cta__text {
+    font-size: 15px;
+    color: #1B2A4A;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .faq-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: #25D366;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .faq-cta__btn:hover {
+    background: #1fb855;
+  }
+
+  .faq-cta__btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .faq {
+      padding: 56px 16px;
+    }
+
+    .faq__title {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .faq__subtitle {
+      margin-bottom: 40px;
+    }
+
+    .faq__grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .faq-item__question {
+      font-size: 15px;
+      padding: 14px 16px;
+    }
+
+    .faq-item__answer-inner {
+      padding: 0 16px 16px;
+    }
+
+    .faq-item__answer-text {
+      font-size: 14px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section class="faq">
+  <div class="faq__inner">
+
+    <!-- Header -->
+    <div class="faq__label">
+      <span class="faq__label-line"></span>
+      <span class="faq__label-text">Вопросы и ответы</span>
+      <span class="faq__label-line"></span>
+    </div>
+    <h2 class="faq__title">Ответы на ваши вопросы</h2>
+    <p class="faq__subtitle">Не нашли ответ? <a href="#">Напишите мне в WhatsApp</a></p>
+
+    <!-- Two-column grid -->
+    <div class="faq__grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="faq__col">
+
+        <!-- Group 1: Подбор и депозит -->
+        <div class="faq__subheading">Подбор и депозит</div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Почему подбор путешествия осуществляется с депозитом?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Подбор проводится индивидуально: анализ запроса, проработка вариантов, проверка отелей и подготовка презентации. Депозит подтверждает начало персональной работы.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Сколько составляет депозит?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">69,90 € для новых клиентов.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Депозит возвращается?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да. При бронировании тура депозит полностью возвращается клиенту.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Как происходит возврат?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Возврат осуществляется тем же способом оплаты, которым был внесён депозит (PayPal, банковский перевод и др.).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Если я решу не бронировать тур?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">В этом случае депозит остаётся как оплата оказанной консультации и выполненного подбора.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Что входит в подбор?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Консультация, проработка вариантов, презентация туров, рекомендации по страховкам и сопровождение при бронировании.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: Круизы с сопровождением -->
+        <div class="faq__subheading faq__subheading--spaced">Круизы с сопровождением</div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Вы сопровождаете группы лично?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, все групповые круизы проходят с моим личным сопровождением.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Сколько человек в группе?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Обычно 20–50 человек.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Можно поехать одному?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, многие путешествуют соло или парами.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Организуются ли экскурсии?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, с русскоязычными гидами и продуманной логистикой.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Помогаете с выбором каюты?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, с учётом лайнера, палубы и бюджета.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="faq__col">
+
+        <!-- Group 3: Индивидуальные туры и отели -->
+        <div class="faq__subheading">Индивидуальные туры и отели</div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Вы продаёте только круизы и Мальдивы?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Нет, подбираю отдых по всему миру: Европа, Азия, Карибы и др.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Можно подобрать только отель?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, в составе пакетного тура.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Вы лично знаете отели?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Многие отели посещаю в рамках инспекций и могу рекомендовать проверенные варианты.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Подбираете романтические путешествия?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, включая honeymoon и приватные резорты.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 4: Семейный отдых -->
+        <div class="faq__subheading faq__subheading--spaced">Семейный отдых</div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Вы подбираете отдых для семей с детьми?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, это отдельное направление.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>На что обращаете внимание?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Детская инфраструктура, безопасность, питание, удобство перелёта и размещения.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Можно ли в круиз с детьми?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, лайнеры предлагают семейные каюты и детские зоны.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 5: Бронирование и документы -->
+        <div class="faq__subheading faq__subheading--spaced">Бронирование и документы</div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Вы продаёте авиабилеты отдельно?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Нет. Бронирование осуществляется только в составе пакетных туров.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Как оформляется бронирование?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Официально через туроператоров Германии с полным пакетом документов.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Помогаете со страховками?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, по желанию клиента подбираю страховые решения.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Вы на связи во время поездки?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, сопровождаю клиентов до, во время и после путешествия.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Помогаете при рекламациях?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, консультирую по дальнейшим действиям и взаимодействию с туроператором.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 6: Общие вопросы -->
+        <div class="faq__subheading faq__subheading--spaced">Общие вопросы</div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Вы работаете только онлайн?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Нет, работаю онлайн и офлайн. Есть туристическое бюро в Германии.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>С кем вы работаете?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">В основном с русскоязычными клиентами, проживающими в Германии и Европе.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <button class="faq-item__question" aria-expanded="false">
+            <span>Можно сначала задать вопросы?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p class="faq-item__answer-text">Да, первичная связь возможна до начала персонального подбора.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA block -->
+        <div class="faq-cta">
+          <p class="faq-cta__text">Не нашли ответ?</p>
+          <a href="#" class="faq-cta__btn">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.214l-.253-.156-2.898.86.86-2.898-.156-.253A8 8 0 1112 20z"/></svg>
+            Написать в WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var items = document.querySelectorAll('[data-faq]');
+  var currentOpen = null;
+
+  items.forEach(function (item) {
+    var btn = item.querySelector('.faq-item__question');
+    var answer = item.querySelector('.faq-item__answer');
+
+    btn.addEventListener('click', function () {
+      // Close previously open item
+      if (currentOpen && currentOpen !== item) {
+        currentOpen.classList.remove('faq-item--open');
+        currentOpen.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+        currentOpen.querySelector('.faq-item__answer').style.maxHeight = null;
+      }
+
+      // Toggle current item
+      var isOpen = item.classList.contains('faq-item--open');
+      if (isOpen) {
+        item.classList.remove('faq-item--open');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+        currentOpen = null;
+      } else {
+        item.classList.add('faq-item--open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        currentOpen = item;
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
