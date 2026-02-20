@@ -33,12 +33,16 @@ export default function Hero() {
           Путешествия мечты с личным экспертом
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold mb-3">
+        <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold mb-6">
           Василя Нигматова
         </p>
-        <p className="text-sm sm:text-base text-white/60 mb-10 tracking-wide max-w-xl mx-auto">
-          С 2008 года организую круизы, семейный отдых и индивидуальные туры для русскоязычных клиентов в Германии.
-        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+          {['Круизы', 'Семейный отдых', 'Индивидуальные туры'].map((tag) => (
+            <span key={tag} className="border border-white/20 text-white/70 text-sm px-4 py-1.5 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <WhatsAppButton size="lg">Написать в WhatsApp</WhatsAppButton>
