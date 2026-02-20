@@ -1,5 +1,6 @@
 import Header from '@/components/layout/Header';
 import StickyPanel from '@/components/layout/StickyPanel';
+import FloatingPhone from '@/components/ui/FloatingPhone';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import WhyMe from '@/components/sections/WhyMe';
@@ -54,6 +55,8 @@ export default function Home() {
       <Footer />
       {/* Sticky CTA Panel */}
       <StickyPanel />
+      {/* Floating phone button */}
+      <FloatingPhone />
     </>
   );
 }
