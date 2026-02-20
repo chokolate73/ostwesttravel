@@ -44,7 +44,7 @@ export default function Hero() {
           </CTAButton>
         </div>
 
-        <p className="text-white/50 text-sm mt-5">Ответ в течение часа</p>
+        <p className="text-white font-semibold text-sm mt-5">Ответ в течение часа</p>
       </div>
 
       {/* Scroll indicator */}
