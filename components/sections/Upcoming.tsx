@@ -14,7 +14,7 @@ const tours = [
     highlight: 'Royal Caribbean, All-Inclusive, 5 островов',
     spots: '8 мест',
     /* TODO: заменить на реальное фото направления */
-    image: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=700&q=80',
+    image: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=700&h=500&fit=crop&crop=center&q=80',
     alt: 'Круиз по Карибским островам — апрель 2026',
   },
   {
@@ -25,7 +25,7 @@ const tours = [
     highlight: 'MSC, Италия — Греция — Хорватия',
     spots: '12 мест',
     /* TODO: заменить на реальное фото */
-    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=700&q=80',
+    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=700&h=500&fit=crop&crop=center&q=80',
     alt: 'Средиземноморский круиз — июнь 2026',
   },
   {
@@ -36,7 +36,7 @@ const tours = [
     highlight: 'Costa Cruises, Фьорды — Берген — Нордкап',
     spots: '15 мест',
     /* TODO: заменить на реальное фото */
-    image: 'https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?w=700&q=80',
+    image: 'https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?w=700&h=500&fit=crop&crop=center&q=80',
     alt: 'Круиз по норвежским фьордам — сентябрь 2026',
   },
 ];
@@ -93,7 +93,7 @@ export default function Upcoming() {
             <ScrollReveal key={tour.title} delay={i * 100}>
               <article className="bg-white rounded-3xl overflow-hidden shadow-2xl">
                 <div className="grid md:grid-cols-2">
-                  <div className="relative h-56 md:h-auto">
+                  <div className="relative h-56 md:h-[360px]">
                     <img
                       src={tour.image}
                       alt={tour.alt}
