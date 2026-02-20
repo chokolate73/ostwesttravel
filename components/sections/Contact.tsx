@@ -82,7 +82,7 @@ export default function Contact() {
               <div>
                 <label htmlFor="c-name" className="block text-sm font-medium text-gray-700 mb-1">Имя *</label>
                 <input id="c-name" name="name" type="text" required autoComplete="name"
-                  className="w-full h-12 px-4 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
+                  className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                   placeholder="Ваше имя" />
               </div>
 
@@ -90,7 +90,7 @@ export default function Contact() {
               <div>
                 <label htmlFor="c-phone" className="block text-sm font-medium text-gray-700 mb-1">WhatsApp / Телефон *</label>
                 <input id="c-phone" name="phone" type="tel" required autoComplete="tel"
-                  className="w-full h-12 px-4 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
+                  className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                   placeholder="+49 ..." />
               </div>
 
@@ -98,7 +98,7 @@ export default function Contact() {
               <div>
                 <label htmlFor="c-city" className="block text-sm font-medium text-gray-700 mb-1">Город в Германии</label>
                 <input id="c-city" name="city" type="text" autoComplete="address-level2"
-                  className="w-full h-12 px-4 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
+                  className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                   placeholder="Например, Мюнхен" />
               </div>
 
@@ -107,14 +107,14 @@ export default function Contact() {
                 <div>
                   <label htmlFor="c-direction" className="block text-sm font-medium text-gray-700 mb-1">Направление</label>
                   <select id="c-direction" name="direction" value={direction} onChange={(e) => setDirection(e.target.value)}
-                    className="w-full h-12 px-4 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors bg-white">
+                    className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors bg-white">
                     {directionOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
                   </select>
                 </div>
                 <div>
                   <label htmlFor="c-dates" className="block text-sm font-medium text-gray-700 mb-1">Примерные даты</label>
                   <input id="c-dates" name="dates" type="text"
-                    className="w-full h-12 px-4 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
+                    className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                     placeholder="Например, май 2026" />
                 </div>
               </div>
@@ -124,14 +124,14 @@ export default function Contact() {
                 <div>
                   <label htmlFor="c-budget" className="block text-sm font-medium text-gray-700 mb-1">Бюджет</label>
                   <select id="c-budget" name="budget"
-                    className="w-full h-12 px-4 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors bg-white">
+                    className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors bg-white">
                     {budgetOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
                   </select>
                 </div>
                 <div>
                   <label htmlFor="c-adults" className="block text-sm font-medium text-gray-700 mb-1">Кол-во взрослых</label>
                   <input id="c-adults" name="adults" type="number" min="1" max="20" defaultValue="2"
-                    className="w-full h-12 px-4 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors" />
+                    className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors" />
                 </div>
               </div>
 
@@ -146,7 +146,7 @@ export default function Contact() {
                   <div className="mt-3">
                     <label htmlFor="c-children-ages" className="block text-sm font-medium text-gray-700 mb-1">Возраст детей</label>
                     <input id="c-children-ages" name="children_ages" type="text"
-                      className="w-full h-12 px-4 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
+                      className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                       placeholder="Например, 5 и 10 лет" />
                   </div>
                 )}
@@ -156,7 +156,7 @@ export default function Contact() {
               <div>
                 <label htmlFor="c-comment" className="block text-sm font-medium text-gray-700 mb-1">Комментарий</label>
                 <textarea id="c-comment" name="comment" rows={3}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors resize-none"
                   placeholder="Ваши пожелания..." />
               </div>
 
