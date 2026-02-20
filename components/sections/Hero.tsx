@@ -33,12 +33,12 @@ export default function Hero() {
           Путешествия мечты с личным экспертом
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold mb-6">
+        <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold font-semibold drop-shadow-lg mb-6">
           Василя Нигматова
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
           {['Круизы', 'Семейный отдых', 'Индивидуальные туры'].map((tag) => (
-            <span key={tag} className="border border-white/20 text-white/70 text-sm px-4 py-1.5 rounded-full">
+            <span key={tag} className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-medium text-sm px-4 py-1.5 rounded-full">
               {tag}
             </span>
           ))}
