@@ -8,9 +8,8 @@ export default function About() {
           {/* Photos */}
           <ScrollReveal direction="left" className="relative">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-              {/* TODO: заменить на реальное портретное фото Васили */}
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
+                src="/images/elena.webp"
                 alt="Василя Нигматова — персональный эксперт по путешествиям, OST-West Travel"
                 className="w-full h-full object-cover"
               />
