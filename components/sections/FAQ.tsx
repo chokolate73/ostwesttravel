@@ -194,11 +194,13 @@ function FAQAccordionItem({ item, isOpen, toggle }: { item: FAQItem; isOpen: boo
       </button>
       <div
         id={`${item.id}-answer`}
-        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-40 pb-4" : "max-h-0"}`}
+        className={`grid transition-[grid-template-rows] duration-300 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
         role="region"
         aria-labelledby={item.id}
       >
-        <p className="text-gray-500 text-sm leading-relaxed">{item.a}</p>
+        <div className="overflow-hidden">
+          <p className={`text-gray-500 text-sm leading-relaxed ${isOpen ? "pb-4" : ""}`}>{item.a}</p>
+        </div>
       </div>
     </div>
   );
@@ -267,16 +269,18 @@ export default function FAQ() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
                     </svg>
                   </button>
-                  <div className={`transition-all duration-300 ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"} overflow-hidden`}>
-                    <div className="px-5 pb-5 md:px-6 md:pb-6">
-                      {cat.items.map((item) => (
-                        <FAQAccordionItem
-                          key={item.id}
-                          item={item}
-                          isOpen={openItems.has(item.id)}
-                          toggle={() => toggle(item.id)}
-                        />
-                      ))}
+                  <div className={`grid transition-[grid-template-rows,opacity] duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                    <div className="overflow-hidden">
+                      <div className="px-5 pb-5 md:px-6 md:pb-6">
+                        {cat.items.map((item) => (
+                          <FAQAccordionItem
+                            key={item.id}
+                            item={item}
+                            isOpen={openItems.has(item.id)}
+                            toggle={() => toggle(item.id)}
+                          />
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

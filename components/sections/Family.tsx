@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import CTAButton from '@/components/ui/CTAButton';
@@ -49,12 +50,13 @@ export default function Family() {
           {scenarios.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 100}>
               <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all h-full flex flex-col">
-                <div className="relative overflow-hidden">
-                  <img
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <Image
                     src={s.image}
                     alt={s.alt}
-                    className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">

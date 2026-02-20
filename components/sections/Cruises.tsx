@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
@@ -15,12 +16,14 @@ export default function Cruises() {
 
         <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
           <ScrollReveal direction="left">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
               {/* TODO: заменить на реальное фото из группового круиза */}
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=700&q=80"
                 alt="Групповой круиз с сопровождением — OST-West Travel"
-                className="w-full aspect-[4/3] object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </ScrollReveal>

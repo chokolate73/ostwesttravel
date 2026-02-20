@@ -18,10 +18,16 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
+    let last = false;
     function onScroll() {
-      setScrolled(window.scrollY > 80);
+      const next = window.scrollY > 80;
+      if (next !== last) {
+        last = next;
+        setScrolled(next);
+      }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
