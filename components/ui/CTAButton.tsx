@@ -15,7 +15,7 @@ export default function CTAButton({
     size === 'sm'
       ? 'px-5 py-2.5 text-sm'
       : size === 'lg'
-        ? 'px-10 py-5 text-xl'
+        ? 'px-7 py-3.5 text-base sm:px-10 sm:py-5 sm:text-xl'
         : 'px-8 py-4 text-lg';
 
   const variantClasses =

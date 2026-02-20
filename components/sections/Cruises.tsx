@@ -68,8 +68,8 @@ export default function Cruises() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <WhatsAppButton size="sm">Узнать о ближайшем круизе</WhatsAppButton>
-              <CTAButton size="sm" href="#contact?direction=cruises">
+              <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Узнать о ближайшем круизе</WhatsAppButton>
+              <CTAButton size="sm" href="#contact?direction=cruises" className="w-full sm:w-auto justify-center">
                 Оставить заявку на круиз
               </CTAButton>
             </div>
