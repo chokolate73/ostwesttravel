@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from 'react';
 
-type ConsentState = 'all' | 'essential' | null;
-
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);

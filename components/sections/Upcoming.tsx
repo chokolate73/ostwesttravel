@@ -262,6 +262,7 @@ export default function Upcoming() {
           label="Ближайшие путешествия"
           title="Присоединяйтесь к ближайшим поездкам"
           light
+          headingId="upcoming-heading"
         />
 
         <div className="space-y-8">

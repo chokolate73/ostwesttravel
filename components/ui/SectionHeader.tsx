@@ -5,11 +5,13 @@ export default function SectionHeader({
   title,
   subtitle,
   light = false,
+  headingId,
 }: {
   label: string;
   title: string;
   subtitle?: string;
   light?: boolean;
+  headingId?: string;
 }) {
   return (
     <ScrollReveal className="text-center mb-14">
@@ -21,6 +23,7 @@ export default function SectionHeader({
         <div className="h-px w-8 bg-gold" />
       </div>
       <h2
+        id={headingId}
         className={`text-3xl md:text-4xl font-serif ${light ? 'text-white' : 'text-ocean-deep'}`}
       >
         {title}

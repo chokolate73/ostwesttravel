@@ -245,7 +245,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-20 md:py-24 bg-white" aria-labelledby="faq-heading">
       <div className="max-w-4xl mx-auto px-6">
-        <SectionHeader label="FAQ" title="Часто задаваемые вопросы" />
+        <SectionHeader label="FAQ" title="Часто задаваемые вопросы" headingId="faq-heading" />
 
         <div className="space-y-4">
           {faqData.map((cat, ci) => {

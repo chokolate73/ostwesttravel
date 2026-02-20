@@ -36,6 +36,7 @@ export default function Process() {
         <SectionHeader
           label="Как работаем"
           title="Как проходит работа"
+          headingId="process-heading"
         />
 
         {/* Desktop: horizontal timeline */}
