@@ -3,45 +3,58 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 
 const photos = [
   /* TODO: заменить все стоковые фото на реальные фото из поездок */
-  { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80', alt: 'Группа на Карибах — реальное фото из круиза', caption: 'Карибы', tall: true },
+  { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80', alt: 'Группа на Карибах — реальное фото из круиза', caption: 'Карибы' },
   { src: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?w=600&q=80', alt: 'Экскурсия в Дубае — групповой тур', caption: 'Дубай' },
   { src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80', alt: 'Бали — инспекция отеля', caption: 'Бали' },
   { src: 'https://images.unsplash.com/photo-1516815231560-8f41ec531527?w=600&q=80', alt: 'Мальдивы — инспекция курорта', caption: 'Мальдивы' },
   { src: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80', alt: 'Санторини — средиземноморский круиз', caption: 'Санторини' },
-  { src: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=800&q=80', alt: 'Таиланд — групповой тур', caption: 'Таиланд', tall: true },
+  { src: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=800&q=80', alt: 'Таиланд — групповой тур', caption: 'Таиланд' },
+];
+
+/* Grid layout:
+   Desktop (3 cols):
+     [  large (2 cols)  ] [ small ]
+     [ small ] [  large (2 cols)  ]
+   Mobile (2 cols):
+     [ img ] [ img ]
+     [ img ] [ img ]
+     [ img ] [ img ]
+*/
+const gridClasses = [
+  'md:col-span-2 md:row-span-1',
+  '',
+  '',
+  '',
+  '',
+  'md:col-span-2 md:row-span-1',
 ];
 
 export default function Gallery() {
   return (
     <section id="gallery" className="py-20 md:py-24 bg-gray-50" aria-labelledby="gallery-heading">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           label="Наши путешествия"
           title="Реальные фото из поездок"
           subtitle="Группы, лайнеры, экскурсии — живые моменты наших путешествий"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[240px] md:auto-rows-[280px]">
           {photos.map((photo, i) => (
             <ScrollReveal
               key={photo.caption}
               delay={i * 60}
-              className={photo.tall ? 'md:row-span-2' : ''}
+              className={gridClasses[i] || ''}
             >
-              <figure className="relative group overflow-hidden rounded-xl cursor-pointer h-full">
-                <div className={photo.tall ? 'aspect-[3/4]' : 'aspect-square'}>
-                  {/* TODO: заменить на реальное фото из поездок */}
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <figcaption className="absolute inset-0 bg-gradient-to-t from-ocean-deep/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-white font-serif text-lg">{photo.caption}</p>
-                  </div>
+              <figure className="relative group overflow-hidden rounded-2xl h-full">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent pt-12 pb-4 px-4">
+                  <p className="text-white font-serif text-lg">{photo.caption}</p>
                 </figcaption>
               </figure>
             </ScrollReveal>

@@ -15,8 +15,8 @@ export default function CTAButton({
     size === 'sm'
       ? 'px-5 py-2.5 text-sm'
       : size === 'lg'
-        ? 'px-8 py-4 text-lg'
-        : 'px-6 py-3 text-base';
+        ? 'px-10 py-5 text-xl'
+        : 'px-8 py-4 text-lg';
 
   const variantClasses =
     variant === 'dark'
