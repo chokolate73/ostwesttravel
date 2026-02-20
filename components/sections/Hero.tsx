@@ -33,8 +33,11 @@ export default function Hero() {
           Путешествия мечты с личным экспертом
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-white/80 mb-10 tracking-wide max-w-2xl mx-auto">
-          Василя Нигматова — с 2008 года организую круизы, семейный отдых и индивидуальные туры для русскоязычных клиентов в Германии.
+        <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold mb-3">
+          Василя Нигматова
+        </p>
+        <p className="text-sm sm:text-base text-white/60 mb-10 tracking-wide max-w-xl mx-auto">
+          С 2008 года организую круизы, семейный отдых и индивидуальные туры для русскоязычных клиентов в Германии.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
