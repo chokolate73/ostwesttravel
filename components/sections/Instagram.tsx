@@ -2,7 +2,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 
 export default function Instagram() {
   return (
-    <section className="py-16 bg-white">
+    <section className="pt-16 pb-32 bg-white">
       <div className="max-w-2xl mx-auto px-6 text-center">
         <ScrollReveal>
           <div className="flex flex-col items-center gap-6">
