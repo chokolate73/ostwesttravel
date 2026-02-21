@@ -3,9 +3,9 @@ export default function Footer() {
     <footer className="relative bg-ocean-deep text-white" role="contentinfo">
       <div className="absolute -top-24 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-ocean-deep pointer-events-none" />
       <div className="max-w-6xl mx-auto px-6 pt-14 pb-24 md:pb-14">
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="col-span-2">
             <h2 className="text-2xl font-serif mb-3">
               OST-West <span className="text-gold">Travel</span>
             </h2>

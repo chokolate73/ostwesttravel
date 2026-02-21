@@ -89,22 +89,24 @@ export default function Header() {
       </nav>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-ocean-deep/95 backdrop-blur-md border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-white/80 hover:text-white transition-colors text-base py-2 border-b border-white/5"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+      <div
+        className={`lg:hidden bg-ocean-deep/95 backdrop-blur-md border-t border-white/10 overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-white/80 hover:text-white hover:bg-white/5 transition-colors text-base py-2.5 px-3 rounded-lg border-b border-white/5 last:border-b-0"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }

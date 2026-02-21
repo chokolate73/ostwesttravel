@@ -36,7 +36,7 @@ export default function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[60] animate-slideUp"
+      className="fixed bottom-[60px] sm:bottom-0 left-0 right-0 z-[60] animate-slideUp"
       role="dialog"
       aria-label="Согласие на использование cookie"
     >

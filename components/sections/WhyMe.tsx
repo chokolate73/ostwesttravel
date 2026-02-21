@@ -99,7 +99,7 @@ export default function WhyMe() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {values.map((v, i) => (
             <ScrollReveal key={v.title} delay={i * 80}>
-              <div className="group bg-white rounded-xl border-l-[3px] border-gold p-7 h-full shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(27,42,74,0.10),0_8px_16px_rgba(27,42,74,0.06)]">
+              <div className="group bg-white rounded-xl border-l-[3px] border-gold p-5 sm:p-7 h-full shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(27,42,74,0.10),0_8px_16px_rgba(27,42,74,0.06)]">
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-full bg-gold/[0.15] flex items-center justify-center mb-5 text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-white">
                   {v.icon}

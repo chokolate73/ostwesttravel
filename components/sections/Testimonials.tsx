@@ -144,7 +144,7 @@ export default function Testimonials() {
                   className="px-3 shrink-0"
                   style={{ width: `${100 / visibleCount}%` }}
                 >
-                  <div className="bg-white rounded-2xl p-7 pb-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)] relative overflow-hidden h-full flex flex-col">
+                  <div className="bg-white rounded-2xl p-5 pb-4 sm:p-7 sm:pb-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)] relative overflow-hidden h-full flex flex-col">
                     {/* Decorative quote */}
                     <span
                       className="absolute -top-2 right-3 font-serif text-[120px] leading-none text-gold/10 pointer-events-none select-none"
@@ -154,7 +154,7 @@ export default function Testimonials() {
                     </span>
 
                     {/* Stars */}
-                    <div className="flex gap-[3px] mb-5 relative">
+                    <div className="flex gap-[3px] mb-3 sm:mb-5 relative">
                       {Array.from({ length: 5 }).map((_, j) => <Star key={j} />)}
                     </div>
 
@@ -166,7 +166,7 @@ export default function Testimonials() {
                     </blockquote>
 
                     {/* Divider */}
-                    <div className="h-px bg-gray-200 my-5" />
+                    <div className="h-px bg-gray-200 my-3 sm:my-5" />
 
                     {/* Author */}
                     <div className="flex items-center gap-3">

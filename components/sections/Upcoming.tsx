@@ -171,10 +171,10 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose} role="dialog" aria-modal="true" aria-label={tour.title}>
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4" onClick={onClose} role="dialog" aria-modal="true" aria-label={tour.title}>
       <div className="absolute inset-0 bg-ocean-deep/60 backdrop-blur-sm" />
       <div
-        className="relative bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        className="relative bg-white rounded-t-2xl sm:rounded-3xl max-w-2xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Sticky close button — stays visible while scrolling */}
@@ -274,9 +274,9 @@ export default function Upcoming() {
         <div className="space-y-8">
           {tours.map((tour, i) => (
             <ScrollReveal key={tour.title} delay={i * 100}>
-              <article className="bg-white rounded-3xl overflow-hidden shadow-2xl">
+              <article className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
                 <div className="grid md:grid-cols-2">
-                  <div className="relative h-56 md:h-[360px]">
+                  <div className="relative h-48 sm:h-56 md:h-[360px]">
                     <Image
                       src={tour.image}
                       alt={tour.alt}
@@ -289,9 +289,9 @@ export default function Upcoming() {
                       {tour.format}
                     </div>
                   </div>
-                  <div className="p-6 md:p-10">
+                  <div className="p-5 sm:p-6 md:p-10">
                     <Countdown targetDate={tour.startDate} />
-                    <h3 className="text-xl md:text-2xl font-serif text-ocean-deep mt-6 mb-3">{tour.title}</h3>
+                    <h3 className="text-xl md:text-2xl font-serif text-ocean-deep mt-4 sm:mt-6 mb-2 sm:mb-3">{tour.title}</h3>
                     <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-500">
                       <span className="flex items-center gap-1.5">
                         <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
@@ -302,9 +302,9 @@ export default function Upcoming() {
                         {tour.spots}
                       </span>
                     </div>
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                       {tour.highlight.split(', ').map((tag) => (
-                        <span key={tag} className="px-3 py-1 bg-gold/10 text-gold-dark rounded-full text-sm">{tag}</span>
+                        <span key={tag} className="px-2.5 sm:px-3 py-0.5 sm:py-1 bg-gold/10 text-gold-dark rounded-full text-xs sm:text-sm">{tag}</span>
                       ))}
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3">

@@ -27,9 +27,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/70 via-ocean-deep/50 to-ocean-deep/80" />
       </div>
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-5 sm:px-6 max-w-4xl mx-auto">
         {/* Decorative divider */}
-        <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="flex items-center justify-center gap-4 mb-6 sm:mb-8">
           <div className="h-px w-12 bg-gradient-to-r from-transparent to-gold" />
           <div className="w-2 h-2 rotate-45 border border-gold" />
           <div className="h-px w-12 bg-gradient-to-l from-transparent to-gold" />
@@ -37,30 +37,30 @@ export default function Hero() {
 
         <h1
           id="hero-heading"
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-6"
+          className="text-[1.7rem] sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-4 sm:mb-6"
         >
           Путешествия мечты с личным экспертом
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold font-semibold drop-shadow-lg mb-6">
+        <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold font-semibold drop-shadow-lg mb-4 sm:mb-6">
           Василя Нигматова
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
           {['Круизы', 'Семейный отдых', 'Индивидуальные туры'].map((tag) => (
-            <span key={tag} className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-medium text-sm px-4 py-1.5 rounded-full">
+            <span key={tag} className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-medium text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full">
               {tag}
             </span>
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <WhatsAppButton size="lg">Написать в WhatsApp</WhatsAppButton>
           <CTAButton size="lg" href="#contact">
             Заказать путешествие
           </CTAButton>
         </div>
 
-        <p className="text-white font-semibold text-sm mt-5">Ответ в течение часа</p>
+        <p className="text-white font-semibold text-sm mt-4 sm:mt-5">Ответ в течение часа</p>
       </div>
 
       {/* Scroll indicator */}
