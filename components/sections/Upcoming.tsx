@@ -308,7 +308,7 @@ export default function Upcoming() {
                       ))}
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Запросить программу</WhatsAppButton>
+                      <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center border-2 border-transparent">Запросить программу</WhatsAppButton>
                       <button
                         onClick={() => setOpenTour(i)}
                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 border-2 border-ocean-deep/20 text-ocean-deep rounded-full text-sm font-semibold hover:bg-ocean-deep hover:text-white transition-all"

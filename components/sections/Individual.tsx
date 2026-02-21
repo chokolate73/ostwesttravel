@@ -70,7 +70,7 @@ export default function Individual() {
         </div>
 
         <ScrollReveal className="text-center">
-          <CTAButton size="sm" href="#contact?direction=individual">
+          <CTAButton href="#contact?direction=individual" className="w-full sm:w-auto justify-center">
             Подобрать индивидуальный отдых
           </CTAButton>
         </ScrollReveal>
