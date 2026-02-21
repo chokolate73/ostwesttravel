@@ -14,7 +14,7 @@ export default function SectionHeader({
   headingId?: string;
 }) {
   return (
-    <ScrollReveal className="text-center mb-14">
+    <ScrollReveal className="text-center mb-10 md:mb-14">
       <div className="flex items-center justify-center gap-3 mb-4">
         <div className="h-px w-8 bg-gold" />
         <span className="text-gold font-medium uppercase tracking-wider text-sm">

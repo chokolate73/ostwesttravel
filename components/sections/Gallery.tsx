@@ -41,7 +41,7 @@ export default function Gallery() {
           headingId="gallery-heading"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[280px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 auto-rows-[140px] sm:auto-rows-[200px] md:auto-rows-[280px]">
           {photos.map((photo, i) => (
             <ScrollReveal
               key={photo.caption}
@@ -56,8 +56,8 @@ export default function Gallery() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent pt-12 pb-4 px-4">
-                  <p className="text-white font-serif text-lg">{photo.caption}</p>
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent pt-8 sm:pt-12 pb-2 sm:pb-4 px-3 sm:px-4">
+                  <p className="text-white font-serif text-sm sm:text-lg">{photo.caption}</p>
                 </figcaption>
               </figure>
             </ScrollReveal>

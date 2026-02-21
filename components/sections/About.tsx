@@ -60,7 +60,7 @@ export default function About() {
             </ul>
 
             {/* Trust badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4">
               {[
                 {
                   icon: (
@@ -83,10 +83,10 @@ export default function About() {
               ].map((badge) => (
                 <div
                   key={badge.text}
-                  className="flex flex-col items-center text-center p-4 rounded-xl bg-ocean-deep/5"
+                  className="flex flex-col items-center text-center p-2.5 sm:p-4 rounded-xl bg-ocean-deep/5"
                 >
-                  <div className="text-gold mb-2">{badge.icon}</div>
-                  <span className="text-sm font-medium text-ocean-deep">{badge.text}</span>
+                  <div className="text-gold mb-1.5 sm:mb-2">{badge.icon}</div>
+                  <span className="text-xs sm:text-sm font-medium text-ocean-deep">{badge.text}</span>
                 </div>
               ))}
             </div>
