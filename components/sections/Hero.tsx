@@ -9,11 +9,11 @@ const HERO_BLUR =
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ocean-deep"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-ocean-deep"
       aria-labelledby="hero-heading"
     >
       {/* Background */}
-      <div className="absolute inset-0 hero-bg-reveal">
+      <div className="absolute inset-0 hero-bg-reveal [transform:translateZ(0)]">
         <Image
           src="/images/hero-cruise.webp"
           alt="Круизный лайнер в открытом море — OST-West Travel"
