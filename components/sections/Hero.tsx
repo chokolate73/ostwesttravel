@@ -54,8 +54,8 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <WhatsAppButton size="lg">Написать в WhatsApp</WhatsAppButton>
-          <CTAButton size="lg" href="#contact">
+          <WhatsAppButton size="lg" className="w-full sm:w-auto justify-center">Написать в WhatsApp</WhatsAppButton>
+          <CTAButton size="lg" href="#contact" className="w-full sm:w-auto justify-center">
             Заказать путешествие
           </CTAButton>
         </div>
