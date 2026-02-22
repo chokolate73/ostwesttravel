@@ -34,8 +34,8 @@ export default function Process() {
     <section id="process" className="py-20 md:py-24 bg-white" aria-labelledby="process-heading">
       <div className="max-w-[1060px] mx-auto px-6">
         <SectionHeader
-          label="Как работаем"
-          title="Как проходит работа"
+          label="Как я работаю"
+          title="Как я работаю"
           headingId="process-heading"
         />
 

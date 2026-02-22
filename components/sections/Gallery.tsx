@@ -35,9 +35,9 @@ export default function Gallery() {
     <section id="gallery" className="py-20 md:py-24 bg-gray-50" aria-labelledby="gallery-heading">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          label="Наши путешествия"
+          label="Мои путешествия"
           title="Реальные фото из поездок"
-          subtitle="Группы, лайнеры, экскурсии — живые моменты наших путешествий"
+          subtitle="Группы, лайнеры, экскурсии - живые моменты моих путешествий"
           headingId="gallery-heading"
         />
 
