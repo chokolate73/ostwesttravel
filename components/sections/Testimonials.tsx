@@ -9,49 +9,49 @@ const testimonials = [
     name: 'Ирина & Сергей',
     city: 'Франкфурт',
     type: 'Круиз',
-    initials: 'И',
+    image: '/images/Ирина & Сергей.webp',
   },
   {
     text: 'Василя организовала нам медовый месяц мечты. Каюта с балконом, романтический ужин от капитана — всё было идеально до мелочей.',
     name: 'Анна',
     city: 'Мюнхен',
     type: 'Круиз',
-    initials: 'А',
+    image: '/images/Анна.webp',
   },
   {
     text: 'Уже третий раз бронируем через Василю. Всегда находит лучшие предложения и каюты, которые не найдёшь на сайтах.',
     name: 'Дмитрий & Ольга',
     city: 'Берлин',
     type: 'Круиз',
-    initials: 'Д',
+    image: '/images/Дмитрий & Ольга.webp',
   },
   {
     text: 'Первый круиз и сразу влюбились! Василя терпеливо объяснила все нюансы, помогла с визами и трансфером.',
     name: 'Марина',
     city: 'Вена',
     type: 'Круиз',
-    initials: 'М',
+    image: '/images/Марина.webp',
   },
   {
     text: 'Поддержка 24/7 — это не просто слова. Когда изменили расписание рейса, Василя решила всё за час.',
     name: 'Алексей',
     city: 'Цюрих',
     type: 'Круиз',
-    initials: 'А',
+    image: '/images/Алексей.webp',
   },
   {
     text: 'Брали круиз по Норвежским фьордам — зрелище невероятное. Василя посоветовала каюту именно по правому борту, чтобы видеть лучшие виды. Такое внимание к деталям дорогого стоит!',
     name: 'Наталья & Виктор',
     city: 'Дюссельдорф',
     type: 'Круиз',
-    initials: 'Н',
+    image: '/images/Наталья & Виктор.webp',
   },
   {
     text: 'Летели с двумя детьми — переживали очень. Василя подобрала лайнер с детским клубом и аквапарком, дети были в восторге. Уже планируем следующий!',
     name: 'Елена',
     city: 'Штутгарт',
     type: 'Круиз',
-    initials: 'Е',
+    image: '/images/Елена.webp',
   },
 ];
 
@@ -170,11 +170,11 @@ export default function Testimonials() {
 
                     {/* Author */}
                     <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-full bg-gold flex items-center justify-center shrink-0">
-                        <span className="text-white font-serif text-[17px] font-bold leading-none">
-                          {t.initials}
-                        </span>
-                      </div>
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className="w-11 h-11 rounded-full object-cover shrink-0"
+                      />
                       <div>
                         <div className="text-[15px] font-bold text-ocean-deep">{t.name}</div>
                         <div className="text-[13px] text-gray-500">{t.city} &bull; {t.type}</div>
