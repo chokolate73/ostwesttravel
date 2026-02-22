@@ -15,8 +15,8 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0 hero-bg-reveal [transform:translateZ(0)]">
         <Image
-          src="/images/hero-cruise.webp"
-          alt="Круизный лайнер в открытом море — OST-West Travel"
+          src="/images/hero.jpg"
+          alt="Путешествия мечты — OST-West Travel"
           fill
           className="object-cover"
           priority
