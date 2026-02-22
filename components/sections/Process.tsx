@@ -41,7 +41,7 @@ export default function Process() {
 
         {/* Desktop: horizontal timeline */}
         <div className="relative">
-          {/* Connecting line — horizontal on md+, vertical on mobile */}
+          {/* Connecting line - horizontal on md+, vertical on mobile */}
           <div className="
             absolute
             left-6 top-6 bottom-6 w-0.5 bg-gold/40

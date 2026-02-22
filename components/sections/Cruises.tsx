@@ -11,7 +11,7 @@ export default function Cruises() {
         <SectionHeader
           label="Флагман"
           title="Групповые круизы с сопровождением"
-          subtitle="Путешествуйте в компании единомышленников — с моим личным сопровождением на борту"
+          subtitle="Путешествуйте в компании единомышленников - с моим личным сопровождением на борту"
           headingId="cruises-heading"
         />
 
@@ -21,7 +21,7 @@ export default function Cruises() {
               {/* TODO: заменить на реальное фото из группового круиза */}
               <Image
                 src="https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=700&q=80"
-                alt="Групповой круиз с сопровождением — OST-West Travel"
+                alt="Групповой круиз с сопровождением - OST-West Travel"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -41,7 +41,7 @@ export default function Cruises() {
             <div className="space-y-3 mb-8">
               {[
                 'Экскурсии с русскоязычными гидами',
-                'Трансферы и логистика — всё организовано',
+                'Трансферы и логистика - всё организовано',
                 'Помощь на месте в любой ситуации',
                 'Подбор каюты с учётом лайнера, палубы и бюджета',
               ].map((item) => (

@@ -11,7 +11,7 @@ export default function About() {
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/elena.webp"
-                alt="Василя Нигматова — персональный эксперт по путешествиям, OST-West Travel"
+                alt="Василя Нигматова - персональный эксперт по путешествиям, OST-West Travel"
                 fill
                 className="object-cover"
                 priority

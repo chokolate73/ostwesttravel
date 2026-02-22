@@ -39,7 +39,7 @@ export default function Header() {
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between" aria-label="Основная навигация">
         {/* Logo */}
-        <a href="#" className="text-xl md:text-2xl font-serif text-white tracking-wider shrink-0" aria-label="OST-West Travel — На главную">
+        <a href="#" className="text-xl md:text-2xl font-serif text-white tracking-wider shrink-0" aria-label="OST-West Travel - На главную">
           OST-West <span className="text-gold">Travel</span>
         </a>
 

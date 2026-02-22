@@ -4,12 +4,12 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 
 const photos = [
   /* TODO: заменить все стоковые фото на реальные фото из поездок */
-  { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80', alt: 'Группа на Карибах — реальное фото из круиза', caption: 'Карибы' },
-  { src: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?w=600&q=80', alt: 'Экскурсия в Дубае — групповой тур', caption: 'Дубай' },
-  { src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80', alt: 'Бали — инспекция отеля', caption: 'Бали' },
-  { src: 'https://images.unsplash.com/photo-1516815231560-8f41ec531527?w=600&q=80', alt: 'Мальдивы — инспекция курорта', caption: 'Мальдивы' },
-  { src: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80', alt: 'Санторини — средиземноморский круиз', caption: 'Санторини' },
-  { src: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=800&q=80', alt: 'Таиланд — групповой тур', caption: 'Таиланд' },
+  { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80', alt: 'Группа на Карибах - реальное фото из круиза', caption: 'Карибы' },
+  { src: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?w=600&q=80', alt: 'Экскурсия в Дубае - групповой тур', caption: 'Дубай' },
+  { src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80', alt: 'Бали - инспекция отеля', caption: 'Бали' },
+  { src: 'https://images.unsplash.com/photo-1516815231560-8f41ec531527?w=600&q=80', alt: 'Мальдивы - инспекция курорта', caption: 'Мальдивы' },
+  { src: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80', alt: 'Санторини - средиземноморский круиз', caption: 'Санторини' },
+  { src: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=800&q=80', alt: 'Таиланд - групповой тур', caption: 'Таиланд' },
 ];
 
 /* Grid layout:
