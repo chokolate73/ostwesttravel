@@ -4,7 +4,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 const values = [
   {
     icon: (
-      /* Anchor — персональный подбор */
+      /* Anchor - персональный подбор */
       <svg className="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="5" r="2" />
         <line x1="12" y1="7" x2="12" y2="21" />
@@ -12,11 +12,11 @@ const values = [
       </svg>
     ),
     title: 'Персональный подбор',
-    text: 'Не массовая рассылка из системы — индивидуальная работа под ваш запрос',
+    text: 'Не массовая рассылка из системы - индивидуальная работа под ваш запрос',
   },
   {
     icon: (
-      /* Ship — проверенные варианты */
+      /* Ship - проверенные варианты */
       <svg className="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 15l2-6h12l2 6" />
         <path d="M9 9V5h6v4" />
@@ -25,11 +25,11 @@ const values = [
       </svg>
     ),
     title: 'Проверенные варианты',
-    text: 'Лично инспектирую отели — рекомендую только то, в чём уверена',
+    text: 'Лично инспектирую отели - рекомендую только то, в чём уверена',
   },
   {
     icon: (
-      /* Clock with wave — экономия времени */
+      /* Clock with wave - экономия времени */
       <svg className="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="10" r="7" />
         <polyline points="12 6 12 10 15 12" />
@@ -37,11 +37,11 @@ const values = [
       </svg>
     ),
     title: 'Экономия времени',
-    text: 'Вы отдыхаете — я работаю. Всё от подбора до бронирования беру на себя',
+    text: 'Вы отдыхаете - я работаю. Всё от подбора до бронирования беру на себя',
   },
   {
     icon: (
-      /* Headset — поддержка 24/7 */
+      /* Headset - поддержка 24/7 */
       <svg className="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 13a8 8 0 0116 0" />
         <path d="M4 13v3a2 2 0 002 2h1v-5H4z" />
@@ -51,11 +51,11 @@ const values = [
       </svg>
     ),
     title: 'Поддержка 24/7',
-    text: 'На связи до, во время и после поездки — помогу с любым вопросом',
+    text: 'На связи до, во время и после поездки - помогу с любым вопросом',
   },
   {
     icon: (
-      /* Globe — русскоязычный комфорт */
+      /* Globe - русскоязычный комфорт */
       <svg className="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9" />
         <ellipse cx="12" cy="12" rx="4" ry="9" />
@@ -64,11 +64,11 @@ const values = [
       </svg>
     ),
     title: 'Русскоязычный комфорт',
-    text: 'Всё общение на вашем языке — без языковых барьеров и недоразумений',
+    text: 'Всё общение на вашем языке - без языковых барьеров и недоразумений',
   },
   {
     icon: (
-      /* Captain wheel — опыт с 2008 года */
+      /* Captain wheel - опыт с 2008 года */
       <svg className="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9" />
         <circle cx="12" cy="12" r="3" />
@@ -83,7 +83,7 @@ const values = [
       </svg>
     ),
     title: 'Опыт с 2008 года',
-    text: 'Знаю нюансы изнутри — от тонкостей бронирования до особенностей каждого лайнера',
+    text: 'Знаю нюансы изнутри - от тонкостей бронирования до особенностей каждого лайнера',
   },
 ];
 

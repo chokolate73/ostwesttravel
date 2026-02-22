@@ -17,9 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'OST-West Travel — Василя Нигматова | Персональный эксперт по путешествиям в Германии',
+  title: 'OST-West Travel - Василя Нигматова | Персональный эксперт по путешествиям в Германии',
   description:
-    'Василя Нигматова — персональный эксперт по путешествиям в Германии с 2008 года. Групповые круизы с сопровождением, индивидуальные туры, семейный отдых. Мальдивы, Карибы, Средиземноморье. Русскоязычный сервис.',
+    'Василя Нигматова - персональный эксперт по путешествиям в Германии с 2008 года. Групповые круизы с сопровождением, индивидуальные туры, семейный отдых. Мальдивы, Карибы, Средиземноморье. Русскоязычный сервис.',
   authors: [{ name: 'Vasilya Nigmatova' }],
   robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   openGraph: {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     alternateLocale: 'de_DE',
     siteName: 'OST-West Travel',
-    title: 'OST-West Travel — Персональный эксперт по путешествиям в Германии',
+    title: 'OST-West Travel - Персональный эксперт по путешествиям в Германии',
     description:
       'Групповые круизы с сопровождением, индивидуальные туры, семейный отдых. Опыт с 2008 года. Русскоязычный сервис в Германии.',
     url: 'https://touragent.de',
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         url: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/69831101582afc7d27b64f2d/d6f042586_logo.png?width=1200&height=630&resize=contain',
         width: 1200,
         height: 630,
-        alt: 'OST-West Travel — Touragent.de',
+        alt: 'OST-West Travel - Touragent.de',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OST-West Travel — Персональный эксперт по путешествиям в Германии',
+    title: 'OST-West Travel - Персональный эксперт по путешествиям в Германии',
     description: 'Круизы, индивидуальные туры, семейный отдых. С 2008 года.',
   },
   other: {

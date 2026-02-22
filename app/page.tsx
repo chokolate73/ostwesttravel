@@ -16,7 +16,7 @@ import Contact from '@/components/sections/Contact';
 import Instagram from '@/components/sections/Instagram';
 import Footer from '@/components/sections/Footer';
 
-// Heavy client components — lazy-loaded to reduce initial JS bundle
+// Heavy client components - lazy-loaded to reduce initial JS bundle
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials'));
 const Upcoming = dynamic(() => import('@/components/sections/Upcoming'));
 const FAQ = dynamic(() => import('@/components/sections/FAQ'));
