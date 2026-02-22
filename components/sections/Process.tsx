@@ -60,7 +60,7 @@ export default function Process() {
                   md:flex-col md:items-center md:text-center md:pb-0 md:gap-0
                 ">
                   {/* Circle */}
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-gold flex items-center justify-center shadow-[0_0_0_4px_rgba(197,165,90,0.2)] shrink-0 md:mb-5">
+                  <div className="relative z-10 w-12 h-12 rounded-full bg-gold flex items-center justify-center shadow-[0_0_0_4px_rgba(212,175,55,0.2)] shrink-0 md:mb-5">
                     <span className="text-white font-bold text-lg leading-none">{step.num}</span>
                   </div>
 
