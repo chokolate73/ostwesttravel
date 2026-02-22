@@ -142,7 +142,7 @@
     }
 
     @media (max-width: 480px) {
-      .hero-bg img { object-position: 55% center; }
+      .hero-bg img { object-position: 75% center; }
       .hero-content { padding-bottom: 3.5rem; }
       .hero { min-height: 100svh; }
       .diamond { margin-bottom: 1.2rem; }
@@ -172,15 +172,16 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 60% center;
+      object-position: 80% center;
       display: block;
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
+      z-index: 1;
       background:
-        linear-gradient(135deg, rgba(26,35,50,.85) 0%, rgba(26,35,50,.65) 40%, rgba(26,35,50,.35) 80%),
-        linear-gradient(to bottom, rgba(26,35,50,.3) 0%, rgba(26,35,50,.6) 50%, rgba(26,35,50,.9) 100%);
+        linear-gradient(to right, rgba(0,50,80,.82) 0%, rgba(0,50,80,.70) 35%, rgba(0,50,80,.45) 60%, rgba(0,50,80,.15) 85%, transparent 100%),
+        linear-gradient(to bottom, rgba(0,50,80,.25) 0%, rgba(0,50,80,.50) 50%, rgba(0,50,80,.85) 100%);
     }
     .hero-content {
       position: relative;
@@ -303,6 +304,7 @@
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 10;
       color: rgba(255,255,255,.8);
       transition: color .25s;
       animation: bounce 2s ease-in-out infinite;
@@ -321,6 +323,7 @@
       left: 0;
       right: 0;
       height: 120px;
+      z-index: 2;
       background: linear-gradient(to top, var(--gray-100), transparent);
     }
 
