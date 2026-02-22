@@ -10,9 +10,9 @@ export default function Footer() {
               OST-West <span className="text-gold">Travel</span>
             </h2>
             <p className="text-white/50 leading-relaxed mb-5 max-w-md text-sm">
-              Vasilya Nigmatova — Ihr persoenlicher Reiseexperte in Deutschland.
+              Ich bin Vasilya Nigmatova, Ihre persoenliche Reiseexpertin in Deutschland.
               Seit 2008 organisiere ich Kreuzfahrten, Familienreisen und individuelle
-              Urlaubsreisen fuer russischsprachige Kunden.
+              Urlaubsreisen fuer russischsprachige Reisende.
             </p>
             <div className="flex items-center gap-4">
               <a

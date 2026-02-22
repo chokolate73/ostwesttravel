@@ -27,7 +27,7 @@ export default function About() {
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8 bg-gold" />
               <span className="text-gold font-medium uppercase tracking-wider text-sm">
-                Кто такая Василя
+                Обо мне
               </span>
             </div>
 
@@ -55,7 +55,7 @@ export default function About() {
               </li>
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span><strong>Личные инспекции</strong> отелей и курортов</span>
+                <span><strong>Лично проверяю</strong> отели и курорты</span>
               </li>
             </ul>
 

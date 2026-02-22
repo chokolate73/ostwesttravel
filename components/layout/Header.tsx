@@ -8,7 +8,7 @@ const navLinks = [
   { href: '#family', label: 'Семьям' },
   { href: '#testimonials', label: 'Отзывы' },
   { href: '#upcoming', label: 'Поездки' },
-  { href: '#process', label: 'Как работаем' },
+  { href: '#process', label: 'Как я работаю' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Заявка' },
 ];
