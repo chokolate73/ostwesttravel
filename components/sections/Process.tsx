@@ -35,7 +35,7 @@ export default function Process() {
       <div className="max-w-[1060px] mx-auto px-6">
         <SectionHeader
           label="Как я работаю"
-          title="Как я работаю"
+          title="Как проходит работа"
           headingId="process-heading"
         />
 
