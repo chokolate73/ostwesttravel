@@ -168,7 +168,7 @@ export default function Contact() {
               </button>
 
               <p className="text-xs text-gray-400 text-center">
-                Подбор для новых клиентов начинается после внесения депозита.{" "}
+                Подбор для новых путешественников начинается после внесения депозита.{" "}
                 <a href="#faq-deposit-why" className="text-gold hover:text-gold-dark underline">Условия в FAQ</a>.
               </p>
             </form>
