@@ -36,27 +36,22 @@ export default function About() {
             </h2>
 
             {/* Short facts */}
-            <ul className="space-y-3 text-gray-600 text-base mb-8">
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span>Опыт в туризме с <strong>2008 года</strong></span>
-              </li>
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span>Ausbildung в туризме, <strong>сертификат IHK</strong></span>
-              </li>
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span><strong>Собственное турбюро</strong> в Германии</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span>Контракты с <strong>ведущими туроператорами</strong></span>
-              </li>
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span><strong>Лично проверяю</strong> отели и курорты</span>
-              </li>
+            <ul className="space-y-4 text-gray-600 text-base mb-8">
+              {[
+                { title: 'Опыт в туризме с 2008 года', desc: 'Более 15 лет практической работы - от подбора до сопровождения сложных маршрутов' },
+                { title: 'Профессиональное образование в Германии', desc: 'Ausbildung в туризме и сертификат IHK' },
+                { title: 'Собственное турбюро в Германии', desc: 'Работаю официально и по законам ЕС' },
+                { title: 'Контракты с ведущими туроператорами', desc: 'Работаю только через проверенных партнёров' },
+                { title: 'Лично проверяю отели и маршруты', desc: 'Предлагаю только варианты, в качестве которых уверена' },
+              ].map((item) => (
+                <li key={item.title} className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  <div>
+                    <span className="text-gray-700 font-medium">{item.title}</span>
+                    <p className="text-sm text-gray-500 mt-0.5">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
 
             {/* Trust badges */}
