@@ -27,7 +27,7 @@ export default function About() {
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8 bg-gold" />
               <span className="text-gold font-medium uppercase tracking-wider text-sm">
-                Обо мне
+                Почему мне доверяют?
               </span>
             </div>
 
