@@ -68,9 +68,9 @@ export default function Cruises() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Узнать о ближайшем круизе</WhatsAppButton>
+              <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Получить программу ближайшего круиза</WhatsAppButton>
               <CTAButton size="sm" href="#contact?direction=cruises" className="w-full sm:w-auto justify-center">
-                Оставить заявку на круиз
+                Забронировать место в группе
               </CTAButton>
             </div>
           </ScrollReveal>
