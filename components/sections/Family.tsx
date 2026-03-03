@@ -39,8 +39,8 @@ export default function Family() {
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           label="Семьям"
-          title="Семейный отдых"
-          subtitle="Family-friendly отели, детские клубы, аквапарки и удобная логистика"
+          title="Отдых с детьми - продуманный до мелочей"
+          subtitle="Подбираю отели с детскими клубами, безопасными пляжами и удобной логистикой"
           headingId="family-heading"
         />
 
