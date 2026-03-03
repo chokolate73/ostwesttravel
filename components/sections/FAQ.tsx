@@ -291,8 +291,8 @@ export default function FAQ() {
 
         <ScrollReveal className="mt-10">
           <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-4">
-            <WhatsAppButton className="w-full sm:w-auto justify-center">Написать в WhatsApp</WhatsAppButton>
-            <CTAButton href="#contact" className="w-full sm:w-auto justify-center">Заказать путешествие</CTAButton>
+            <WhatsAppButton className="w-full sm:w-auto justify-center">Написать сейчас</WhatsAppButton>
+            <CTAButton href="#contact" className="w-full sm:w-auto justify-center">Подобрать путешествие</CTAButton>
           </div>
         </ScrollReveal>
       </div>
