@@ -15,7 +15,7 @@ export default function Cruises() {
           headingId="cruises-heading"
         />
 
-        <div className="grid md:grid-cols-2 gap-10 items-start mb-12">
+        <div className="grid md:grid-cols-2 gap-10 items-center mb-8">
           <ScrollReveal direction="left">
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
               {/* TODO: заменить на реальное фото из группового круиза */}
@@ -56,7 +56,7 @@ export default function Cruises() {
             </div>
 
             {/* Fleet expertise */}
-            <div className="bg-ocean-deep/5 rounded-xl p-5 mb-8">
+            <div className="bg-ocean-deep/5 rounded-xl p-5">
               <p className="text-sm font-medium text-ocean-deep mb-3">Знаю флот изнутри:</p>
               <div className="flex flex-wrap gap-2">
                 {['AIDA', 'MSC', 'Costa', 'Mein Schiff'].map((line) => (
@@ -69,14 +69,14 @@ export default function Cruises() {
                 Понимаю различия между лайнерами, классами и сервисом
               </p>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Получить программу ближайшего круиза</WhatsAppButton>
-              <CTAButton size="sm" href="#contact?direction=cruises" className="w-full sm:w-auto justify-center">
-                Забронировать место в группе
-              </CTAButton>
-            </div>
           </ScrollReveal>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 md:ml-[calc(50%+1.25rem)] mb-12">
+          <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Получить программу ближайшего круиза</WhatsAppButton>
+          <CTAButton size="sm" href="#contact?direction=cruises" className="w-full sm:w-auto justify-center">
+            Забронировать место в группе
+          </CTAButton>
         </div>
       </div>
     </section>
