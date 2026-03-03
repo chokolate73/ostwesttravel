@@ -54,13 +54,13 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <WhatsAppButton size="lg" className="w-full sm:w-auto justify-center">Написать в WhatsApp</WhatsAppButton>
+          <WhatsAppButton size="lg" className="w-full sm:w-auto justify-center">Обсудить детали</WhatsAppButton>
           <CTAButton size="lg" href="#contact" className="w-full sm:w-auto justify-center">
-            Заказать путешествие
+            Подобрать путешествие
           </CTAButton>
         </div>
 
-        <p className="text-white font-semibold text-sm mt-4 sm:mt-5">Ответ в течение часа</p>
+        <p className="text-white font-semibold text-sm mt-4 sm:mt-5">Отвечаем в течение часа в рабочее время</p>
       </div>
 
       {/* Scroll indicator */}
