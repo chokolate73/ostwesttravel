@@ -6,7 +6,7 @@ import CTAButton from '@/components/ui/CTAButton';
 const destinations = [
   {
     title: 'Мальдивы',
-    subtitle: 'Экспертная ниша',
+    subtitle: 'Моя специализация',
     description:
       'Знаю нюансы: лагуны, рифы, трансферы, сезонность. Помогу выбрать остров под ваш формат отдыха.',
     image: '/images/Мальдивы.webp',
