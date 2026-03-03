@@ -38,16 +38,19 @@ export default function Cruises() {
               от посадки до финального ужина.
             </p>
 
-            <div className="space-y-3 mb-8">
+            <div className="space-y-4 mb-8">
               {[
-                'Экскурсии с русскоязычными гидами',
-                'Трансферы и логистика - всё организовано',
-                'Помощь на месте в любой ситуации',
-                'Подбор каюты с учётом лайнера, палубы и бюджета',
+                { title: 'Экскурсии с русскоязычными гидами', desc: 'Не просто экскурсии, а понятные, организованные, без стресса' },
+                { title: 'Трансферы и логистика - всё организовано', desc: 'Вы не думаете о пересадках и расписаниях' },
+                { title: 'Помощь на месте в любой ситуации', desc: 'Если что-то происходит - я рядом' },
+                { title: 'Подбор каюты с учётом лайнера, палубы и бюджета', desc: 'Не «просто каюта», а правильная каюта' },
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
+                <div key={item.title} className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  <span className="text-gray-700">{item}</span>
+                  <div>
+                    <span className="text-gray-700 font-medium">{item.title}</span>
+                    <p className="text-sm text-gray-500 mt-0.5">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
