@@ -63,7 +63,7 @@ export default function Cruises() {
                 ))}
               </div>
               <p className="text-xs text-gray-500 mt-2">
-                Знаю классы кораблей и нюансы каждой линии
+                Понимаю различия между лайнерами, классами и сервисом
               </p>
             </div>
 
