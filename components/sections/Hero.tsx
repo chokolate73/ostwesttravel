@@ -39,7 +39,7 @@ export default function Hero() {
           id="hero-heading"
           className="text-[1.7rem] sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-4 sm:mb-6"
         >
-          Путешествия мечты с личным экспертом
+          Персональный эксперт по путешествиям в Германии
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold font-semibold drop-shadow-lg mb-4 sm:mb-6">
