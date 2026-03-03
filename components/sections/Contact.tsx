@@ -58,8 +58,8 @@ export default function Contact() {
     <section id="contact" className="py-20 md:py-24 bg-gray-50" aria-labelledby="contact-heading">
       <div className="max-w-3xl mx-auto px-6">
         <SectionHeader
-          label="Заявка"
-          title="Заказать путешествие"
+          label="Запрос на подбор"
+          title="Оставить заявку"
           subtitle="Заполните форму, и я свяжусь с вами в ближайшее время"
           headingId="contact-heading"
         />
@@ -164,7 +164,7 @@ export default function Contact() {
               <button type="submit"
                 className="w-full h-14 bg-gradient-to-r from-gold to-gold-light text-ocean-deep rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all gold-glow">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
-                Отправить заявку
+                Отправить
               </button>
 
               <p className="text-xs text-gray-400 text-center">
