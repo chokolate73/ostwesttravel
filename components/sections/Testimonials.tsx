@@ -161,8 +161,11 @@ export default function Testimonials() {
 
                     {/* Stars */}
                     <div className="flex gap-[3px] mb-3 sm:mb-5 relative">
-                      {Array.from({ length: 4 }).map((_, j) => <Star key={j} />)}
-                      <MutedStar />
+                      {i === current + Math.floor(visibleCount / 2) ? (
+                        <>{Array.from({ length: 4 }).map((_, j) => <Star key={j} />)}<MutedStar /></>
+                      ) : (
+                        Array.from({ length: 5 }).map((_, j) => <Star key={j} />)
+                      )}
                     </div>
 
                     {/* Quote */}
