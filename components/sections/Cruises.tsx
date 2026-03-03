@@ -15,7 +15,7 @@ export default function Cruises() {
           headingId="cruises-heading"
         />
 
-        <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
+        <div className="grid md:grid-cols-2 gap-10 items-start mb-12">
           <ScrollReveal direction="left">
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
               {/* TODO: заменить на реальное фото из группового круиза */}
