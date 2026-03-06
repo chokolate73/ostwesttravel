@@ -46,7 +46,7 @@ export default function Hero() {
           Василя Нигматова
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
-          {['Круизы', 'Семейный отдых', 'Индивидуальные туры'].map((tag) => (
+          {['Семейный отдых', 'Круизы', 'Индивидуальные туры'].map((tag) => (
             <span key={tag} className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-medium text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full">
               {tag}
             </span>
