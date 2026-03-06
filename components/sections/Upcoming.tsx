@@ -14,7 +14,7 @@ const tours = [
     format: 'Групповой круиз',
     highlight: 'Royal Caribbean, All-Inclusive, 5 островов',
     spots: '8 мест',
-    image: '/images/Круиз по Карибским островам.jpg',
+    image: '/images/caribbean-cruise.jpg',
     alt: 'Круиз по Карибским островам - апрель 2026',
     program: {
       ship: 'Royal Caribbean - Symphony of the Seas',
@@ -48,7 +48,7 @@ const tours = [
     format: 'Групповой круиз',
     highlight: 'MSC, Италия - Греция - Хорватия',
     spots: '12 мест',
-    image: '/images/Средиземноморский-круиз.jpg',
+    image: '/images/mediterranean-cruise.jpg',
     alt: 'Средиземноморский круиз - июнь 2026',
     program: {
       ship: 'MSC World Europa',
@@ -84,7 +84,7 @@ const tours = [
     format: 'Групповой круиз',
     highlight: 'Costa Cruises, Фьорды - Берген - Нордкап',
     spots: '15 мест',
-    image: '/images/Норвежские фьорды.jpg',
+    image: '/images/norwegian-fjords.jpg',
     alt: 'Круиз по норвежским фьордам - сентябрь 2026',
     program: {
       ship: 'Costa Firenze',
