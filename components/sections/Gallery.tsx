@@ -37,7 +37,7 @@ export default function Gallery() {
         <SectionHeader
           label="Мои путешествия"
           title="Реальные фото из поездок"
-          subtitle="Группы, лайнеры, экскурсии - живые моменты моих путешествий"
+          subtitle="Группы, лайнеры, экскурсии - живые моменты путешествий"
           headingId="gallery-heading"
         />
 
