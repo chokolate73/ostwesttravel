@@ -14,11 +14,11 @@ export default function Deposit() {
                 <div className="flex items-center gap-3 mb-2">
                   <div className="h-px w-8 bg-gold" />
                   <span className="text-gold font-medium uppercase tracking-wider text-sm">
-                    Депозит - гарантия серьёзности запроса
+                    Условия депозита
                   </span>
                   <div className="h-px w-8 bg-gold" />
                 </div>
-                <h3 className="text-lg font-semibold text-ocean-deep mb-3">Условия депозита</h3>
+                <h3 className="text-lg font-semibold text-ocean-deep mb-3">Депозит - гарантия серьёзности запроса</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Чтобы начать подбор, для новых клиентов предусмотрен возвратный депозит <strong>69,90 &euro;</strong>.
                   При бронировании тура я возвращаю его полностью.
