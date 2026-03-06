@@ -48,7 +48,7 @@ const tours = [
     format: 'Групповой круиз',
     highlight: 'MSC, Италия - Греция - Хорватия',
     spots: '12 мест',
-    image: '/images/Средиземноморский круиз.jpg',
+    image: '/images/Средиземноморский-круиз.jpg',
     alt: 'Средиземноморский круиз - июнь 2026',
     program: {
       ship: 'MSC World Europa',
