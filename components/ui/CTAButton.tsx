@@ -26,7 +26,7 @@ export default function CTAButton({
   return (
     <a
       href={href}
-      className={`inline-flex items-center gap-2 font-semibold rounded-full transition-all shadow-lg hover:shadow-xl gold-glow ${sizeClasses} ${variantClasses} ${className}`}
+      className={`inline-flex items-center gap-2 text-center font-semibold rounded-full transition-all shadow-lg hover:shadow-xl gold-glow ${sizeClasses} ${variantClasses} ${className}`}
     >
       {children}
     </a>
