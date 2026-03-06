@@ -18,9 +18,8 @@ export default function Cruises() {
         <div className="grid md:grid-cols-2 gap-10 items-center mb-8">
           <ScrollReveal direction="left">
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
-              {/* TODO: заменить на реальное фото из группового круиза */}
               <Image
-                src="https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=700&q=80"
+                src="/images/cruise-flagman.webp"
                 alt="Групповой круиз с сопровождением - OST-West Travel"
                 fill
                 className="object-cover"
