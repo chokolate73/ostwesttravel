@@ -9,7 +9,7 @@ export default function Cruises() {
     <section id="cruises" className="py-20 md:py-24 bg-white" aria-labelledby="cruises-heading">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          label="Флагман"
+          label="Авторский формат"
           title="Групповые круизы с сопровождением"
           subtitle="Путешествуйте в компании единомышленников - с моим личным сопровождением на борту"
           headingId="cruises-heading"
