@@ -266,7 +266,7 @@ export default function Upcoming() {
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           label="Ближайшие путешествия"
-          title="Присоединяйтесь к ближайшим поездкам"
+          title="Присоединяйтесь к поездке в небольшой группе"
           light
           headingId="upcoming-heading"
         />
