@@ -35,7 +35,7 @@ export default function Individual() {
     <section id="individual" className="py-20 md:py-24 bg-gray-50" aria-labelledby="individual-heading">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          label="Индивидуально"
+          label="Предложение"
           title="Персональные путешествия"
           subtitle='Подберу идеальный вариант через проверенных туроператоров'
           headingId="individual-heading"
