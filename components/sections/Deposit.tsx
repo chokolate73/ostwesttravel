@@ -5,6 +5,13 @@ export default function Deposit() {
     <section className="py-12 bg-gray-50">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
+          <p className="text-gray-600 leading-relaxed text-center mb-6 text-sm md:text-base">
+            Подбор путешествия&nbsp;&mdash; это полноценная работа: я&nbsp;анализирую направления, проверяю отели, маршруты и&nbsp;готовлю несколько вариантов под ваш запрос.
+            <br />
+            Поэтому для новых клиентов подбор начинается с&nbsp;небольшого возвратного депозита.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal>
           <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gold/20">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 mt-1">
