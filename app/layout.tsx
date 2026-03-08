@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: 'https://touragent.de',
     images: [
       {
-        url: 'https://ostwesttravel.vercel.app/images/preview.jpg',
+        url: 'https://ostwesttravel.vercel.app/images/preview.jpg?v=2',
         width: 1200,
         height: 630,
         alt: 'OST-West Travel - Путешествия мечты',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'OST-West Travel - Персональный эксперт по путешествиям в Германии',
     description: 'Круизы, индивидуальные туры, семейный отдых. С 2008 года.',
-    images: ['https://ostwesttravel.vercel.app/images/preview.jpg'],
+    images: ['https://ostwesttravel.vercel.app/images/preview.jpg?v=2'],
   },
   other: {
     'geo.region': 'DE',
