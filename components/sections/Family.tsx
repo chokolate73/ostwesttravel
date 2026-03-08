@@ -47,13 +47,13 @@ export default function Family() {
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           {scenarios.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 100}>
-              <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all h-full flex flex-col">
+              <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden md:hover:shadow-xl transition-all h-full flex flex-col">
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <Image
                     src={s.image}
                     alt={s.alt}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover md:group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>

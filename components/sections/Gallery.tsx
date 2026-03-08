@@ -37,7 +37,7 @@ export default function Gallery() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover md:group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent pt-8 sm:pt-12 pb-2 sm:pb-4 px-3 sm:px-4">
