@@ -17,7 +17,7 @@ export default function Instagram() {
                   <img
                     src="/images/instagram.jpg"
                     alt="@touragent.de"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                    className="w-full h-full object-cover md:group-hover:scale-110 transition-transform"
                   />
                 </div>
               </div>

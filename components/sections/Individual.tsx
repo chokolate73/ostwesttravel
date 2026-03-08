@@ -44,13 +44,13 @@ export default function Individual() {
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           {destinations.map((dest, i) => (
             <ScrollReveal key={dest.title} delay={i * 100}>
-              <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all h-full flex flex-col">
+              <div className="group bg-white rounded-2xl overflow-hidden shadow-sm md:hover:shadow-xl transition-all h-full flex flex-col">
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <Image
                     src={dest.image}
                     alt={dest.alt}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover md:group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute top-3 left-3 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-ocean-deep">
