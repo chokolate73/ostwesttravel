@@ -10,7 +10,7 @@ export default function About() {
           <ScrollReveal direction="left" className="relative">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/elena.webp"
+                src="/images/instagram.jpg"
                 alt="Василя Нигматова - персональный эксперт по путешествиям, OST-West Travel"
                 fill
                 className="object-cover"
