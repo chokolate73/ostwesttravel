@@ -5,13 +5,6 @@ export default function Deposit() {
     <section className="py-12 bg-gray-50">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
-          <p className="text-gray-600 leading-relaxed text-center mb-6 text-sm md:text-base">
-            Подбор путешествия&nbsp;&mdash; это полноценная работа: я&nbsp;анализирую направления, проверяю отели, маршруты и&nbsp;готовлю несколько вариантов под ваш запрос.
-            <br />
-            Поэтому для новых клиентов подбор начинается с&nbsp;небольшого возвратного депозита.
-          </p>
-        </ScrollReveal>
-        <ScrollReveal>
           <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gold/20">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0 mt-1">
@@ -21,16 +14,21 @@ export default function Deposit() {
                 <div className="flex items-center gap-3 mb-2">
                   <div className="h-px w-8 bg-gold" />
                   <span className="text-gold font-medium uppercase tracking-wider text-sm">
-                    Условия депозита
+                    Персональный подбор путешествия
                   </span>
                   <div className="h-px w-8 bg-gold" />
                 </div>
-                <h3 className="text-lg font-semibold text-ocean-deep mb-3">Депозит - гарантия серьёзности запроса</h3>
+                <h3 className="text-lg font-semibold text-ocean-deep mb-3">Для новых клиентов подбор тура начинается с&nbsp;возвратного депозита 69,90&nbsp;&euro;</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Чтобы начать подбор, для новых клиентов предусмотрен возвратный депозит <strong>69,90 &euro;</strong>.
-                  При бронировании тура я возвращаю его полностью.
-                  Если вы решаете не бронировать - депозит остаётся как оплата моей работы.
-                  Просто. Прозрачно. Без скрытых условий.
+                  Это позволяет мне уделить вашему запросу максимум внимания: проверить актуальные цены у&nbsp;туроператоров, наличие мест, акции и&nbsp;подобрать лучшие варианты под ваши даты, бюджет и&nbsp;пожелания.
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  <strong>Если вы бронируете тур&nbsp;&mdash; депозит полностью возвращается.</strong>
+                  <br />
+                  Если вы решаете не&nbsp;бронировать, депозит остаётся как оплата персонального подбора и&nbsp;затраченного времени.
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Для постоянных клиентов депозит не&nbsp;требуется.
                 </p>
                 <a
                   href="#faq-deposit-why"
