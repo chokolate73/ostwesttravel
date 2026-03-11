@@ -33,8 +33,7 @@ export default function Contact() {
   const [clientType, setClientType] = useState<"new" | "existing" | null>(null);
   const [showClientPopup, setShowClientPopup] = useState(false);
 
-  // TODO: Replace with actual Stripe payment link
-  const STRIPE_PAYMENT_LINK = "#stripe-deposit";
+  const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/28EfZjfwld6WeMz9WkaAw00";
 
   // Support pre-filled direction from URL params
   useEffect(() => {
