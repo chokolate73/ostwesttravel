@@ -14,7 +14,7 @@ export default function Deposit() {
                 <div className="flex items-center gap-3 mb-2">
                   <div className="h-px w-8 bg-gold" />
                   <span className="text-gold font-medium uppercase tracking-wider text-sm">
-                    Персональный подбор путешествия
+                    Персональный подбор
                   </span>
                   <div className="h-px w-8 bg-gold" />
                 </div>
