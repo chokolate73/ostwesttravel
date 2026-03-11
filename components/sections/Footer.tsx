@@ -74,7 +74,7 @@ export default function Footer() {
                   Impressum
                 </Link>
               </li>
-              <li><a href="#datenschutz" className="text-white/50 hover:text-white transition-colors">Datenschutz</a></li>
+              <li><Link href="/datenschutz" className="text-white/50 hover:text-white transition-colors">Datenschutz</Link></li>
             </ul>
           </div>
         </div>
