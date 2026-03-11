@@ -18,12 +18,12 @@ export default function Deposit() {
                   </span>
                   <div className="h-px w-8 bg-gold" />
                 </div>
-                <h3 className="text-lg font-semibold text-ocean-deep mb-3">Для новых клиентов подбор тура начинается с&nbsp;возвратного депозита 69,90&nbsp;&euro;</h3>
+                <h3 className="text-lg font-semibold text-ocean-deep mb-3">Для новых клиентов подбор начинается с&nbsp;возвратного депозита 69,90&nbsp;&euro;</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Это позволяет мне уделить вашему запросу максимум внимания: проверить актуальные цены у&nbsp;туроператоров, наличие мест, акции и&nbsp;подобрать лучшие варианты под ваши даты, бюджет и&nbsp;пожелания.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  <strong>Если вы бронируете тур&nbsp;&mdash; депозит полностью возвращается.</strong>
+                  <strong>Если вы бронируете тур - депозит полностью возвращается.</strong>
                   <br />
                   Если вы решаете не&nbsp;бронировать, депозит остаётся как оплата персонального подбора и&nbsp;затраченного времени.
                 </p>
