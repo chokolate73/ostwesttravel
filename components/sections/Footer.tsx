@@ -14,7 +14,7 @@ export default function Footer() {
             <p className="text-white/50 leading-relaxed mb-5 max-w-md text-sm">
               Ich bin Vasilya Nigmatova, Ihre persoenliche Reiseexpertin in Deutschland.
               Seit 2008 organisiere ich Kreuzfahrten, Familienreisen und individuelle
-              Urlaubsreisen fuer russischsprachige Reisende.
+              Urlaubsreisen fuer Reisende aus Deutschland und Europa.
             </p>
             <div className="flex items-center gap-4">
               <a
