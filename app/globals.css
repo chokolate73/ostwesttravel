@@ -17,6 +17,12 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
