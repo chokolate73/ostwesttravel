@@ -30,6 +30,10 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [hasChildren, setHasChildren] = useState(false);
   const [direction, setDirection] = useState("");
+  const [clientType, setClientType] = useState<"new" | "existing" | null>(null);
+  const [showClientPopup, setShowClientPopup] = useState(false);
+
+  const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/28EfZjfwld6WeMz9WkaAw00";
 
   // Support pre-filled direction from URL params
   useEffect(() => {
@@ -47,11 +51,23 @@ export default function Contact() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!clientType) {
+      setShowClientPopup(true);
+      return;
+    }
     const formData = new FormData(e.currentTarget);
+    formData.set("client_type", clientType);
     const data = Object.fromEntries(formData);
     // TODO: подключить email/бот для отправки заявок
     console.log("Form submitted:", data);
-    setSubmitted(true);
+
+    if (clientType === "new") {
+      // Save form data, then redirect to Stripe for deposit payment
+      setSubmitted(true);
+      window.location.href = STRIPE_PAYMENT_LINK;
+    } else {
+      setSubmitted(true);
+    }
   }
 
   return (
@@ -152,6 +168,40 @@ export default function Contact() {
                 )}
               </div>
 
+              {/* Client type */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Вы наш клиент? *</label>
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setClientType("new")}
+                    className={`flex-1 h-12 rounded-xl border text-sm font-medium transition-all ${
+                      clientType === "new"
+                        ? "border-gold bg-gold/10 text-gold"
+                        : "border-gray-200 text-gray-500 hover:border-gray-300"
+                    }`}
+                  >
+                    Новый клиент
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setClientType("existing")}
+                    className={`flex-1 h-12 rounded-xl border text-sm font-medium transition-all ${
+                      clientType === "existing"
+                        ? "border-gold bg-gold/10 text-gold"
+                        : "border-gray-200 text-gray-500 hover:border-gray-300"
+                    }`}
+                  >
+                    Постоянный клиент
+                  </button>
+                </div>
+                {clientType === "new" && (
+                  <p className="mt-2 text-xs text-gray-400">
+                    После отправки заявки вы будете перенаправлены на страницу оплаты депозита 69,90&nbsp;&euro;
+                  </p>
+                )}
+              </div>
+
               {/* Comment */}
               <div>
                 <label htmlFor="c-comment" className="block text-sm font-medium text-gray-700 mb-1">Комментарий</label>
@@ -172,6 +222,32 @@ export default function Contact() {
                 <a href="#faq-deposit-why" className="text-gold hover:text-gold-dark underline">Условия в FAQ</a>.
               </p>
             </form>
+
+            {/* Popup: choose client type */}
+            {showClientPopup && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={() => setShowClientPopup(false)}>
+                <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+                  <h3 className="text-lg font-semibold text-ocean-deep mb-2">Вы новый или постоянный клиент?</h3>
+                  <p className="text-sm text-gray-500 mb-5">
+                    Для новых клиентов подбор начинается после внесения возвратного депозита&nbsp;69,90&nbsp;&euro;
+                  </p>
+                  <div className="space-y-3">
+                    <button
+                      onClick={() => { setClientType("new"); setShowClientPopup(false); }}
+                      className="w-full h-12 rounded-xl border-2 border-gold bg-gold/10 text-gold font-semibold hover:bg-gold/20 transition-all"
+                    >
+                      Новый клиент
+                    </button>
+                    <button
+                      onClick={() => { setClientType("existing"); setShowClientPopup(false); }}
+                      className="w-full h-12 rounded-xl border border-gray-200 text-gray-600 font-medium hover:border-gray-300 transition-all"
+                    >
+                      Постоянный клиент
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </ScrollReveal>
         )}
       </div>
