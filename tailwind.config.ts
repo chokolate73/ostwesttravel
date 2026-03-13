@@ -13,9 +13,9 @@ const config: Config = {
           medium: '#1E3A5F',
         },
         gold: {
-          DEFAULT: '#D4AF37',
-          light: '#C9A962',
-          dark: '#B8962D',
+          DEFAULT: '#F5C518',
+          light: '#FFD63A',
+          dark: '#D4AF37',
         },
       },
       fontFamily: {
