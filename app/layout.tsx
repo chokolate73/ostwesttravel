@@ -106,7 +106,7 @@ export default function RootLayout({
                 name: 'Vasilya Nigmatova',
                 jobTitle: 'Reiseexpertin',
               },
-              foundingDate: '2008',
+              foundingDate: '2007',
               priceRange: '€€-€€€',
               sameAs: ['https://instagram.com/touragent.de'],
             }),
