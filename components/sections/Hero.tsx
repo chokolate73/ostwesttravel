@@ -24,7 +24,7 @@ export default function Hero() {
           placeholder="blur"
           blurDataURL={HERO_BLUR}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/50 via-ocean-deep/30 to-ocean-deep/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/35 via-ocean-deep/20 to-ocean-deep/45" />
       </div>
 
       <div className="relative z-10 text-center px-5 sm:px-6 max-w-4xl mx-auto">
