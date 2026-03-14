@@ -6,7 +6,7 @@ const photos = [
   { src: '/images/азия1.jpg', alt: 'Путешествие по Азии - OST-West Travel', caption: 'Азия', aspect: 'aspect-[4/3]' },
   { src: '/images/мексика.jpg', alt: 'Мексика - OST-West Travel', caption: 'Мексика', aspect: 'aspect-[3/4]' },
   { src: '/images/танзания1.jpg', alt: 'Танзания - OST-West Travel', caption: 'Танзания', aspect: 'aspect-square' },
-  { src: '/images/эмираты1.jpg', alt: 'Эмираты - OST-West Travel', caption: 'Эмираты', aspect: 'aspect-[3/4]' },
+  { src: '/images/эмираты1.png', alt: 'Эмираты - OST-West Travel', caption: 'Эмираты', aspect: 'aspect-[3/4]' },
   { src: '/images/азия2.jpg', alt: 'Азия - OST-West Travel', caption: 'Азия', aspect: 'aspect-[4/3]' },
   { src: '/images/танзания2.jpg', alt: 'Танзания - OST-West Travel', caption: 'Танзания', aspect: 'aspect-[3/4]' },
   { src: '/images/эмираты2.jpg', alt: 'Эмираты - OST-West Travel', caption: 'Эмираты', aspect: 'aspect-[4/3]' },
