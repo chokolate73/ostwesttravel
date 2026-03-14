@@ -9,7 +9,7 @@ const photos = [
   { src: '/images/эмираты1.png', alt: 'Эмираты - OST-West Travel', caption: 'Эмираты', aspect: 'aspect-[3/4]' },
   { src: '/images/азия2.jpg', alt: 'Азия - OST-West Travel', caption: 'Азия', aspect: 'aspect-[4/3]' },
   { src: '/images/танзания2.jpg', alt: 'Танзания - OST-West Travel', caption: 'Танзания', aspect: 'aspect-[3/4]' },
-  { src: '/images/эмираты2.jpg', alt: 'Эмираты - OST-West Travel', caption: 'Эмираты', aspect: 'aspect-[4/3]' },
+  { src: '/images/эмираты2.png', alt: 'Эмираты - OST-West Travel', caption: 'Эмираты', aspect: 'aspect-[4/3]' },
   { src: '/images/азия3.jpg', alt: 'Азия - OST-West Travel', caption: 'Азия', aspect: 'aspect-square' },
   { src: '/images/танзания3.jpg', alt: 'Танзания - OST-West Travel', caption: 'Танзания', aspect: 'aspect-[3/4]' },
 ];
