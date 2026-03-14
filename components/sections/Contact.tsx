@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -33,6 +33,7 @@ export default function Contact() {
   const [clientType, setClientType] = useState<"new" | "existing" | null>(null);
   const [showClientPopup, setShowClientPopup] = useState(false);
   const [showPaymentChoice, setShowPaymentChoice] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/28EfZjfwld6WeMz9WkaAw00";
   const PAYPAL_PAYMENT_LINK = "https://paypal.me/touragentde?locale.x=de_DE&country.x=DE";
@@ -66,13 +67,15 @@ export default function Contact() {
     if (clientType === "new") {
       // Show payment method choice for new clients
       setShowPaymentChoice(true);
+      // Scroll to section top so user sees PayPal/Stripe options
+      setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
     } else {
       setSubmitted(true);
     }
   }
 
   return (
-    <section id="contact" className="py-20 md:py-24 bg-gray-50" aria-labelledby="contact-heading">
+    <section ref={sectionRef} id="contact" className="py-20 md:py-24 bg-gray-50" aria-labelledby="contact-heading">
       <div className="max-w-3xl mx-auto px-6">
         <SectionHeader
           label="Запрос на подбор"
