@@ -191,7 +191,7 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
             <div className="space-y-3">
               {p.itinerary.map((step) => (
                 <div key={step.day} className="flex gap-3">
-                  <span className="shrink-0 w-16 md:w-20 text-xs font-bold text-gold uppercase bg-gold/10 rounded-lg px-2 py-1.5 text-center">
+                  <span className="shrink-0 text-xs font-bold text-gold uppercase bg-gold/10 rounded-lg px-3 py-1.5 text-center whitespace-nowrap">
                     {step.day}
                   </span>
                   <p className="text-sm text-gray-700 pt-1">{step.desc}</p>
