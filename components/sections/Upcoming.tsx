@@ -15,7 +15,7 @@ const tours = [
     type: 'land' as const,
     highlight: 'Шёлковый путь, 6 городов, 11 дней',
     spots: 'места ограничены',
-    image: '/images/uzbekistan-tour.jpg',
+    image: '/images/узбекистан.jpeg',
     alt: 'Тур по Шёлковому пути — Узбекистан, сентябрь 2026',
     program: {
       ship: 'Ургенч → Хива → Бухара → Самарканд → Шахрисабз → Ташкент',
