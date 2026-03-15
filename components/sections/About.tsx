@@ -61,7 +61,7 @@ export default function About() {
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
-                <span className="text-xs sm:text-sm font-medium text-ocean-deep">Официально в&nbsp;Германии и&nbsp;по&nbsp;Европе</span>
+                <span className="text-xs sm:text-sm font-medium text-ocean-deep">Официально<br />в Германии<br />и по Европе</span>
               </div>
               <div className="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-ocean-deep/5">
                 <svg className="w-6 h-6 text-gold mb-1.5 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
@@ -70,14 +70,14 @@ export default function About() {
                   <path d="M2 12h20" />
                   <path d="M12 12v2" />
                 </svg>
-                <span className="text-xs sm:text-sm font-medium text-ocean-deep">Работаю через туроператоров</span>
+                <span className="text-xs sm:text-sm font-medium text-ocean-deep">Работаю через<br />проверенных<br />туроператоров</span>
               </div>
               <div className="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-ocean-deep/5">
                 <svg className="w-6 h-6 text-gold mb-1.5 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="7" r="4" />
                   <path d="M5.5 21a6.5 6.5 0 0113 0" />
                 </svg>
-                <span className="text-xs sm:text-sm font-medium text-ocean-deep">Личное сопровождение</span>
+                <span className="text-xs sm:text-sm font-medium text-ocean-deep">Личное<br />сопровождение<br />до возвращения</span>
               </div>
             </div>
           </ScrollReveal>
