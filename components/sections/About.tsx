@@ -58,7 +58,7 @@ export default function About() {
             <div className="grid grid-cols-3 gap-3 sm:gap-4">
               <div className="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-ocean-deep/5">
                 <svg className="w-6 h-6 text-gold mb-1.5 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z" />
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
                 <span className="text-xs sm:text-sm font-medium text-ocean-deep">Официально в&nbsp;Германии и&nbsp;по&nbsp;Европе</span>
@@ -67,6 +67,8 @@ export default function About() {
                 <svg className="w-6 h-6 text-gold mb-1.5 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="7" width="20" height="13" rx="2" />
                   <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+                  <path d="M2 12h20" />
+                  <path d="M12 12v2" />
                 </svg>
                 <span className="text-xs sm:text-sm font-medium text-ocean-deep">Работаю через туроператоров</span>
               </div>
