@@ -116,30 +116,7 @@ export default function WhyMe() {
           ))}
         </div>
 
-        {/* Trust badges */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-10 max-w-2xl mx-auto">
-          <div className="flex flex-col items-center text-center bg-white rounded-xl py-5 px-2 sm:px-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
-            <svg className="w-6 h-6 text-gold mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z" />
-              <path d="M9 12l2 2 4-4" />
-            </svg>
-            <span className="text-xs sm:text-sm font-semibold text-ocean-deep leading-tight">Официально<br />в&nbsp;Германии<br />и&nbsp;по&nbsp;Европе</span>
-          </div>
-          <div className="flex flex-col items-center text-center bg-white rounded-xl py-5 px-2 sm:px-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
-            <svg className="w-6 h-6 text-gold mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="7" width="20" height="13" rx="2" />
-              <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
-            </svg>
-            <span className="text-xs sm:text-sm font-semibold text-ocean-deep leading-tight">Работаю&nbsp;через<br />туроператоров</span>
-          </div>
-          <div className="flex flex-col items-center text-center bg-white rounded-xl py-5 px-2 sm:px-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
-            <svg className="w-6 h-6 text-gold mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="7" r="4" />
-              <path d="M5.5 21a6.5 6.5 0 0113 0" />
-            </svg>
-            <span className="text-xs sm:text-sm font-semibold text-ocean-deep leading-tight">Личное<br />сопровождение</span>
-          </div>
-        </div>
+
       </div>
 
       {/* Bottom wave decoration */}
