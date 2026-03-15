@@ -5,12 +5,12 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 const photos = [
   { src: '/images/азия1.jpg', alt: 'Путешествие по Азии - OST-West Travel', caption: 'Азия', aspect: 'aspect-[4/3]' },
   { src: '/images/мексика.jpg', alt: 'Мексика - OST-West Travel', caption: 'Мексика', aspect: 'aspect-[3/4]' },
-  { src: '/images/танзания1.jpg', alt: 'Танзания - OST-West Travel', caption: 'Танзания', aspect: 'aspect-square' },
+  { src: '/images/танзания1.jpeg', alt: 'Танзания - OST-West Travel', caption: 'Танзания', aspect: 'aspect-square' },
   { src: '/images/эмираты1.png', alt: 'Эмираты - OST-West Travel', caption: 'Эмираты', aspect: 'aspect-[3/4]' },
   { src: '/images/азия2.jpg', alt: 'Азия - OST-West Travel', caption: 'Азия', aspect: 'aspect-[4/3]' },
   { src: '/images/танзания2.jpg', alt: 'Танзания - OST-West Travel', caption: 'Танзания', aspect: 'aspect-[3/4]' },
   { src: '/images/эмираты2.jpeg', alt: 'Эмираты - OST-West Travel', caption: 'Эмираты', aspect: 'aspect-[4/3]' },
-  { src: '/images/азия3.jpg', alt: 'Азия - OST-West Travel', caption: 'Азия', aspect: 'aspect-square' },
+  { src: '/images/азия3.jpeg', alt: 'Азия - OST-West Travel', caption: 'Азия', aspect: 'aspect-square' },
   { src: '/images/танзания3.jpg', alt: 'Танзания - OST-West Travel', caption: 'Танзания', aspect: 'aspect-[3/4]' },
 ];
 
