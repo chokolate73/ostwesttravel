@@ -148,10 +148,10 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 md:p-8 shadow-sm space-y-5">
               {/* Name */}
               <div>
-                <label htmlFor="c-name" className="block text-sm font-medium text-gray-700 mb-1">Имя *</label>
+                <label htmlFor="c-name" className="block text-sm font-medium text-gray-700 mb-1">Имя и фамилия *</label>
                 <input id="c-name" name="name" type="text" required autoComplete="name"
                   className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
-                  placeholder="Ваше имя" />
+                  placeholder="Ваше имя и фамилия" />
               </div>
 
               {/* WhatsApp / Phone */}
