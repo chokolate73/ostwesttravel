@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 const navLinks = [
   { href: '#cruises', label: 'Круизы' },
   { href: '#individual', label: 'Индивидуально' },
-  { href: '#family', label: 'Семьям' },
+  { href: '#family', label: 'Семьям с детьми' },
   { href: '#testimonials', label: 'Отзывы' },
-  { href: '#upcoming', label: 'Поездки' },
+  { href: '#upcoming', label: 'Календарь групповых туров' },
   { href: '#process', label: 'Как я работаю' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Заявка' },

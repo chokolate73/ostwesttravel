@@ -28,7 +28,7 @@ export default function StickyPanel() {
       <div className="bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-center gap-3">
           <a
-            href="https://wa.me/4915123456789"
+            href="https://wa.me/491631759956"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold rounded-full px-5 py-2.5 text-sm transition-all shadow-sm"

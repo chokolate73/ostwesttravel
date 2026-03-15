@@ -1,4 +1,4 @@
-const WA_LINK = 'https://wa.me/4915123456789';
+const WA_LINK = 'https://wa.me/491631759956';
 
 export default function WhatsAppButton({
   children = 'Написать в WhatsApp',
