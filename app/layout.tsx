@@ -86,7 +86,7 @@ export default function RootLayout({
               description:
                 'Персональный эксперт по путешествиям в Германии. Групповые круизы, индивидуальные туры, семейный отдых с 2008 года.',
               url: 'https://touragent.de',
-              telephone: '+4915123456789',
+              telephone: '+491631759956',
               email: 'info@touragent.de',
               address: {
                 '@type': 'PostalAddress',

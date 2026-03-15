@@ -92,12 +92,12 @@ export default function Contact() {
               </div>
               <h3 className="text-2xl font-serif text-ocean-deep mb-2">Заявка принята!</h3>
               <p className="text-gray-500 mb-8">Выберите удобный способ оплаты депозита&nbsp;69,90&nbsp;&euro;</p>
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+              <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto">
                 <a
                   href={PAYPAL_PAYMENT_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-3 px-4 py-6 rounded-2xl border-2 border-gray-200 hover:border-[#0070ba] hover:bg-[#0070ba]/5 transition-all cursor-pointer group"
+                  className="flex flex-col items-center gap-2 px-3 py-5 rounded-2xl border-2 border-gray-200 hover:border-[#0070ba] hover:bg-[#0070ba]/5 transition-all cursor-pointer group"
                 >
                   <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none">
                     <path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 3.72a.77.77 0 01.757-.654h6.451c2.138 0 3.626.563 4.424 1.674.373.52.61 1.103.707 1.733.101.66.05 1.45-.153 2.35l-.005.025v.462l.36.204c.305.16.548.35.735.57.313.37.516.838.602 1.39.089.567.06 1.225-.084 1.956-.166.84-.434 1.572-.798 2.176a4.587 4.587 0 01-1.24 1.378 5.048 5.048 0 01-1.663.793c-.618.178-1.326.268-2.104.268h-.5a1.504 1.504 0 00-1.486 1.27l-.038.194-.643 4.074-.029.14a.15.15 0 01-.044.095.143.143 0 01-.096.036H7.076z" fill="#253B80"/>
@@ -111,7 +111,7 @@ export default function Contact() {
                   href={STRIPE_PAYMENT_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-3 px-4 py-6 rounded-2xl border-2 border-gray-200 hover:border-[#635bff] hover:bg-[#635bff]/5 transition-all cursor-pointer group"
+                  className="flex flex-col items-center gap-2 px-3 py-5 rounded-2xl border-2 border-gray-200 hover:border-[#635bff] hover:bg-[#635bff]/5 transition-all cursor-pointer group"
                 >
                   <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none">
                     <rect x="1" y="2" width="22" height="20" rx="2.5" fill="#635BFF"/>
