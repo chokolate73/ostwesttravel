@@ -91,34 +91,41 @@ export default function Contact() {
                 <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
               </div>
               <h3 className="text-2xl font-serif text-ocean-deep mb-2">Заявка принята!</h3>
-              <p className="text-gray-500 mb-6">Выберите удобный способ оплаты депозита&nbsp;69,90&nbsp;&euro;</p>
-              <div className="flex gap-4 justify-center">
+              <p className="text-gray-500 mb-8">Выберите удобный способ оплаты депозита&nbsp;69,90&nbsp;&euro;</p>
+              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 <a
                   href={PAYPAL_PAYMENT_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-3 px-8 py-6 rounded-2xl border-2 border-gray-200 hover:border-[#0070ba] hover:bg-[#0070ba]/5 transition-all cursor-pointer group"
+                  className="flex flex-col items-center gap-3 px-4 py-6 rounded-2xl border-2 border-gray-200 hover:border-[#0070ba] hover:bg-[#0070ba]/5 transition-all cursor-pointer group"
                 >
                   <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none">
                     <path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 3.72a.77.77 0 01.757-.654h6.451c2.138 0 3.626.563 4.424 1.674.373.52.61 1.103.707 1.733.101.66.05 1.45-.153 2.35l-.005.025v.462l.36.204c.305.16.548.35.735.57.313.37.516.838.602 1.39.089.567.06 1.225-.084 1.956-.166.84-.434 1.572-.798 2.176a4.587 4.587 0 01-1.24 1.378 5.048 5.048 0 01-1.663.793c-.618.178-1.326.268-2.104.268h-.5a1.504 1.504 0 00-1.486 1.27l-.038.194-.643 4.074-.029.14a.15.15 0 01-.044.095.143.143 0 01-.096.036H7.076z" fill="#253B80"/>
                     <path d="M19.438 8.086c-.01.065-.023.13-.037.2-.776 3.98-3.428 5.353-6.815 5.353H10.87a.838.838 0 00-.828.709l-.878 5.563-.249 1.577a.44.44 0 00.435.511h3.053c.363 0 .672-.264.73-.621l.03-.155.578-3.664.037-.202a.736.736 0 01.728-.623h.459c2.97 0 5.294-1.206 5.973-4.694.284-1.457.137-2.673-.614-3.527a2.927 2.927 0 00-.84-.627z" fill="#179BD7"/>
                     <path d="M18.504 7.706a5.937 5.937 0 00-.733-.163 9.312 9.312 0 00-1.482-.109h-4.49a.73.73 0 00-.727.622l-.955 6.055-.028.175a.838.838 0 01.828-.709h1.724c3.387 0 6.039-1.374 6.815-5.352.023-.118.043-.233.06-.345a3.94 3.94 0 00-1.012-.174z" fill="#222D65"/>
                   </svg>
-                  <span className="text-sm font-semibold text-gray-700 group-hover:text-[#0070ba] transition-colors">PayPal</span>
+                  <span className="text-base font-semibold text-gray-700 group-hover:text-[#0070ba] transition-colors">PayPal</span>
+                  <span className="text-xs text-gray-400 text-center leading-snug">оплата через PayPal</span>
                 </a>
                 <a
                   href={STRIPE_PAYMENT_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-3 px-8 py-6 rounded-2xl border-2 border-gray-200 hover:border-[#635bff] hover:bg-[#635bff]/5 transition-all cursor-pointer group"
+                  className="flex flex-col items-center gap-3 px-4 py-6 rounded-2xl border-2 border-gray-200 hover:border-[#635bff] hover:bg-[#635bff]/5 transition-all cursor-pointer group"
                 >
                   <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M1 4.5A2.5 2.5 0 013.5 2h17A2.5 2.5 0 0123 4.5v15a2.5 2.5 0 01-2.5 2.5h-17A2.5 2.5 0 011 19.5v-15zM11.154 10.08c-.753-.247-1.216-.453-1.216-.756 0-.257.228-.453.657-.453.878 0 1.768.33 2.374.617l.35-2.14a6.396 6.396 0 00-2.693-.576c-.89 0-1.63.233-2.163.653-.575.453-.878 1.109-.878 1.902 0 1.49 1.216 2.163 2.14 2.528.76.293 1.042.5 1.042.793 0 .34-.3.526-.793.526-.7 0-1.963-.37-2.693-.73l-.35 2.14c.617.31 1.757.617 2.94.617.952 0 1.718-.227 2.278-.64.622-.46.94-1.14.94-1.989 0-1.527-1.232-2.175-2.163-2.552l.228.06z" fill="#635BFF"/>
+                    <rect x="1" y="2" width="22" height="20" rx="2.5" fill="#635BFF"/>
+                    <text x="12" y="15" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="sans-serif">S</text>
                   </svg>
-                  <span className="text-sm font-semibold text-gray-700 group-hover:text-[#635bff] transition-colors">Stripe</span>
+                  <span className="text-base font-semibold text-gray-700 group-hover:text-[#635bff] transition-colors">Stripe</span>
+                  <span className="text-xs text-gray-400 text-center leading-snug">карта, Apple&nbsp;Pay, Google&nbsp;Pay</span>
                 </a>
               </div>
-              <p className="text-xs text-gray-400 mt-6">Депозит полностью возвратный. <a href="#faq-deposit-why" className="text-gold hover:text-gold-dark underline">Подробнее</a></p>
+              <div className="flex items-center justify-center gap-1.5 mt-6 text-xs text-gray-400">
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                <span>Безопасная онлайн-оплата</span>
+              </div>
+              <p className="text-xs text-gray-400 mt-3 text-center">Депозит возвращается после бронирования путешествия. <a href="#faq-deposit-why" className="text-gold hover:text-gold-dark underline">Подробнее</a></p>
             </div>
           </ScrollReveal>
         ) : submitted ? (
