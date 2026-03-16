@@ -90,7 +90,7 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         className={`lg:hidden bg-ocean-deep/95 backdrop-blur-md border-t border-white/10 overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+          mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
