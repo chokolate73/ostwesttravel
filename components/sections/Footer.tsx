@@ -52,7 +52,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-4 h-4 text-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-                  <span>Franz-Xaver-Mauer-Straße 34,<br />50374 Erftstadt,<br />Germany</span>
+                  <span>Franz-Xaver-Mauer-Straße 34,<br />50374 Erftstadt</span>
                 </li>
               </ul>
             </address>
