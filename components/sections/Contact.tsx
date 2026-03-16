@@ -38,18 +38,23 @@ export default function Contact() {
   const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/28EfZjfwld6WeMz9WkaAw00";
   const PAYPAL_PAYMENT_LINK = "https://paypal.me/touragentde?locale.x=de_DE&country.x=DE";
 
-  // Support pre-filled direction from URL params
+  // Support pre-filled direction from URL params and hash changes
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const dir = params.get("direction");
-    if (dir) setDirection(dir);
+    function readDirection() {
+      const params = new URLSearchParams(window.location.search);
+      const dir = params.get("direction");
+      if (dir) { setDirection(dir); return; }
 
-    // Also check hash params like #contact?direction=cruises
-    const hash = window.location.hash;
-    if (hash.includes("direction=")) {
-      const match = hash.match(/direction=([^&]+)/);
-      if (match) setDirection(match[1]);
+      const hash = window.location.hash;
+      if (hash.includes("direction=")) {
+        const match = hash.match(/direction=([^&]+)/);
+        if (match) setDirection(match[1]);
+      }
     }
+
+    readDirection();
+    window.addEventListener("hashchange", readDirection);
+    return () => window.removeEventListener("hashchange", readDirection);
   }, []);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
