@@ -77,7 +77,7 @@ export default function About() {
                   <circle cx="12" cy="7" r="4" />
                   <path d="M5.5 21a6.5 6.5 0 0113 0" />
                 </svg>
-                <span className="text-xs sm:text-sm font-medium text-ocean-deep">Личное<br />сопровождение<br />до возвращения</span>
+                <span className="text-xs sm:text-sm font-medium text-ocean-deep">Поддержка<br />на всех этапах<br />путешествия</span>
               </div>
             </div>
           </ScrollReveal>
