@@ -10,7 +10,6 @@ const navLinks = [
   { href: '#upcoming', label: 'Календарь групповых туров' },
   { href: '#process', label: 'Как я работаю' },
   { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Заявка' },
 ];
 
 export default function Header() {
