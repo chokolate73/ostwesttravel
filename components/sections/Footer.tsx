@@ -59,11 +59,11 @@ export default function Footer() {
           </div>
 
           {/* Legal */}
-          <div className="pl-6 md:pl-0">
-            <h3 className="text-base font-semibold mb-5 text-gold">Legal</h3>
+          <div className="pl-6 md:pl-0 pt-10 md:pt-0">
             <ul className="space-y-3 text-sm">
               <li><Link href="/impressum" className="text-white/50 hover:text-white transition-colors">Impressum</Link></li>
               <li><Link href="/datenschutz" className="text-white/50 hover:text-white transition-colors">Datenschutz</Link></li>
+              <li><Link href="/cooperation" className="text-gold font-semibold hover:text-white transition-colors">Сотрудничество</Link></li>
             </ul>
           </div>
         </div>
