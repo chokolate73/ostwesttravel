@@ -203,8 +203,8 @@ export default function CooperationContent() {
       <ScrollReveal className="max-w-[920px] mx-auto px-6 sm:px-10 mb-16">
         <div className="bg-ocean-deep rounded-xl px-8 sm:px-[52px] py-12 relative border border-gold/[0.12] overflow-hidden">
           {/* Opening quote mark */}
-          <span className="absolute top-2 left-7 font-serif text-[6rem] text-gold opacity-15 leading-none pointer-events-none select-none">
-            &bdquo;
+          <span className="absolute -top-4 left-5 font-serif text-[8rem] text-gold opacity-10 leading-none pointer-events-none select-none">
+            &laquo;
           </span>
           {/* Radial gold glow */}
           <div className="absolute top-[-50%] right-[-20%] w-1/2 h-[200%] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.04)_0%,transparent_60%)] pointer-events-none" />
