@@ -63,7 +63,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li><Link href="/impressum" className="text-white/50 hover:text-white transition-colors">Impressum</Link></li>
               <li><Link href="/datenschutz" className="text-white/50 hover:text-white transition-colors">Datenschutz</Link></li>
-              <li className="pt-2"><Link href="/cooperation" className="inline-block bg-gold text-ocean-deep font-semibold px-4 py-1.5 rounded hover:bg-gold/90 transition-colors text-sm">Сотрудничество</Link></li>
+              <li><Link href="/cooperation" className="text-white font-semibold hover:text-gold transition-colors">Сотрудничество</Link></li>
             </ul>
           </div>
         </div>
