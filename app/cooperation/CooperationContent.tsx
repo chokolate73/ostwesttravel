@@ -38,7 +38,7 @@ export default function CooperationContent() {
           <StatItem number="23K" accent="+" label="подписчиков" sublabel="в Instagram" />
           <StatItem number="18" label="лет опыта" sublabel="в туризме" />
           <StatItem number="2–3" label="групповых тура" sublabel="в год" />
-          <StatItem number="DACH" label="русскоязычная" sublabel="аудитория" last />
+          <StatItem number="96%" label="русскоязычная" sublabel="аудитория" last />
         </div>
       </ScrollReveal>
 
@@ -64,21 +64,18 @@ export default function CooperationContent() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px] mt-9">
           <ScrollReveal delay={100}>
             <AudienceCard
-              icon="👨‍👩‍👧"
               title="Семьи с детьми"
               text="Ищут проверенные отели, безопасные пляжи и простую логистику. Готовы платить за комфорт."
             />
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <AudienceCard
-              icon="💎"
               title="Пары 30–50 лет"
               text="Бронируют премиальные каюты, романтические резорты и индивидуальные маршруты."
             />
           </ScrollReveal>
           <ScrollReveal delay={300}>
             <AudienceCard
-              icon="🚢"
               title="Любители круизов"
               text="Возвращаются в группы каждый сезон. AIDA, MSC, Costa, Mein Schiff — знают флот."
             />
@@ -286,19 +283,14 @@ function StatItem({
 }
 
 function AudienceCard({
-  icon,
   title,
   text,
 }: {
-  icon: string;
   title: string;
   text: string;
 }) {
   return (
     <div className="bg-white rounded-xl p-7 border border-ocean-deep/[0.06] transition-all hover:shadow-[0_6px_28px_rgba(12,35,64,0.08)] hover:-translate-y-[3px] h-full">
-      <div className="w-11 h-11 bg-gold/[0.12] rounded-[10px] flex items-center justify-center text-xl mb-4">
-        {icon}
-      </div>
       <h4 className="font-serif text-ocean-deep text-[1.05rem] font-semibold mb-2">
         {title}
       </h4>
