@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Footer from '@/components/sections/Footer';
 import CooperationContent from './CooperationContent';
 
 export const metadata: Metadata = {
@@ -29,11 +30,7 @@ export default function CooperationPage() {
 
       <CooperationContent />
 
-      {/* FOOTER */}
-      <footer className="bg-ocean-deep border-t border-white/5 py-6 px-10 text-center text-xs text-[rgba(184,196,212,0.3)]">
-        © 2026 OST-West Travel · Ost-West Logistik &amp; Travel e.K. · Erftstadt,
-        Deutschland
-      </footer>
+      <Footer />
     </div>
   );
 }
