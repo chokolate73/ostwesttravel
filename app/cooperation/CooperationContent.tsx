@@ -37,8 +37,7 @@ export default function CooperationContent() {
         <div className="flex flex-col sm:flex-row justify-center max-w-[740px] mx-auto -mt-[52px] bg-white rounded-xl shadow-[0_10px_50px_rgba(12,35,64,0.12)] overflow-hidden mx-6 sm:mx-auto">
           <StatItem number="23K" accent="+" label="подписчиков" sublabel="в Instagram" />
           <StatItem number="18" label="лет опыта" sublabel="в туризме" />
-          <StatItem number="2–3" label="групповых тура" sublabel="в год" />
-          <StatItem number="96%" label="русскоязычная" sublabel="аудитория" last />
+          <StatItem number="2–3" label="групповых тура" sublabel="в год" last />
         </div>
       </ScrollReveal>
 
