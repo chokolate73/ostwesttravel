@@ -63,18 +63,21 @@ export default function CooperationContent() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px] mt-9">
           <ScrollReveal delay={100}>
             <AudienceCard
+              num="01"
               title="Семьи с детьми"
               text="Ищут проверенные отели, безопасные пляжи и простую логистику. Готовы платить за комфорт."
             />
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <AudienceCard
+              num="02"
               title="Пары 30–50 лет"
               text="Бронируют премиальные каюты, романтические резорты и индивидуальные маршруты."
             />
           </ScrollReveal>
           <ScrollReveal delay={300}>
             <AudienceCard
+              num="03"
               title="Любители круизов"
               text="Возвращаются в группы каждый сезон. AIDA, MSC, Costa, Mein Schiff — знают флот."
             />
@@ -282,14 +285,19 @@ function StatItem({
 }
 
 function AudienceCard({
+  num,
   title,
   text,
 }: {
+  num: string;
   title: string;
   text: string;
 }) {
   return (
     <div className="bg-white rounded-xl p-7 border border-ocean-deep/[0.06] transition-all hover:shadow-[0_6px_28px_rgba(12,35,64,0.08)] hover:-translate-y-[3px] h-full">
+      <div className="font-serif text-[2rem] text-gold opacity-25 font-bold leading-none mb-3">
+        {num}
+      </div>
       <h4 className="font-serif text-ocean-deep text-[1.05rem] font-semibold mb-2">
         {title}
       </h4>
