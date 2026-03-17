@@ -35,7 +35,7 @@ export default function Contact() {
   const [showPaymentChoice, setShowPaymentChoice] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/28EfZjfwld6WeMz9WkaAw00";
+  const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/14AaEZck9ff47k7ecAaAw01?locale=ru";
   const PAYPAL_PAYMENT_LINK = "https://paypal.me/touragentde?locale.x=de_DE&country.x=DE";
 
   // Support pre-filled direction from URL params and hash changes

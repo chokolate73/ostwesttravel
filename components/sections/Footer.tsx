@@ -60,10 +60,10 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="pl-6 md:pl-0 pt-10 md:pt-0">
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-sm mt-10 md:mt-10">
               <li><Link href="/impressum" className="text-white/50 hover:text-white transition-colors">Impressum</Link></li>
               <li><Link href="/datenschutz" className="text-white/50 hover:text-white transition-colors">Datenschutz</Link></li>
-              <li><Link href="/cooperation" className="text-gold font-semibold hover:text-white transition-colors">Сотрудничество</Link></li>
+              <li><Link href="/cooperation" className="text-white font-semibold hover:text-gold transition-colors">Сотрудничество</Link></li>
             </ul>
           </div>
         </div>
