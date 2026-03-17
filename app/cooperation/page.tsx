@@ -63,7 +63,7 @@ export default function CooperationPage() {
           <div className="pt-4">
             <a
               href="mailto:info@ostwesttravel.de?subject=Предложение о сотрудничестве"
-              className="inline-block bg-gold text-ocean-deep font-semibold px-8 py-3 rounded-lg hover:bg-gold/90 transition-colors"
+              className="inline-flex items-center gap-2 text-center font-semibold rounded-full transition-all shadow-lg hover:shadow-xl bg-gradient-to-r from-gold to-gold-light text-ocean-deep hover:shadow-gold/30 px-8 py-4 text-base sm:px-10 sm:py-5 sm:text-xl"
             >
               Отправить предложение о&nbsp;сотрудничестве
             </a>
