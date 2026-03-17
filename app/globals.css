@@ -83,6 +83,26 @@ img {
   animation: float 3s ease-in-out infinite;
 }
 
+/* Stat divider — vertical on desktop, horizontal on mobile */
+.stat-divider::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 22%;
+  height: 56%;
+  width: 1px;
+  background: #e8e0d0;
+}
+@media (max-width: 639px) {
+  .stat-divider::after {
+    right: 18%;
+    top: auto;
+    bottom: 0;
+    width: 64%;
+    height: 1px;
+  }
+}
+
 /* Gold glow on hover */
 .gold-glow:hover {
   box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
