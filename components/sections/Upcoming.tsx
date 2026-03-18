@@ -94,7 +94,7 @@ const toursRu: Tour[] = [
 const toursDe: Tour[] = [
   {
     title: 'Seidenstraße — Usbekistan',
-    dates: '21 сентября - 1 октября 2026',
+    dates: '21. September - 1. Oktober 2026',
     startDate: '2026-09-21T00:00:00+02:00',
     format: 'Gruppenreise',
     type: 'land',
@@ -103,7 +103,7 @@ const toursDe: Tour[] = [
     image: '/images/узбекистан.jpeg',
     alt: 'Reise auf der Seidenstraße — Usbekistan, September 2026',
     program: {
-      ship: 'Ургенч → Хива → Бухара → Самарканд → Шахрисабз → Ташкент',
+      ship: 'Urgentsch → Chiwa → Buchara → Samarkand → Schachrisabs → Taschkent',
       cabin: 'Hotels 3–4 Sterne (Mittel- und gehobene Klasse)',
       price: 'ab 1.899 € pro Person',
       included: [
@@ -127,7 +127,7 @@ const toursDe: Tour[] = [
   },
   {
     title: 'Kreuzfahrt durch die Karibik',
-    dates: '22 ноября - 6 декабря 2026',
+    dates: '22. November - 6. Dezember 2026',
     startDate: '2026-11-22T00:00:00+01:00',
     format: 'Gruppenkreuzfahrt',
     type: 'cruise',
