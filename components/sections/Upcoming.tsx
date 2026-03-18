@@ -73,7 +73,7 @@ const toursRu: Tour[] = [
     alt: 'Круиз по Карибским островам — ноябрь 2026',
     program: {
       ship: 'AIDAdiva',
-      cabin: 'Уточняется',
+      cabin: '',
       price: 'от 2 450 € на человека',
       included: [
         'Прямой перелёт из Дюссельдорфа или Франкфурта',
@@ -152,7 +152,7 @@ const toursDe: Tour[] = [
     alt: 'Kreuzfahrt durch die Karibik — November 2026',
     program: {
       ship: 'AIDAdiva',
-      cabin: 'Wird noch bekannt gegeben',
+      cabin: '',
       price: 'ab 2.450 € pro Person',
       included: [
         'Direktflug ab Düsseldorf oder Frankfurt',
@@ -314,7 +314,7 @@ function ProgramModal({ tour, lang, onClose }: { tour: Tour; lang: Lang; onClose
             <div className="bg-ocean-deep/5 rounded-2xl p-4">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{tour.type === 'land' ? s.routeLabel : s.shipLabel}</p>
               <p className="font-semibold text-ocean-deep">{p.ship}</p>
-              <p className="text-sm text-gray-500 mt-1">{p.cabin}</p>
+              {p.cabin && <p className="text-sm text-gray-500 mt-1">{p.cabin}</p>}
             </div>
             <div className="bg-gold/10 rounded-2xl p-4">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{s.priceLabel}</p>
