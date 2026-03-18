@@ -1,41 +1,41 @@
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { Lang } from '@/lib/i18n';
 
-const steps = [
-  {
-    num: 1,
-    title: 'Вы рассказываете, куда хотите поехать',
-    text: 'Через сайт или WhatsApp',
+const t = {
+  de: {
+    label: 'Ablauf der Zusammenarbeit',
+    title: 'So läuft die Zusammenarbeit',
+    steps: [
+      { num: 1, title: 'Sie erzählen, wohin Sie reisen möchten', text: 'Über die Website oder WhatsApp' },
+      { num: 2, title: 'Ich kläre die Details', text: 'Urlaubsformat, Budget, Termine und weitere Nuancen' },
+      { num: 3, title: 'Vorbereitung der Optionen', text: 'Ich biete durchdachte Varianten mit Vor- und Nachteilen und ehrlichen Kommentaren' },
+      { num: 4, title: 'Buchung', text: 'Wir buchen die gewählte Option über einen offiziellen Reiseveranstalter' },
+      { num: 5, title: 'Unterstützung auf der Reise', text: 'Ich bin erreichbar – vor, während und nach der Reise. Wenn sich etwas ändert – Sie sind nicht allein' },
+    ],
   },
-  {
-    num: 2,
-    title: 'Я уточняю детали',
-    text: 'Формат отдыха, бюджет, даты и прочие нюансы',
+  ru: {
+    label: 'Этапы сотрудничества',
+    title: 'Как строится работа',
+    steps: [
+      { num: 1, title: 'Вы рассказываете, куда хотите поехать', text: 'Через сайт или WhatsApp' },
+      { num: 2, title: 'Я уточняю детали', text: 'Формат отдыха, бюджет, даты и прочие нюансы' },
+      { num: 3, title: 'Подготовка вариантов', text: 'Предлагаю продуманные варианты с плюсами, минусами и честными комментариями' },
+      { num: 4, title: 'Бронирование', text: 'Оформляем выбранный вариант через официального туроператора' },
+      { num: 5, title: 'Поддержка в поездке', text: 'Я на связи - до, во время и после поездки. Если что-то меняется - вы не остаетесь одни' },
+    ],
   },
-  {
-    num: 3,
-    title: 'Подготовка вариантов',
-    text: 'Предлагаю продуманные варианты с плюсами, минусами и честными комментариями',
-  },
-  {
-    num: 4,
-    title: 'Бронирование',
-    text: 'Оформляем выбранный вариант через официального туроператора',
-  },
-  {
-    num: 5,
-    title: 'Поддержка в поездке',
-    text: 'Я на связи - до, во время и после поездки. Если что-то меняется - вы не остаетесь одни',
-  },
-];
+};
 
-export default function Process() {
+export default function Process({ lang = 'de' }: { lang?: Lang }) {
+  const text = t[lang];
+
   return (
     <section id="process" className="py-20 md:py-24 bg-white" aria-labelledby="process-heading">
       <div className="max-w-[1060px] mx-auto px-6">
         <SectionHeader
-          label="Этапы сотрудничества"
-          title="Как строится работа"
+          label={text.label}
+          title={text.title}
           headingId="process-heading"
         />
 
@@ -52,7 +52,7 @@ export default function Process() {
             flex flex-col gap-0
             md:grid md:grid-cols-5 md:gap-0
           ">
-            {steps.map((step, i) => (
+            {text.steps.map((step, i) => (
               <ScrollReveal key={step.num} delay={i * 80}>
                 {/* Mobile: horizontal row; Desktop: vertical column */}
                 <div className="

@@ -1,6 +1,30 @@
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { Lang } from '@/lib/i18n';
 
-export default function Deposit() {
+const t = {
+  de: {
+    label: 'Persönliche Auswahl',
+    heading: 'Für Neukunden beginnt die Arbeit mit einer erstattbaren Kaution von\u00a069,90\u00a0\u20ac',
+    paragraph1: 'So kann ich Ihrer Anfrage maximale Aufmerksamkeit widmen: aktuelle Preise bei Reiseveranstaltern prüfen, Verfügbarkeit, Aktionen und die besten Optionen für Ihre Termine, Ihr Budget und Ihre Wünsche finden.',
+    bold: 'Wenn Sie eine Reise buchen – wird die Kaution vollständig erstattet.',
+    notBook: 'Wenn Sie sich gegen eine Buchung entscheiden, bleibt die Kaution als Bezahlung für die persönliche Auswahl und die aufgewendete Zeit.',
+    regular: 'Für Stammkunden ist keine Kaution erforderlich.',
+    link: 'Mehr zu den Bedingungen',
+  },
+  ru: {
+    label: 'Персональный подбор',
+    heading: 'Для новых клиентов работа начинается с\u00a0возвратного депозита\u00a069,90\u00a0\u20ac',
+    paragraph1: 'Это позволяет мне уделить вашему запросу максимум внимания: проверить актуальные цены у\u00a0туроператоров, наличие мест, акции и\u00a0подобрать лучшие варианты под ваши даты, бюджет и\u00a0пожелания.',
+    bold: 'Если вы бронируете тур - депозит полностью возвращается.',
+    notBook: 'Если вы решаете не\u00a0бронировать, депозит остаётся как оплата персонального подбора и\u00a0затраченного времени.',
+    regular: 'Для постоянных клиентов депозит не\u00a0требуется.',
+    link: 'Подробнее об условиях',
+  },
+};
+
+export default function Deposit({ lang = 'de' }: { lang?: Lang }) {
+  const text = t[lang];
+
   return (
     <section className="py-12 bg-gray-50">
       <div className="max-w-3xl mx-auto px-6">
@@ -14,27 +38,27 @@ export default function Deposit() {
                 <div className="flex items-center gap-3 mb-2">
                   <div className="h-px w-8 bg-gold" />
                   <span className="text-gold font-medium uppercase tracking-wider text-sm">
-                    Персональный подбор
+                    {text.label}
                   </span>
                   <div className="h-px w-8 bg-gold" />
                 </div>
-                <h3 className="text-lg font-semibold text-ocean-deep mb-3">Для новых клиентов работа начинается с&nbsp;возвратного депозита&nbsp;69,90&nbsp;&euro;</h3>
+                <h3 className="text-lg font-semibold text-ocean-deep mb-3">{text.heading}</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Это позволяет мне уделить вашему запросу максимум внимания: проверить актуальные цены у&nbsp;туроператоров, наличие мест, акции и&nbsp;подобрать лучшие варианты под ваши даты, бюджет и&nbsp;пожелания.
+                  {text.paragraph1}
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  <strong>Если вы бронируете тур - депозит полностью возвращается.</strong>
+                  <strong>{text.bold}</strong>
                   <br />
-                  Если вы решаете не&nbsp;бронировать, депозит остаётся как оплата персонального подбора и&nbsp;затраченного времени.
+                  {text.notBook}
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Для постоянных клиентов депозит не&nbsp;требуется.
+                  {text.regular}
                 </p>
                 <a
                   href="#faq-deposit-why"
                   className="text-gold hover:text-gold-dark font-medium text-sm inline-flex items-center gap-1 transition-colors"
                 >
-                  Подробнее об условиях
+                  {text.link}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="m9 18 6-6-6-6" /></svg>
                 </a>
               </div>

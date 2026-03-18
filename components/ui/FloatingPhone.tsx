@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Lang } from '@/lib/i18n';
 
-export default function FloatingPhone() {
+export default function FloatingPhone({ lang = 'de' }: { lang?: Lang }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function FloatingPhone() {
   return (
     <a
       href="tel:+491631759956"
-      aria-label="Позвонить"
+      aria-label={lang === 'de' ? 'Anrufen' : 'Позвонить'}
       className={`fixed bottom-6 right-6 z-50 hidden md:flex w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white items-center justify-center shadow-lg animate-phone-pulse transition-all duration-300 ${
         visible ? 'md:opacity-100 md:scale-100' : 'md:opacity-0 md:scale-75 md:pointer-events-none'
       }`}

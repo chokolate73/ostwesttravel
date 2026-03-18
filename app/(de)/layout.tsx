@@ -1,49 +1,49 @@
 import type { Metadata } from 'next';
 import { Montserrat, Inter } from 'next/font/google';
-import './globals.css';
+import '../globals.css';
 
 const montserrat = Montserrat({
-  subsets: ['latin', 'cyrillic'],
+  subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-serif',
   display: 'swap',
 });
 
 const inter = Inter({
-  subsets: ['latin', 'cyrillic'],
+  subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-sans',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'OST-West Travel - Василя Нигматова | Персональный эксперт по путешествиям в Германии',
+  title: 'OST-West Travel – Vasilya Nigmatova | Ihre persönliche Reiseexpertin in Deutschland',
   description:
-    'Василя Нигматова - персональный эксперт по путешествиям в Германии с 2008 года. Групповые круизы с сопровождением, индивидуальные туры, семейный отдых. Мальдивы, Карибы, Средиземноморье. Русскоязычный сервис.',
+    'Vasilya Nigmatova – Ihre persönliche Reiseexpertin in Deutschland seit 2008. Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub. Malediven, Karibik, Mittelmeer.',
   authors: [{ name: 'Vasilya Nigmatova' }],
   robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   openGraph: {
     type: 'website',
-    locale: 'ru_RU',
-    alternateLocale: 'de_DE',
+    locale: 'de_DE',
+    alternateLocale: 'ru_RU',
     siteName: 'OST-West Travel',
-    title: 'OST-West Travel - Персональный эксперт по путешествиям в Германии',
+    title: 'OST-West Travel – Ihre persönliche Reiseexpertin in Deutschland',
     description:
-      'Групповые круизы с сопровождением, индивидуальные туры, семейный отдых. Опыт с 2008 года. Русскоязычный сервис в Германии.',
+      'Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub. Erfahrung seit 2008.',
     url: 'https://touragent.de',
     images: [
       {
         url: 'https://ostwesttravel.vercel.app/images/preview.jpg?v=2',
         width: 1200,
         height: 630,
-        alt: 'OST-West Travel - Путешествия мечты',
+        alt: 'OST-West Travel – Traumreisen',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OST-West Travel - Персональный эксперт по путешествиям в Германии',
-    description: 'Круизы, индивидуальные туры, семейный отдых. С 2008 года.',
+    title: 'OST-West Travel – Ihre persönliche Reiseexpertin in Deutschland',
+    description: 'Kreuzfahrten, individuelle Reisen, Familienurlaub. Seit 2008.',
     images: ['https://ostwesttravel.vercel.app/images/preview.jpg?v=2'],
   },
   other: {
@@ -55,20 +55,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://touragent.de/',
     languages: {
-      ru: 'https://touragent.de/',
-      de: 'https://touragent.de/de/',
+      de: 'https://touragent.de/',
+      ru: 'https://touragent.de/ru/',
       'x-default': 'https://touragent.de/',
     },
   },
 };
 
-export default function RootLayout({
+export default function DeLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={`${montserrat.variable} ${inter.variable}`}>
+    <html lang="de" className={`${montserrat.variable} ${inter.variable}`}>
       <head>
         <link
           rel="icon"
@@ -84,7 +84,7 @@ export default function RootLayout({
               name: 'OST-West Travel',
               alternateName: 'Touragent.de',
               description:
-                'Персональный эксперт по путешествиям в Германии. Групповые круизы, индивидуальные туры, семейный отдых с 2008 года.',
+                'Ihre persönliche Reiseexpertin in Deutschland. Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub seit 2008.',
               url: 'https://touragent.de',
               telephone: '+491631759956',
               email: 'info@touragent.de',
@@ -100,7 +100,7 @@ export default function RootLayout({
               image:
                 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/69831101582afc7d27b64f2d/d6f042586_logo.png?width=1200&height=630&resize=contain',
               areaServed: { '@type': 'Country', name: 'Germany' },
-              knowsLanguage: ['ru', 'de', 'en'],
+              knowsLanguage: ['de', 'ru', 'en'],
               founder: {
                 '@type': 'Person',
                 name: 'Vasilya Nigmatova',
@@ -121,18 +121,10 @@ export default function RootLayout({
               mainEntity: [
                 {
                   '@type': 'Question',
-                  name: 'Почему подбор путешествия осуществляется с депозитом?',
+                  name: 'Warum wird die Reiseauswahl mit einer Kaution durchgeführt?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Подбор проводится индивидуально: анализ запроса, проработка вариантов, проверка отелей и подготовка презентации. Депозит подтверждает начало персональной работы.',
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Какие направления предлагает Touragent.de?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: 'Групповые круизы с сопровождением (Карибы, Средиземноморье, Азия), индивидуальные туры (Мальдивы, Карибы, Европа, Азия), семейный отдых по всему миру.',
+                    text: 'Ich gehe persönlich auf jede Anfrage ein – prüfe Optionen, überprüfe Hotels, bereite eine Auswahl vor. Die Kaution bestätigt einfach, dass wir zusammen arbeiten.',
                   },
                 },
                 {
@@ -140,7 +132,7 @@ export default function RootLayout({
                   name: 'Welche Reiseziele bietet OST-West Travel an?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Gruppenkreuzfahrten mit Begleitung, individuelle Reisen (Malediven, Karibik, Europa, Asien) und Familienurlaub weltweit. Seit 2008.',
+                    text: 'Begleitete Gruppenkreuzfahrten, individuelle Reisen (Malediven, Karibik, Europa, Asien) und Familienurlaub weltweit. Seit 2008.',
                   },
                 },
               ],

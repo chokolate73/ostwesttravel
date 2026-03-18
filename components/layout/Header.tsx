@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Lang } from '@/lib/i18n';
 
-const navLinks = [
+const navLinksRu = [
   { href: '#cruises', label: 'Круизы' },
   { href: '#individual', label: 'Индивидуально' },
   { href: '#family', label: 'Семьям с детьми' },
@@ -12,9 +13,21 @@ const navLinks = [
   { href: '#faq', label: 'FAQ' },
 ];
 
-export default function Header() {
+const navLinksDe = [
+  { href: '#cruises', label: 'Kreuzfahrten' },
+  { href: '#individual', label: 'Individuell' },
+  { href: '#family', label: 'Familien' },
+  { href: '#testimonials', label: 'Bewertungen' },
+  { href: '#upcoming', label: 'Reisekalender' },
+  { href: '#process', label: 'So arbeite ich' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+export default function Header({ lang = 'de' }: { lang?: Lang }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = lang === 'de' ? navLinksDe : navLinksRu;
 
   useEffect(() => {
     let last = false;
@@ -36,9 +49,9 @@ export default function Header() {
         scrolled ? 'bg-ocean-deep/95 backdrop-blur-md shadow-lg' : ''
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between" aria-label="Основная навигация">
+      <nav className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between" aria-label={lang === 'de' ? 'Hauptnavigation' : 'Основная навигация'}>
         {/* Logo */}
-        <a href="#" className="text-xl md:text-2xl font-serif text-white tracking-wider shrink-0" aria-label="OST-West Travel - На главную">
+        <a href="#" className="text-xl md:text-2xl font-serif text-white tracking-wider shrink-0" aria-label={lang === 'de' ? 'OST-West Travel - Zur Startseite' : 'OST-West Travel - На главную'}>
           OST-West <span className="text-gold">Travel</span>
         </a>
 
@@ -58,24 +71,45 @@ export default function Header() {
         {/* Language + Mobile toggle */}
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-0.5 bg-white/10 backdrop-blur-md rounded-full p-0.5 border border-white/20">
-            <a
-              href="/de/"
-              className="px-3 py-1.5 rounded-full text-xs font-medium text-white/70 hover:text-white transition-all"
-              hrefLang="de"
-              aria-label="Deutsch"
-            >
-              DE
-            </a>
-            <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-ocean-deep">
-              RU
-            </span>
+            {lang === 'de' ? (
+              <>
+                <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-ocean-deep">
+                  DE
+                </span>
+                <a
+                  href="/ru/"
+                  className="px-3 py-1.5 rounded-full text-xs font-medium text-white/70 hover:text-white transition-all"
+                  hrefLang="ru"
+                  aria-label="Русский"
+                >
+                  RU
+                </a>
+              </>
+            ) : (
+              <>
+                <a
+                  href="/"
+                  className="px-3 py-1.5 rounded-full text-xs font-medium text-white/70 hover:text-white transition-all"
+                  hrefLang="de"
+                  aria-label="Deutsch"
+                >
+                  DE
+                </a>
+                <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-ocean-deep">
+                  RU
+                </span>
+              </>
+            )}
           </div>
 
           {/* Mobile hamburger */}
           <button
             className="lg:hidden w-10 h-10 flex items-center justify-center text-white"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Закрыть меню' : 'Открыть меню'}
+            aria-label={mobileOpen
+              ? (lang === 'de' ? 'Menü schließen' : 'Закрыть меню')
+              : (lang === 'de' ? 'Menü öffnen' : 'Открыть меню')
+            }
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? (
