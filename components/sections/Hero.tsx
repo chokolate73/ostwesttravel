@@ -10,7 +10,8 @@ const HERO_BLUR =
 const t = {
   de: {
     heroAlt: 'Traumreisen - OST-West Travel',
-    heading: 'Ihre persönliche Reiseexpertin in Deutschland',
+    headingLine1: 'Ihre persönliche',
+    headingLine2: 'Reiseexpertin in Deutschland',
     tags: ['Familienurlaub', 'Kreuzfahrten', 'Individuelle Reisen'] as const,
     whatsapp: 'Details besprechen',
     cta: 'Reise planen',
@@ -19,7 +20,8 @@ const t = {
   },
   ru: {
     heroAlt: 'Путешествия мечты - OST-West Travel',
-    heading: 'Персональный эксперт по путешествиям в Германии',
+    headingLine1: 'Персональный эксперт',
+    headingLine2: 'по путешествиям в Германии',
     tags: ['Семейный отдых', 'Круизы', 'Индивидуальные туры'] as const,
     whatsapp: 'Обсудить детали',
     cta: 'Подобрать путешествие',
@@ -63,7 +65,7 @@ export default function Hero({ lang = 'de' }: { lang?: Lang }) {
           id="hero-heading"
           className="text-[1.7rem] sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-4 sm:mb-6"
         >
-          {text.heading}
+          {text.headingLine1}<br />{text.headingLine2}
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold font-semibold drop-shadow-lg mb-4 sm:mb-6">
