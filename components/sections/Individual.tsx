@@ -65,7 +65,7 @@ const t = {
   },
 };
 
-export default function Individual({ lang = 'de' }: { lang?: Lang }) {
+export default function Individual({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (

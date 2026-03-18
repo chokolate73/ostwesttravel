@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Lang } from '@/lib/i18n';
 
-export default function FloatingPhone({ lang = 'de' }: { lang?: Lang }) {
+export default function FloatingPhone({ lang = 'ru' }: { lang?: Lang }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

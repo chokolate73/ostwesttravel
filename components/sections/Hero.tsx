@@ -30,7 +30,7 @@ const t = {
   },
 };
 
-export default function Hero({ lang = 'de' }: { lang?: Lang }) {
+export default function Hero({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (

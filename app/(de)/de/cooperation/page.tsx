@@ -14,7 +14,7 @@ export default function CooperationPage() {
     <div className="min-h-screen bg-[#f5f1ea]">
       <nav className="bg-ocean-deep px-6 sm:px-10 py-[18px] flex justify-between items-center border-b border-white/[0.06]">
         <Link
-          href="/"
+          href="/de/"
           className="font-serif text-white text-lg sm:text-xl font-semibold tracking-wide hover:opacity-90 transition-opacity"
         >
           OST-West <span className="text-gold font-normal italic">Travel</span>

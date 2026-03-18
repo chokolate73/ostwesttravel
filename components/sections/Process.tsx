@@ -27,7 +27,7 @@ const t = {
   },
 };
 
-export default function Process({ lang = 'de' }: { lang?: Lang }) {
+export default function Process({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (

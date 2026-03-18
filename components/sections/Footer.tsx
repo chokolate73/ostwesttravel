@@ -6,19 +6,19 @@ const t = {
     brandDescription: 'Ich\u00a0\u2014 Vasilya Nigmatova, Ihre persönliche Reiseexpertin in\u00a0Deutschland. Seit\u00a02007\u00a0begleite ich Reisende aus\u00a0Deutschland und\u00a0Europa bei\u00a0der Planung von Kreuzfahrten, Familien- und Individualreisen und\u00a0helfe, passende Angebote über geprüfte Reiseveranstalter zu\u00a0finden.',
     contact: 'Kontakt',
     cooperation: 'Kooperation',
-    cooperationHref: '/cooperation',
+    cooperationHref: '/de/cooperation',
     copyright: '\u00a9 2026 OST-West Travel. Alle Rechte vorbehalten.',
   },
   ru: {
     brandDescription: 'Я\u00a0\u2014 Василя Нигматова, ваш персональный эксперт по\u00a0путешествиям в\u00a0Германии. С\u00a02007\u00a0года я\u00a0сопровождаю путешественников из\u00a0Германии и\u00a0Европы при\u00a0планировании круизов, семейных и\u00a0индивидуальных поездок и\u00a0помогаю подобрать подходящие предложения через проверенных туроператоров.',
     contact: 'Контакт',
     cooperation: 'Сотрудничество',
-    cooperationHref: '/ru/cooperation',
+    cooperationHref: '/cooperation',
     copyright: '\u00a9 2026 OST-West Travel. Все права защищены.',
   },
 };
 
-export default function Footer({ lang = 'de' }: { lang?: Lang }) {
+export default function Footer({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (
@@ -81,8 +81,8 @@ export default function Footer({ lang = 'de' }: { lang?: Lang }) {
           {/* Legal */}
           <div className="pl-6 md:pl-0 pt-10 md:pt-0">
             <ul className="space-y-3 text-sm mt-10 md:mt-10">
-              <li><Link href="/impressum" className="text-white/50 hover:text-white transition-colors">Impressum</Link></li>
-              <li><Link href="/datenschutz" className="text-white/50 hover:text-white transition-colors">Datenschutz</Link></li>
+              <li><Link href="/de/impressum" className="text-white/50 hover:text-white transition-colors">Impressum</Link></li>
+              <li><Link href="/de/datenschutz" className="text-white/50 hover:text-white transition-colors">Datenschutz</Link></li>
               <li><Link href={text.cooperationHref} className="text-white/50 hover:text-white transition-colors">{text.cooperation}</Link></li>
             </ul>
           </div>

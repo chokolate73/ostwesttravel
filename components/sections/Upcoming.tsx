@@ -329,7 +329,7 @@ function ProgramModal({ tour, lang, onClose }: { tour: Tour; lang: Lang; onClose
   );
 }
 
-export default function Upcoming({ lang = 'de' }: { lang?: Lang }) {
+export default function Upcoming({ lang = 'ru' }: { lang?: Lang }) {
   const [openTour, setOpenTour] = useState<number | null>(null);
 
   const closeModal = useCallback(() => setOpenTour(null), []);

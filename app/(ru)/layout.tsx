@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat, Inter } from 'next/font/google';
-import '../../globals.css';
+import '../globals.css';
 
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: 'OST-West Travel - Персональный эксперт по путешествиям в Германии',
     description:
       'Групповые круизы с сопровождением, индивидуальные туры, семейный отдых. Опыт с 2008 года. Русскоязычный сервис в Германии.',
-    url: 'https://touragent.de/ru/',
+    url: 'https://touragent.de/',
     images: [
       {
         url: 'https://ostwesttravel.vercel.app/images/preview.jpg?v=2',
@@ -53,10 +53,10 @@ export const metadata: Metadata = {
     ICBM: '51.1657, 10.4515',
   },
   alternates: {
-    canonical: 'https://touragent.de/ru/',
+    canonical: 'https://touragent.de/',
     languages: {
-      de: 'https://touragent.de/',
-      ru: 'https://touragent.de/ru/',
+      ru: 'https://touragent.de/',
+      de: 'https://touragent.de/de/',
       'x-default': 'https://touragent.de/',
     },
   },
