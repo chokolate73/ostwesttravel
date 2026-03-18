@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Lang } from '@/lib/i18n';
 
 const navLinksRu = [
-  { href: '#top', label: 'Главная' },
+  { href: '#top', label: 'Главная', mobileOnly: true },
   { href: '#cruises', label: 'Круизы' },
   { href: '#individual', label: 'Индивидуально' },
   { href: '#family', label: 'Семьям с детьми' },
@@ -16,7 +16,7 @@ const navLinksRu = [
 ];
 
 const navLinksDe = [
-  { href: '#top', label: 'Startseite' },
+  { href: '#top', label: 'Startseite', mobileOnly: true },
   { href: '#cruises', label: 'Kreuzfahrten' },
   { href: '#individual', label: 'Individuell' },
   { href: '#family', label: 'Familien' },
@@ -61,7 +61,7 @@ export default function Header({ lang = 'de' }: { lang?: Lang }) {
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-5">
-          {navLinks.map((link) => (
+          {navLinks.filter((link) => !link.mobileOnly).map((link) => (
             <a
               key={link.href}
               href={link.href}
