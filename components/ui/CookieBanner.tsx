@@ -40,7 +40,7 @@ const t = {
   },
 };
 
-export default function CookieBanner({ lang = 'de' }: { lang?: Lang }) {
+export default function CookieBanner({ lang = 'ru' }: { lang?: Lang }) {
   const [visible, setVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [analytics, setAnalytics] = useState(true);

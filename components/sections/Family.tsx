@@ -65,7 +65,7 @@ const t = {
   },
 };
 
-export default function Family({ lang = 'de' }: { lang?: Lang }) {
+export default function Family({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (

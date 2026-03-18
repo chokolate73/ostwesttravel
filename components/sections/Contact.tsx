@@ -131,7 +131,7 @@ const t = {
   },
 };
 
-export default function Contact({ lang = 'de' }: { lang?: Lang }) {
+export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
   const [submitted, setSubmitted] = useState(false);
   const [hasChildren, setHasChildren] = useState(false);
   const [direction, setDirection] = useState("");

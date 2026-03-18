@@ -79,7 +79,7 @@ const t = {
   },
 };
 
-export default function WhyMe({ lang = 'de' }: { lang?: Lang }) {
+export default function WhyMe({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (

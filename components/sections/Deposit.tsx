@@ -22,7 +22,7 @@ const t = {
   },
 };
 
-export default function Deposit({ lang = 'de' }: { lang?: Lang }) {
+export default function Deposit({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (

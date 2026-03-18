@@ -3,11 +3,11 @@ import Link from 'next/link';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export const metadata: Metadata = {
-  title: 'Vielen Dank für die Zahlung - OST-West Travel',
-  description: 'Kaution erfolgreich bezahlt. Wir melden uns in Kürze bei Ihnen.',
+  title: 'Спасибо за оплату - OST-West Travel',
+  description: 'Депозит успешно оплачен. Мы свяжемся с вами в ближайшее время.',
 };
 
-export default function ThankYouPage() {
+export default function ThankYouPageRu() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-ocean-deep text-white">
@@ -22,7 +22,7 @@ export default function ThankYouPage() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
-            Zur Startseite
+            На главную
           </Link>
         </div>
       </div>
@@ -35,24 +35,24 @@ export default function ThankYouPage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-ocean-deep mb-4">
-          Vielen Dank für die Zahlung!
+          Спасибо за оплату!
         </h1>
 
         <p className="text-lg text-gray-600 mb-3">
-          Die Kaution von 69,90&nbsp;&euro; wurde erfolgreich bezahlt.
+          Депозит 69,90&nbsp;&euro; успешно оплачен.
         </p>
 
         <p className="text-gray-500 mb-10">
-          Ich melde mich bei Ihnen per WhatsApp innerhalb einer Stunde während der Geschäftszeiten, um mit der Planung Ihrer idealen Reise zu beginnen.
+          Я свяжусь с вами в WhatsApp в течение часа в рабочее время, чтобы начать подбор вашего идеального путешествия.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <WhatsAppButton size="lg">Zu WhatsApp wechseln</WhatsAppButton>
+          <WhatsAppButton size="lg">Написать в WhatsApp</WhatsAppButton>
           <Link
             href="/"
             className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
           >
-            Zurück zur Startseite
+            Вернуться на главную
           </Link>
         </div>
       </div>

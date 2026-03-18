@@ -383,7 +383,7 @@ function FAQAccordionItem({ item, isOpen, toggle }: { item: FAQItem; isOpen: boo
   );
 }
 
-export default function FAQ({ lang = 'de' }: { lang?: Lang }) {
+export default function FAQ({ lang = 'ru' }: { lang?: Lang }) {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
   const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
 

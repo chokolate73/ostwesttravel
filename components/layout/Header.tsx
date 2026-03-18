@@ -27,7 +27,7 @@ const navLinksDe = [
   { href: '#footer', label: 'Kontakt' },
 ];
 
-export default function Header({ lang = 'de' }: { lang?: Lang }) {
+export default function Header({ lang = 'ru' }: { lang?: Lang }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -79,24 +79,10 @@ export default function Header({ lang = 'de' }: { lang?: Lang }) {
         {/* Language + Mobile toggle */}
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-0.5 bg-white/10 backdrop-blur-md rounded-full p-0.5 border border-white/20">
-            {lang === 'de' ? (
-              <>
-                <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-ocean-deep">
-                  DE
-                </span>
-                <a
-                  href="/ru/"
-                  className="px-3 py-1.5 rounded-full text-xs font-medium text-white/70 hover:text-white transition-all"
-                  hrefLang="ru"
-                  aria-label="Русский"
-                >
-                  RU
-                </a>
-              </>
-            ) : (
+            {lang === 'ru' ? (
               <>
                 <a
-                  href="/"
+                  href="/de/"
                   className="px-3 py-1.5 rounded-full text-xs font-medium text-white/70 hover:text-white transition-all"
                   hrefLang="de"
                   aria-label="Deutsch"
@@ -106,6 +92,20 @@ export default function Header({ lang = 'de' }: { lang?: Lang }) {
                 <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-ocean-deep">
                   RU
                 </span>
+              </>
+            ) : (
+              <>
+                <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-ocean-deep">
+                  DE
+                </span>
+                <a
+                  href="/"
+                  className="px-3 py-1.5 rounded-full text-xs font-medium text-white/70 hover:text-white transition-all"
+                  hrefLang="ru"
+                  aria-label="Русский"
+                >
+                  RU
+                </a>
               </>
             )}
           </div>

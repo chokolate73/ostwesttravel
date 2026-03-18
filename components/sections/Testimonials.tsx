@@ -168,7 +168,7 @@ const MutedStar = () => (
   </svg>
 );
 
-export default function Testimonials({ lang = 'de' }: { lang?: Lang }) {
+export default function Testimonials({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
   const visibleCount = useVisibleCount();
   const items = testimonials[lang];

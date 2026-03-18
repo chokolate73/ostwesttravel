@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: 'OST-West Travel – Ihre persönliche Reiseexpertin in Deutschland',
     description:
       'Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub. Erfahrung seit 2008.',
-    url: 'https://touragent.de',
+    url: 'https://touragent.de/de/',
     images: [
       {
         url: 'https://ostwesttravel.vercel.app/images/preview.jpg?v=2',
@@ -53,10 +53,10 @@ export const metadata: Metadata = {
     ICBM: '51.1657, 10.4515',
   },
   alternates: {
-    canonical: 'https://touragent.de/',
+    canonical: 'https://touragent.de/de/',
     languages: {
-      de: 'https://touragent.de/',
-      ru: 'https://touragent.de/ru/',
+      ru: 'https://touragent.de/',
+      de: 'https://touragent.de/de/',
       'x-default': 'https://touragent.de/',
     },
   },

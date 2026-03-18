@@ -3,26 +3,26 @@ import Link from 'next/link';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export const metadata: Metadata = {
-  title: 'Спасибо за оплату - OST-West Travel',
-  description: 'Депозит успешно оплачен. Мы свяжемся с вами в ближайшее время.',
+  title: 'Vielen Dank für die Zahlung - OST-West Travel',
+  description: 'Kaution erfolgreich bezahlt. Wir melden uns in Kürze bei Ihnen.',
 };
 
-export default function ThankYouPageRu() {
+export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-ocean-deep text-white">
         <div className="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between">
-          <Link href="/ru/" className="text-xl font-serif hover:text-gold transition-colors">
+          <Link href="/de/" className="text-xl font-serif hover:text-gold transition-colors">
             OST-West <span className="text-gold">Travel</span>
           </Link>
           <Link
-            href="/ru/"
+            href="/de/"
             className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
-            На главную
+            Zur Startseite
           </Link>
         </div>
       </div>
@@ -35,24 +35,24 @@ export default function ThankYouPageRu() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-ocean-deep mb-4">
-          Спасибо за оплату!
+          Vielen Dank für die Zahlung!
         </h1>
 
         <p className="text-lg text-gray-600 mb-3">
-          Депозит 69,90&nbsp;&euro; успешно оплачен.
+          Die Kaution von 69,90&nbsp;&euro; wurde erfolgreich bezahlt.
         </p>
 
         <p className="text-gray-500 mb-10">
-          Я свяжусь с вами в WhatsApp в течение часа в рабочее время, чтобы начать подбор вашего идеального путешествия.
+          Ich melde mich bei Ihnen per WhatsApp innerhalb einer Stunde während der Geschäftszeiten, um mit der Planung Ihrer idealen Reise zu beginnen.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <WhatsAppButton size="lg">Написать в WhatsApp</WhatsAppButton>
+          <WhatsAppButton size="lg">Zu WhatsApp wechseln</WhatsAppButton>
           <Link
-            href="/ru/"
+            href="/de/"
             className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
           >
-            Вернуться на главную
+            Zurück zur Startseite
           </Link>
         </div>
       </div>

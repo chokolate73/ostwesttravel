@@ -33,7 +33,7 @@ const t = {
   },
 };
 
-export default function About({ lang = 'de' }: { lang?: Lang }) {
+export default function About({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (

@@ -44,7 +44,7 @@ const t = {
   },
 };
 
-export default function Cruises({ lang = 'de' }: { lang?: Lang }) {
+export default function Cruises({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (

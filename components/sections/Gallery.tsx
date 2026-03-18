@@ -41,7 +41,7 @@ const photos = {
   ],
 };
 
-export default function Gallery({ lang = 'de' }: { lang?: Lang }) {
+export default function Gallery({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
   const langPhotos = photos[lang];
 

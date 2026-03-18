@@ -12,7 +12,7 @@ const t = {
   },
 };
 
-export default function Instagram({ lang = 'de' }: { lang?: Lang }) {
+export default function Instagram({ lang = 'ru' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (
