@@ -21,7 +21,7 @@ const t = {
     fleetTitle: 'Ich kenne die Flotte von innen:',
     fleetDesc: 'Ich verstehe die Unterschiede zwischen Schiffen, Klassen und Service',
     whatsapp: 'Programm der nächsten Kreuzfahrt anfordern',
-    cta: 'Platz in der Gruppe buchen',
+    cta: 'Gruppenplatz buchen',
     imageAlt: 'Begleitete Gruppenkreuzfahrt - OST-West Travel',
   },
   ru: {
