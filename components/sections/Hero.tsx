@@ -53,7 +53,7 @@ export default function Hero({ lang = 'de' }: { lang?: Lang }) {
         <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/55 via-ocean-deep/40 to-ocean-deep/65" />
       </div>
 
-      <div className="relative z-10 text-center px-5 sm:px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-5 sm:px-6 max-w-4xl lg:max-w-5xl mx-auto">
         {/* Decorative divider */}
         <div className="flex items-center justify-center gap-4 mb-6 sm:mb-8">
           <div className="h-px w-12 bg-gradient-to-r from-transparent to-gold" />
