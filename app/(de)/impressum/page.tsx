@@ -45,9 +45,9 @@ export default function ImpressumPage() {
           <section>
             <h2 className="text-lg font-semibold text-ocean-deep mb-2">Kontakt</h2>
             <ul className="space-y-1">
-              <li>Telefon: <a href="tel:+4922127253591" className="text-gold hover:underline">+49 221 2725 3591</a></li>
-              <li>Handy: <a href="tel:+491631759956" className="text-gold hover:underline">+49 163 175 9956</a></li>
-              <li>WhatsApp: <a href="https://wa.me/491631759956" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">+49 163 175 9956</a></li>
+              <li>Telefon: <a href="tel:+4922127253591" className="text-gold hover:underline">+49 221 27253591</a></li>
+              <li>Handy: <a href="tel:+491631759956" className="text-gold hover:underline">+49 163 1759956</a></li>
+              <li>WhatsApp: <a href="https://wa.me/491631759956" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">+49 163 1759956</a></li>
               <li>E-Mail: <a href="mailto:info@ostwesttravel.de" className="text-gold hover:underline">info@ostwesttravel.de</a></li>
               <li>Instagram: <a href="https://instagram.com/touragent.de" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">@touragent.de</a></li>
             </ul>
