@@ -140,7 +140,9 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
   const [showPaymentChoice, setShowPaymentChoice] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const STRIPE_PAYMENT_LINK = `https://buy.stripe.com/14AaEZck9ff47k7ecAaAw01${lang === 'de' ? '?locale=de' : '?locale=ru'}`;
+  const STRIPE_PAYMENT_LINK = lang === 'de'
+    ? 'https://buy.stripe.com/eVqbJ3bg50kafQD7OcaAw02?locale=de'
+    : 'https://buy.stripe.com/14AaEZck9ff47k7ecAaAw01?locale=ru';
   const PAYPAL_PAYMENT_LINK = "https://paypal.me/touragentde?locale.x=de_DE&country.x=DE";
 
   const text = t[lang];
