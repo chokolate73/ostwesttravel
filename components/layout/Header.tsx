@@ -135,7 +135,7 @@ export default function Header({ lang = 'de' }: { lang?: Lang }) {
           mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+        <div className="max-w-7xl mx-auto px-4 py-1 flex flex-col gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
