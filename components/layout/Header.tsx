@@ -9,7 +9,7 @@ const navLinksRu = [
   { href: '#individual', label: 'Индивидуально' },
   { href: '#family', label: 'Семьям с детьми' },
   { href: '#testimonials', label: 'Отзывы' },
-  { href: '#upcoming', label: 'Календарь групповых туров' },
+  { href: '#upcoming', label: 'Групповые туры' },
   { href: '#process', label: 'Как я работаю' },
   { href: '#faq', label: 'FAQ' },
   { href: '#footer', label: 'Контакт' },
