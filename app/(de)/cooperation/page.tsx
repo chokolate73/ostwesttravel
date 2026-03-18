@@ -20,10 +20,10 @@ export default function CooperationPage() {
           OST-West <span className="text-gold font-normal italic">Travel</span>
         </Link>
         <Link
-          href="/"
+          href="/#footer"
           className="text-[#b8c4d4] text-sm hover:text-gold transition-colors"
         >
-          &lsaquo; Zur Startseite
+          &lsaquo; Zurück
         </Link>
       </nav>
 

@@ -20,10 +20,10 @@ export default function CooperationPageRu() {
           OST-West <span className="text-gold font-normal italic">Travel</span>
         </Link>
         <Link
-          href="/ru/"
+          href="/ru/#footer"
           className="text-[#b8c4d4] text-sm hover:text-gold transition-colors"
         >
-          &lsaquo; На главную
+          &lsaquo; Назад
         </Link>
       </nav>
 

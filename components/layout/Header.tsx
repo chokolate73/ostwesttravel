@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Lang } from '@/lib/i18n';
 
 const navLinksRu = [
+  { href: '#top', label: 'Главная' },
   { href: '#cruises', label: 'Круизы' },
   { href: '#individual', label: 'Индивидуально' },
   { href: '#family', label: 'Семьям с детьми' },
@@ -11,9 +12,11 @@ const navLinksRu = [
   { href: '#upcoming', label: 'Календарь групповых туров' },
   { href: '#process', label: 'Как я работаю' },
   { href: '#faq', label: 'FAQ' },
+  { href: '#footer', label: 'Контакт' },
 ];
 
 const navLinksDe = [
+  { href: '#top', label: 'Startseite' },
   { href: '#cruises', label: 'Kreuzfahrten' },
   { href: '#individual', label: 'Individuell' },
   { href: '#family', label: 'Familien' },
@@ -21,6 +24,7 @@ const navLinksDe = [
   { href: '#upcoming', label: 'Reisekalender' },
   { href: '#process', label: 'So arbeite ich' },
   { href: '#faq', label: 'FAQ' },
+  { href: '#footer', label: 'Kontakt' },
 ];
 
 export default function Header({ lang = 'de' }: { lang?: Lang }) {
@@ -62,6 +66,10 @@ export default function Header({ lang = 'de' }: { lang?: Lang }) {
               key={link.href}
               href={link.href}
               className="text-white/70 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
+              onClick={link.href === '#top' ? (e: React.MouseEvent) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } : undefined}
             >
               {link.label}
             </a>
@@ -133,7 +141,13 @@ export default function Header({ lang = 'de' }: { lang?: Lang }) {
               key={link.href}
               href={link.href}
               className="text-white/80 hover:text-white hover:bg-white/5 transition-colors text-base py-2.5 px-3 rounded-lg border-b border-white/5 last:border-b-0"
-              onClick={() => setMobileOpen(false)}
+              onClick={(e: React.MouseEvent) => {
+                setMobileOpen(false);
+                if (link.href === '#top') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
             >
               {link.label}
             </a>

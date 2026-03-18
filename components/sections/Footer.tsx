@@ -22,7 +22,7 @@ export default function Footer({ lang = 'de' }: { lang?: Lang }) {
   const text = t[lang];
 
   return (
-    <footer className="relative bg-ocean-deep text-white" role="contentinfo">
+    <footer id="footer" className="relative bg-ocean-deep text-white" role="contentinfo">
       <div className="absolute -top-24 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-ocean-deep pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent)]" />
       <div className="max-w-6xl mx-auto px-6 pt-14 pb-24 md:pb-14">
