@@ -71,7 +71,7 @@ const toursRu: Tour[] = [
     image: '/images/caribbean-cruise.jpg',
     alt: 'Круиз по Карибским островам — ноябрь 2026',
     program: {
-      ship: 'Уточняется',
+      ship: 'AIDAdiva',
       cabin: 'Уточняется',
       price: 'от 2 450 € на человека',
       included: [
@@ -136,7 +136,7 @@ const toursDe: Tour[] = [
     image: '/images/caribbean-cruise.jpg',
     alt: 'Kreuzfahrt durch die Karibik — November 2026',
     program: {
-      ship: 'Wird noch bekannt gegeben',
+      ship: 'AIDAdiva',
       cabin: 'Wird noch bekannt gegeben',
       price: 'ab 2.450 € pro Person',
       included: [
