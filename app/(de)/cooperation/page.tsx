@@ -4,15 +4,14 @@ import Footer from '@/components/sections/Footer';
 import CooperationContent from './CooperationContent';
 
 export const metadata: Metadata = {
-  title: 'Сотрудничество — OST-West Travel',
+  title: 'Kooperation — OST-West Travel',
   description:
-    'Сотрудничество с брендами, отелями и туристическими проектами. Партнёрство с OST-West Travel.',
+    'Zusammenarbeit mit Marken, Hotels und Reiseprojekten. Partnerschaft mit OST-West Travel.',
 };
 
 export default function CooperationPage() {
   return (
     <div className="min-h-screen bg-[#f5f1ea]">
-      {/* NAV */}
       <nav className="bg-ocean-deep px-6 sm:px-10 py-[18px] flex justify-between items-center border-b border-white/[0.06]">
         <Link
           href="/"
@@ -21,16 +20,16 @@ export default function CooperationPage() {
           OST-West <span className="text-gold font-normal italic">Travel</span>
         </Link>
         <Link
-          href="/"
+          href="/#footer"
           className="text-[#b8c4d4] text-sm hover:text-gold transition-colors"
         >
-          &lsaquo; На главную
+          &lsaquo; Zurück
         </Link>
       </nav>
 
       <CooperationContent />
 
-      <Footer />
+      <Footer lang="de" />
     </div>
   );
 }

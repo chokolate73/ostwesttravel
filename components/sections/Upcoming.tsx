@@ -5,14 +5,34 @@ import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import { Lang } from '@/lib/i18n';
 
-const tours = [
+type Tour = {
+  title: string;
+  dates: string;
+  startDate: string;
+  format: string;
+  type: 'land' | 'cruise';
+  highlight: string;
+  spots: string;
+  image: string;
+  alt: string;
+  program: {
+    ship: string;
+    cabin: string;
+    price: string;
+    included: string[];
+    itinerary: { day: string; desc: string }[];
+  };
+};
+
+const toursRu: Tour[] = [
   {
     title: 'Шёлковый путь — Узбекистан',
     dates: '21 сентября - 1 октября 2026',
     startDate: '2026-09-21T00:00:00+02:00',
     format: 'Групповой тур',
-    type: 'land' as const,
+    type: 'land',
     highlight: 'Шёлковый путь, 6 городов, 11 дней',
     spots: 'места ограничены',
     image: '/images/узбекистан.jpeg',
@@ -45,7 +65,7 @@ const tours = [
     dates: '22 ноября - 6 декабря 2026',
     startDate: '2026-11-22T00:00:00+01:00',
     format: 'Групповой круиз',
-    type: 'cruise' as const,
+    type: 'cruise',
     highlight: 'Карибы, All-Inclusive, VP+',
     spots: 'места ограничены',
     image: '/images/caribbean-cruise.jpg',
@@ -71,7 +91,105 @@ const tours = [
   },
 ];
 
-function Countdown({ targetDate }: { targetDate: string }) {
+const toursDe: Tour[] = [
+  {
+    title: 'Seidenstraße — Usbekistan',
+    dates: '21 сентября - 1 октября 2026',
+    startDate: '2026-09-21T00:00:00+02:00',
+    format: 'Gruppenreise',
+    type: 'land',
+    highlight: 'Seidenstraße, 6 Städte, 11 Tage',
+    spots: 'begrenzte Plätze',
+    image: '/images/узбекистан.jpeg',
+    alt: 'Reise auf der Seidenstraße — Usbekistan, September 2026',
+    program: {
+      ship: 'Ургенч → Хива → Бухара → Самарканд → Шахрисабз → Ташкент',
+      cabin: 'Hotels 3–4 Sterne (Mittel- und gehobene Klasse)',
+      price: 'ab 1.899 € pro Person',
+      included: [
+        'Flug aus Deutschland und zurück',
+        'Flughafengebühren und -steuern',
+        'Unterkunft in Hotels mit 3–4 Sternen',
+        'Alle Transfers in modernen klimatisierten Bussen',
+        'Ausflüge, Besichtigungen und Eintrittsgelder laut Programm',
+        'Deutsch- oder russischsprachiger Reiseleiter',
+        'Begleitung durch einen erfahrenen russischsprachigen Gruppenleiter',
+      ],
+      itinerary: [
+        { day: 'Tag 1', desc: 'Abflug aus Deutschland, Ankunft in Urgentsch' },
+        { day: 'Tag 2–3', desc: 'Chiwa — antike Museumsstadt, Festung Itschan-Kala' },
+        { day: 'Tag 4–5', desc: 'Buchara — Moscheen, Medressen, Handelskuppeln' },
+        { day: 'Tag 6–8', desc: 'Samarkand — Registan, Gur-Emir-Mausoleum, Observatorium von Ulugbek' },
+        { day: 'Tag 9', desc: 'Schachrisabs — Timurs Palast Ak-Sarai' },
+        { day: 'Tag 10–11', desc: 'Taschkent — Hauptstadt, Basare, Rückflug' },
+      ],
+    },
+  },
+  {
+    title: 'Kreuzfahrt durch die Karibik',
+    dates: '22 ноября - 6 декабря 2026',
+    startDate: '2026-11-22T00:00:00+01:00',
+    format: 'Gruppenkreuzfahrt',
+    type: 'cruise',
+    highlight: 'Karibik, All-Inclusive, VP+',
+    spots: 'begrenzte Plätze',
+    image: '/images/caribbean-cruise.jpg',
+    alt: 'Kreuzfahrt durch die Karibik — November 2026',
+    program: {
+      ship: 'Wird noch bekannt gegeben',
+      cabin: 'Wird noch bekannt gegeben',
+      price: 'ab 2.450 € pro Person',
+      included: [
+        'Direktflug ab Düsseldorf oder Frankfurt',
+        'Transfer Flughafen — Hafen — Flughafen',
+        'Kreuzfahrt durch die Karibik',
+        'Verpflegung VP+ (Vollpension plus)',
+        'Shows, Konzerte und Unterhaltungsprogramm',
+        'Angenehme Gesellschaft neuer Freunde',
+      ],
+      itinerary: [
+        { day: 'Tag 1', desc: 'Direktflug aus Deutschland, Einschiffung' },
+        { day: 'Tag 2–13', desc: 'Kreuzfahrt durch die Karibik — Ausflüge, Strände, Shows' },
+        { day: 'Tag 14–15', desc: 'Rückkehr, Direktflug nach Deutschland' },
+      ],
+    },
+  },
+];
+
+const t = {
+  de: {
+    sectionLabel: 'Nächste Reisen',
+    sectionTitle: 'Schließen Sie sich einer Kleingruppe an',
+    countdownLabels: ['Tage', 'Stunden', 'Minuten', 'Sekunden'],
+    routeLabel: 'Route',
+    shipLabel: 'Schiff',
+    priceLabel: 'Preis',
+    spotsLeft: 'Noch verfügbar',
+    includedTitle: 'Inklusivleistungen',
+    itineraryTitle: 'Tagesprogramm',
+    requestProgram: 'Programm anfordern',
+    moreDetails: 'Mehr erfahren',
+    bookSpot: 'Platz buchen',
+    closeModal: 'Schließen',
+  },
+  ru: {
+    sectionLabel: 'Ближайшие путешествия',
+    sectionTitle: 'Присоединяйтесь к поездке в небольшой группе',
+    countdownLabels: ['дней', 'часов', 'минут', 'секунд'],
+    routeLabel: 'Маршрут',
+    shipLabel: 'Лайнер',
+    priceLabel: 'Стоимость',
+    spotsLeft: 'Осталось',
+    includedTitle: 'Что включено',
+    itineraryTitle: 'Программа по дням',
+    requestProgram: 'Запросить программу',
+    moreDetails: 'Подробнее',
+    bookSpot: 'Забронировать место',
+    closeModal: 'Закрыть',
+  },
+};
+
+function Countdown({ targetDate, labels }: { targetDate: string; labels: string[] }) {
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
 
   useEffect(() => {
@@ -94,10 +212,10 @@ function Countdown({ targetDate }: { targetDate: string }) {
   return (
     <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
       {[
-        { v: timeLeft.d, l: 'дней' },
-        { v: timeLeft.h, l: 'часов' },
-        { v: timeLeft.m, l: 'минут' },
-        { v: timeLeft.s, l: 'секунд' },
+        { v: timeLeft.d, l: labels[0] },
+        { v: timeLeft.h, l: labels[1] },
+        { v: timeLeft.m, l: labels[2] },
+        { v: timeLeft.s, l: labels[3] },
       ].map((u) => (
         <div key={u.l} className="text-center bg-ocean-deep/5 rounded-xl p-2 md:p-3">
           <div className="text-xl md:text-3xl font-serif text-ocean-deep">{u.v}</div>
@@ -108,8 +226,9 @@ function Countdown({ targetDate }: { targetDate: string }) {
   );
 }
 
-function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: () => void }) {
+function ProgramModal({ tour, lang, onClose }: { tour: Tour; lang: Lang; onClose: () => void }) {
   const p = tour.program;
+  const s = t[lang];
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -137,7 +256,7 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
             <button
               onClick={onClose}
               className="w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-ocean-deep hover:bg-white transition-colors shadow-md"
-              aria-label="Закрыть"
+              aria-label={s.closeModal}
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
@@ -161,20 +280,20 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
           {/* Ship/Route & price */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-ocean-deep/5 rounded-2xl p-4">
-              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{tour.type === 'land' ? 'Маршрут' : 'Лайнер'}</p>
+              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{tour.type === 'land' ? s.routeLabel : s.shipLabel}</p>
               <p className="font-semibold text-ocean-deep">{p.ship}</p>
               <p className="text-sm text-gray-500 mt-1">{p.cabin}</p>
             </div>
             <div className="bg-gold/10 rounded-2xl p-4">
-              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Стоимость</p>
+              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{s.priceLabel}</p>
               <p className="font-semibold text-ocean-deep text-lg">{p.price}</p>
-              <p className="text-sm text-gray-500 mt-1">Осталось {tour.spots}</p>
+              <p className="text-sm text-gray-500 mt-1">{s.spotsLeft} {tour.spots}</p>
             </div>
           </div>
 
           {/* Included */}
           <div>
-            <h4 className="font-serif text-ocean-deep text-lg mb-3">Что включено</h4>
+            <h4 className="font-serif text-ocean-deep text-lg mb-3">{s.includedTitle}</h4>
             <ul className="space-y-2">
               {p.included.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
@@ -187,7 +306,7 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
 
           {/* Itinerary */}
           <div>
-            <h4 className="font-serif text-ocean-deep text-lg mb-3">Программа по дням</h4>
+            <h4 className="font-serif text-ocean-deep text-lg mb-3">{s.itineraryTitle}</h4>
             <div className="space-y-3">
               {p.itinerary.map((step) => (
                 <div key={step.day} className="flex gap-3">
@@ -202,7 +321,7 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
 
           {/* CTA */}
           <div className="pt-2">
-            <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">Забронировать место</WhatsAppButton>
+            <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">{s.bookSpot}</WhatsAppButton>
           </div>
         </div>
       </div>
@@ -210,17 +329,20 @@ function ProgramModal({ tour, onClose }: { tour: typeof tours[number]; onClose: 
   );
 }
 
-export default function Upcoming() {
+export default function Upcoming({ lang = 'de' }: { lang?: Lang }) {
   const [openTour, setOpenTour] = useState<number | null>(null);
 
   const closeModal = useCallback(() => setOpenTour(null), []);
+
+  const tours = lang === 'de' ? toursDe : toursRu;
+  const s = t[lang];
 
   return (
     <section id="upcoming" className="py-20 md:py-24 bg-ocean-deep" aria-labelledby="upcoming-heading">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
-          label="Ближайшие путешествия"
-          title="Присоединяйтесь к поездке в небольшой группе"
+          label={s.sectionLabel}
+          title={s.sectionTitle}
           light
           headingId="upcoming-heading"
         />
@@ -244,7 +366,7 @@ export default function Upcoming() {
                     </div>
                   </div>
                   <div className="p-5 sm:p-6 md:p-10">
-                    <Countdown targetDate={tour.startDate} />
+                    <Countdown targetDate={tour.startDate} labels={s.countdownLabels} />
                     <h3 className="text-xl md:text-2xl font-serif text-ocean-deep mt-4 sm:mt-6 mb-2 sm:mb-3">{tour.title}</h3>
                     <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-500">
                       <span className="flex items-center gap-1.5">
@@ -262,13 +384,13 @@ export default function Upcoming() {
                       ))}
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <WhatsAppButton size="sm" className="w-full sm:flex-1 justify-center">Запросить программу</WhatsAppButton>
+                      <WhatsAppButton size="sm" className="w-full sm:flex-1 justify-center">{s.requestProgram}</WhatsAppButton>
                       <button
                         onClick={() => setOpenTour(i)}
                         className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 ring-2 ring-inset ring-ocean-deep/20 text-ocean-deep rounded-full text-sm font-semibold hover:bg-ocean-deep hover:text-white hover:ring-ocean-deep transition-all"
                       >
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
-                        Подробнее
+                        {s.moreDetails}
                       </button>
                     </div>
                   </div>
@@ -279,7 +401,7 @@ export default function Upcoming() {
         </div>
 
         {openTour !== null && (
-          <ProgramModal tour={tours[openTour]} onClose={closeModal} />
+          <ProgramModal tour={tours[openTour]} lang={lang} onClose={closeModal} />
         )}
       </div>
     </section>

@@ -1,6 +1,20 @@
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { Lang } from '@/lib/i18n';
 
-export default function Instagram() {
+const t = {
+  de: {
+    followers: '23 000+ Follower',
+    follow: 'Folgen',
+  },
+  ru: {
+    followers: '23 000+ подписчиков',
+    follow: 'Подписаться',
+  },
+};
+
+export default function Instagram({ lang = 'de' }: { lang?: Lang }) {
+  const text = t[lang];
+
   return (
     <section className="pt-16 pb-32 bg-white">
       <div className="max-w-2xl mx-auto px-6 text-center">
@@ -22,7 +36,7 @@ export default function Instagram() {
                 </div>
               </div>
               <p className="text-2xl font-serif text-ocean-deep mb-1">@touragent.de</p>
-              <p className="text-gray-500">23 000+ подписчиков</p>
+              <p className="text-gray-500">{text.followers}</p>
             </a>
 
             <a
@@ -44,7 +58,7 @@ export default function Instagram() {
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
               </svg>
-              Подписаться
+              {text.follow}
             </a>
           </div>
         </ScrollReveal>

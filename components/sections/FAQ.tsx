@@ -5,11 +5,12 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import CTAButton from "@/components/ui/CTAButton";
+import { Lang } from "@/lib/i18n";
 
 type FAQItem = { q: string; a: string; id: string };
 type FAQCategory = { title: string; items: FAQItem[] };
 
-const faqData: FAQCategory[] = [
+const faqDataRu: FAQCategory[] = [
   {
     title: "Подбор и депозит",
     items: [
@@ -172,6 +173,182 @@ const faqData: FAQCategory[] = [
   },
 ];
 
+const faqDataDe: FAQCategory[] = [
+  {
+    title: "Auswahl und Kaution",
+    items: [
+      {
+        id: "faq-deposit-why",
+        q: "Warum wird die Reiseauswahl mit einer Kaution durchgeführt?",
+        a: "Ich gehe persönlich auf jede Anfrage ein – prüfe Optionen, überprüfe Hotels, bereite eine Auswahl vor. Die Kaution bestätigt einfach, dass wir zusammen arbeiten.",
+      },
+      {
+        id: "faq-deposit-amount",
+        q: "Wie hoch ist die Kaution?",
+        a: "69,90 € für die erste Anfrage.",
+      },
+      {
+        id: "faq-deposit-return",
+        q: "Wird die Kaution erstattet?",
+        a: "Ja! Wenn Sie eine Reise buchen – wird die Kaution vollständig erstattet.",
+      },
+      {
+        id: "faq-deposit-how",
+        q: "Wie erfolgt die Erstattung?",
+        a: "Auf demselben Weg, wie Sie bezahlt haben – PayPal, Überweisung usw.",
+      },
+      {
+        id: "faq-deposit-no-book",
+        q: "Was, wenn ich keine Reise buche?",
+        a: "Dann bleibt die Kaution als Bezahlung für meine Auswahlarbeit – das ist fair.",
+      },
+      {
+        id: "faq-deposit-included",
+        q: "Was ist in der Auswahl enthalten?",
+        a: "Alles von A bis Z: Beratung, Optionsauswahl, Präsentation, Versicherungsberatung und Buchungshilfe.",
+      },
+    ],
+  },
+  {
+    title: "Begleitete Kreuzfahrten",
+    items: [
+      {
+        id: "faq-cruise-personal",
+        q: "Begleiten Sie die Gruppen persönlich?",
+        a: "Ja, ich bin persönlich an Bord mit der Gruppe – von der Einschiffung bis zur Rückkehr.",
+      },
+      {
+        id: "faq-cruise-size",
+        q: "Wie viele Personen in der Gruppe?",
+        a: "Normalerweise 20–50 Personen – eine gemütliche Gesellschaft.",
+      },
+      {
+        id: "faq-cruise-solo",
+        q: "Kann man alleine fahren?",
+        a: "Natürlich! Viele reisen solo oder zu zweit – man findet schnell Anschluss in der Gruppe.",
+      },
+      {
+        id: "faq-cruise-excursions",
+        q: "Werden Ausflüge organisiert?",
+        a: "Ja, mit deutschsprachigen Guides – alles durchdacht, genießen Sie einfach.",
+      },
+      {
+        id: "faq-cruise-cabin",
+        q: "Helfen Sie bei der Kabinenauswahl?",
+        a: "Selbstverständlich – ich wähle die beste Kabine für Ihr Budget und Ihre Wünsche.",
+      },
+    ],
+  },
+  {
+    title: "Individuelle Reisen und Hotels",
+    items: [
+      {
+        id: "faq-ind-only-cruise",
+        q: "Verkaufen Sie nur Kreuzfahrten und Malediven?",
+        a: "Nein, das sind einfach meine Lieblingsziele! Ich finde Urlaub weltweit – Europa, Asien, Karibik und mehr.",
+      },
+      {
+        id: "faq-ind-hotel",
+        q: "Kann man nur ein Hotel buchen?",
+        a: "Ja, im Rahmen einer Pauschalreise – das ist günstiger und zuverlässiger.",
+      },
+      {
+        id: "faq-ind-inspect",
+        q: "Kennen Sie die Hotels persönlich?",
+        a: "Viele habe ich persönlich geprüft! Deshalb empfehle ich nur das, wovon ich überzeugt bin.",
+      },
+      {
+        id: "faq-ind-romantic",
+        q: "Buchen Sie romantische Reisen?",
+        a: "Ja – Flitterwochen, Jubiläen, private Resorts. Ich liebe solche Anfragen!",
+      },
+    ],
+  },
+  {
+    title: "Familienurlaub",
+    items: [
+      {
+        id: "faq-fam-kids",
+        q: "Bieten Sie Urlaub für Familien mit Kindern an?",
+        a: "Ja, das ist eines meiner Lieblingsthemen – ich verstehe selbst, wie wichtig das ist.",
+      },
+      {
+        id: "faq-fam-what",
+        q: "Worauf achten Sie?",
+        a: "Dass es für Kinder interessant und für Eltern ruhig ist: Kinderclubs, Essen, bequemer Flug, Sicherheit.",
+      },
+      {
+        id: "faq-fam-cruise",
+        q: "Kann man mit Kindern auf Kreuzfahrt?",
+        a: "Und wie! Auf den Schiffen gibt es Familienkabinen, Kinderclubs, Pools – Kinder sind begeistert.",
+      },
+    ],
+  },
+  {
+    title: "Buchung und Dokumente",
+    items: [
+      {
+        id: "faq-book-flights",
+        q: "Verkaufen Sie Flugtickets einzeln?",
+        a: "Nein, nur als Teil einer Pauschalreise – so sind Sie geschützt und alles ist inklusive.",
+      },
+      {
+        id: "faq-book-how",
+        q: "Wie wird die Buchung abgewickelt?",
+        a: "Offiziell, über deutsche Reiseveranstalter – Sie erhalten das komplette Dokumentenpaket und Versicherung.",
+      },
+      {
+        id: "faq-book-insurance",
+        q: "Helfen Sie mit Versicherungen?",
+        a: "Ja, ich finde die passende Versicherung – damit Sie sorglos reisen.",
+      },
+      {
+        id: "faq-book-support",
+        q: "Sind Sie während der Reise erreichbar?",
+        a: "Ja! Ich bin vor, während und nach der Reise erreichbar. Wenn etwas schiefgeht – lösen wir es gemeinsam.",
+      },
+      {
+        id: "faq-book-complaint",
+        q: "Helfen Sie bei Reklamationen?",
+        a: "Selbstverständlich. Wenn etwas nicht stimmt – ich helfe beim Klären mit dem Reiseveranstalter.",
+      },
+    ],
+  },
+  {
+    title: "Allgemeine Fragen",
+    items: [
+      {
+        id: "faq-gen-online",
+        q: "Arbeiten Sie nur online?",
+        a: "Nein, ich habe ein Büro in Deutschland – persönliche Treffen sind möglich. Aber die meisten Fragen klären wir bequem online.",
+      },
+      {
+        id: "faq-gen-who",
+        q: "Mit wem arbeiten Sie?",
+        a: "Mit deutschsprachigen Touristen in Deutschland und ganz Europa. Wir kommunizieren auf Deutsch – keine Sprachbarrieren.",
+      },
+      {
+        id: "faq-gen-free",
+        q: "Kann man zuerst Fragen stellen?",
+        a: "Natürlich! Schreiben Sie mir auf WhatsApp, fragen Sie alles – das verpflichtet zu nichts.",
+      },
+    ],
+  },
+];
+
+const t = {
+  de: {
+    sectionTitle: "Häufig gestellte Fragen",
+    whatsappButton: "Jetzt schreiben",
+    ctaButton: "Reise planen",
+  },
+  ru: {
+    sectionTitle: "Часто задаваемые вопросы",
+    whatsappButton: "Написать сейчас",
+    ctaButton: "Подобрать путешествие",
+  },
+};
+
 function FAQAccordionItem({ item, isOpen, toggle }: { item: FAQItem; isOpen: boolean; toggle: () => void }) {
   return (
     <div id={item.id} className="border-b border-gray-100 last:border-0">
@@ -206,9 +383,12 @@ function FAQAccordionItem({ item, isOpen, toggle }: { item: FAQItem; isOpen: boo
   );
 }
 
-export default function FAQ() {
+export default function FAQ({ lang = 'de' }: { lang?: Lang }) {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
   const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
+
+  const faqData = lang === 'de' ? faqDataDe : faqDataRu;
+  const text = t[lang];
 
   // Deep-link support: open specific FAQ on hash navigation
   useEffect(() => {
@@ -245,7 +425,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-20 md:py-24 bg-white" aria-labelledby="faq-heading">
       <div className="max-w-4xl mx-auto px-6">
-        <SectionHeader label="FAQ" title="Часто задаваемые вопросы" headingId="faq-heading" />
+        <SectionHeader label="FAQ" title={text.sectionTitle} headingId="faq-heading" />
 
         <div className="space-y-4">
           {faqData.map((cat, ci) => {
@@ -291,8 +471,8 @@ export default function FAQ() {
 
         <ScrollReveal className="mt-10">
           <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-4">
-            <WhatsAppButton className="w-full sm:w-auto justify-center">Написать сейчас</WhatsAppButton>
-            <CTAButton href="#contact" className="w-full sm:w-auto justify-center">Подобрать путешествие</CTAButton>
+            <WhatsAppButton className="w-full sm:w-auto justify-center">{text.whatsappButton}</WhatsAppButton>
+            <CTAButton href="#contact" className="w-full sm:w-auto justify-center">{text.ctaButton}</CTAButton>
           </div>
         </ScrollReveal>
       </div>

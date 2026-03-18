@@ -1,8 +1,28 @@
 import Link from 'next/link';
+import { Lang } from '@/lib/i18n';
 
-export default function Footer() {
+const t = {
+  de: {
+    brandDescription: 'Ich\u00a0\u2014 Vasilya Nigmatova, Ihre persönliche Reiseexpertin in\u00a0Deutschland. Seit\u00a02007\u00a0begleite ich Reisende aus\u00a0Deutschland und\u00a0Europa bei\u00a0der Planung von Kreuzfahrten, Familien- und Individualreisen und\u00a0helfe, passende Angebote über geprüfte Reiseveranstalter zu\u00a0finden.',
+    contact: 'Kontakt',
+    cooperation: 'Kooperation',
+    cooperationHref: '/cooperation',
+    copyright: '\u00a9 2026 OST-West Travel. Alle Rechte vorbehalten.',
+  },
+  ru: {
+    brandDescription: 'Я\u00a0\u2014 Василя Нигматова, ваш персональный эксперт по\u00a0путешествиям в\u00a0Германии. С\u00a02007\u00a0года я\u00a0сопровождаю путешественников из\u00a0Германии и\u00a0Европы при\u00a0планировании круизов, семейных и\u00a0индивидуальных поездок и\u00a0помогаю подобрать подходящие предложения через проверенных туроператоров.',
+    contact: 'Контакт',
+    cooperation: 'Сотрудничество',
+    cooperationHref: '/ru/cooperation',
+    copyright: '\u00a9 2026 OST-West Travel. Все права защищены.',
+  },
+};
+
+export default function Footer({ lang = 'de' }: { lang?: Lang }) {
+  const text = t[lang];
+
   return (
-    <footer className="relative bg-ocean-deep text-white" role="contentinfo">
+    <footer id="footer" className="relative bg-ocean-deep text-white" role="contentinfo">
       <div className="absolute -top-24 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-ocean-deep pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent)]" />
       <div className="max-w-6xl mx-auto px-6 pt-14 pb-24 md:pb-14">
@@ -13,8 +33,7 @@ export default function Footer() {
               OST-West <span className="text-gold">Travel</span>
             </h2>
             <p className="text-white/50 leading-relaxed mb-5 max-w-md text-sm">
-              Я&nbsp;&mdash; Василя Нигматова, ваш персональный эксперт по&nbsp;путешествиям в&nbsp;Германии.
-              С&nbsp;2007&nbsp;года я&nbsp;сопровождаю путешественников из&nbsp;Германии и&nbsp;Европы при&nbsp;планировании круизов, семейных и&nbsp;индивидуальных поездок и&nbsp;помогаю подобрать подходящие предложения через проверенных туроператоров.
+              {text.brandDescription}
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -40,7 +59,7 @@ export default function Footer() {
 
           {/* Contacts */}
           <div>
-            <h3 className="text-base font-semibold mb-5 text-gold">Контакт</h3>
+            <h3 className="text-base font-semibold mb-5 text-gold">{text.contact}</h3>
             <address className="not-italic">
               <ul className="space-y-3 text-white/50 text-sm">
                 <li className="flex items-center gap-3">
@@ -64,13 +83,13 @@ export default function Footer() {
             <ul className="space-y-3 text-sm mt-10 md:mt-10">
               <li><Link href="/impressum" className="text-white/50 hover:text-white transition-colors">Impressum</Link></li>
               <li><Link href="/datenschutz" className="text-white/50 hover:text-white transition-colors">Datenschutz</Link></li>
-              <li><Link href="/cooperation" className="text-white/50 hover:text-white transition-colors">Сотрудничество</Link></li>
+              <li><Link href={text.cooperationHref} className="text-white/50 hover:text-white transition-colors">{text.cooperation}</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-xs">&copy; 2026 OST-West Travel. Все права защищены.</p>
+          <p className="text-white/30 text-xs">{text.copyright}</p>
         </div>
       </div>
     </footer>

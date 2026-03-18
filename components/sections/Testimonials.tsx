@@ -2,6 +2,34 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { Lang } from '@/lib/i18n';
+
+const t = {
+  de: {
+    label: 'Bewertungen',
+    title: 'Was meine Reisenden sagen',
+    prevAriaLabel: 'Vorherige Bewertung',
+    nextAriaLabel: 'Nächste Bewertung',
+    dotAriaLabel: 'Bewertung',
+    types: {
+      'Пакетный тур': 'Pauschalreise',
+      'Индивидуальный подбор': 'Individuelle Auswahl',
+      'Круиз': 'Kreuzfahrt',
+    } as Record<string, string>,
+  },
+  ru: {
+    label: 'Отзывы',
+    title: 'Что говорят мои путешественники',
+    prevAriaLabel: 'Предыдущий отзыв',
+    nextAriaLabel: 'Следующий отзыв',
+    dotAriaLabel: 'Отзыв',
+    types: {
+      'Пакетный тур': 'Пакетный тур',
+      'Индивидуальный подбор': 'Индивидуальный подбор',
+      'Круиз': 'Круиз',
+    } as Record<string, string>,
+  },
+};
 
 const testimonials = [
   {
@@ -87,7 +115,8 @@ const MutedStar = () => (
   </svg>
 );
 
-export default function Testimonials() {
+export default function Testimonials({ lang = 'de' }: { lang?: Lang }) {
+  const text = t[lang];
   const visibleCount = useVisibleCount();
   const maxIndex = Math.max(0, testimonials.length - visibleCount);
   const [current, setCurrent] = useState(0);
@@ -132,7 +161,7 @@ export default function Testimonials() {
       aria-labelledby="testimonials-heading"
     >
       <div className="max-w-[1120px] mx-auto px-6">
-        <SectionHeader label="Отзывы" title="Что говорят мои путешественники" headingId="testimonials-heading" />
+        <SectionHeader label={text.label} title={text.title} headingId="testimonials-heading" />
 
         <div
           onMouseEnter={() => { hovered.current = true; }}
@@ -144,7 +173,7 @@ export default function Testimonials() {
               className="flex transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{ transform: `translateX(-${pct}%)` }}
             >
-              {testimonials.map((t, i) => (
+              {testimonials.map((item, i) => (
                 <div
                   key={i}
                   className="px-3 shrink-0"
@@ -171,7 +200,7 @@ export default function Testimonials() {
                     {/* Quote */}
                     <blockquote className="relative flex-1">
                       <p className="text-base leading-[1.7] italic text-ocean-deep">
-                        &laquo;{t.text}&raquo;
+                        &laquo;{item.text}&raquo;
                       </p>
                     </blockquote>
 
@@ -181,13 +210,13 @@ export default function Testimonials() {
                     {/* Author */}
                     <div className="flex items-center gap-3">
                       <img
-                        src={t.image}
-                        alt={t.name}
+                        src={item.image}
+                        alt={item.name}
                         className="w-11 h-11 rounded-full object-cover shrink-0"
                       />
                       <div>
-                        <div className="text-[15px] font-bold text-ocean-deep">{t.name}</div>
-                        <div className="text-[13px] text-gray-500">{t.city} &bull; {t.type}</div>
+                        <div className="text-[15px] font-bold text-ocean-deep">{item.name}</div>
+                        <div className="text-[13px] text-gray-500">{item.city} &bull; {text.types[item.type] || item.type}</div>
                       </div>
                     </div>
                   </div>
@@ -201,7 +230,7 @@ export default function Testimonials() {
             <button
               onClick={prev}
               className="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all duration-300"
-              aria-label="Предыдущий отзыв"
+              aria-label={text.prevAriaLabel}
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6" />
@@ -218,7 +247,7 @@ export default function Testimonials() {
                       ? 'w-6 bg-gold'
                       : 'w-2 bg-gray-300 hover:bg-gray-400'
                   }`}
-                  aria-label={`Отзыв ${i + 1}`}
+                  aria-label={`${text.dotAriaLabel} ${i + 1}`}
                   aria-current={i === current ? 'true' : undefined}
                 />
               ))}
@@ -227,7 +256,7 @@ export default function Testimonials() {
             <button
               onClick={next}
               className="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all duration-300"
-              aria-label="Следующий отзыв"
+              aria-label={text.nextAriaLabel}
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 6 15 12 9 18" />

@@ -1,12 +1,36 @@
 import Image from 'next/image';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CTAButton from '@/components/ui/CTAButton';
+import { Lang } from '@/lib/i18n';
 
 // Tiny SVG placeholder matching ocean-deep theme - renders instantly before image loads
 const HERO_BLUR =
   'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwQzIzNDAiLz48c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzFFM0E1RiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBDMjM0MCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=';
 
-export default function Hero() {
+const t = {
+  de: {
+    heroAlt: 'Traumreisen - OST-West Travel',
+    heading: 'Ihre persönliche Reiseexpertin in Deutschland',
+    tags: ['Familienurlaub', 'Kreuzfahrten', 'Individuelle Reisen'] as const,
+    whatsapp: 'Details besprechen',
+    cta: 'Reise planen',
+    response: 'Antwort innerhalb einer Stunde während der Geschäftszeiten',
+    scrollDown: 'Nach unten scrollen',
+  },
+  ru: {
+    heroAlt: 'Путешествия мечты - OST-West Travel',
+    heading: 'Персональный эксперт по путешествиям в Германии',
+    tags: ['Семейный отдых', 'Круизы', 'Индивидуальные туры'] as const,
+    whatsapp: 'Обсудить детали',
+    cta: 'Подобрать путешествие',
+    response: 'Отвечаем в течение часа в рабочее время',
+    scrollDown: 'Прокрутить вниз',
+  },
+};
+
+export default function Hero({ lang = 'de' }: { lang?: Lang }) {
+  const text = t[lang];
+
   return (
     <section
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-ocean-deep"
@@ -16,7 +40,7 @@ export default function Hero() {
       <div className="absolute inset-0 hero-bg-reveal [transform:translateZ(0)]">
         <Image
           src="/images/hero.jpeg"
-          alt="Путешествия мечты - OST-West Travel"
+          alt={text.heroAlt}
           fill
           className="object-cover"
           priority
@@ -39,14 +63,14 @@ export default function Hero() {
           id="hero-heading"
           className="text-[1.7rem] sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-4 sm:mb-6"
         >
-          Персональный эксперт по путешествиям в Германии
+          {text.heading}
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold font-semibold drop-shadow-lg mb-4 sm:mb-6">
           Василя Нигматова
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
-          {['Семейный отдых', 'Круизы', 'Индивидуальные туры'].map((tag) => (
+          {text.tags.map((tag) => (
             <span key={tag} className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-medium text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full">
               {tag}
             </span>
@@ -54,20 +78,20 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <WhatsAppButton size="lg" className="w-full sm:w-auto justify-center">Обсудить детали</WhatsAppButton>
+          <WhatsAppButton size="lg" className="w-full sm:w-auto justify-center">{text.whatsapp}</WhatsAppButton>
           <CTAButton size="lg" href="#contact" className="w-full sm:w-auto justify-center">
-            Подобрать путешествие
+            {text.cta}
           </CTAButton>
         </div>
 
-        <p className="text-white font-semibold text-sm mt-4 sm:mt-5">Отвечаем в течение часа в рабочее время</p>
+        <p className="text-white font-semibold text-sm mt-4 sm:mt-5">{text.response}</p>
       </div>
 
       {/* Scroll indicator */}
       <a
         href="#about"
         className="absolute bottom-8 left-0 right-0 mx-auto w-fit text-white/50 hover:text-white transition-colors animate-float"
-        aria-label="Прокрутить вниз"
+        aria-label={text.scrollDown}
       >
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
       </a>

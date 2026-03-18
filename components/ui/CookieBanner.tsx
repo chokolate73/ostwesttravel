@@ -1,12 +1,52 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Lang } from '@/lib/i18n';
 
-export default function CookieBanner() {
+const t = {
+  de: {
+    ariaLabel: 'Cookie-Einwilligung',
+    message: 'Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern.',
+    privacyLink: 'Datenschutzerklärung',
+    close: 'Schließen',
+    customize: 'Anpassen',
+    acceptAll: 'Alle akzeptieren',
+    settingsTitle: 'Cookie-Einstellungen',
+    essential: 'Notwendig',
+    essentialDesc: 'Erforderlich für den Betrieb der Website',
+    analytics: 'Analyse',
+    analyticsDesc: 'Helfen, die Website zu verbessern',
+    marketing: 'Marketing',
+    marketingDesc: 'Personalisierte Werbung',
+    back: 'Zurück',
+    saveSettings: 'Einstellungen speichern',
+  },
+  ru: {
+    ariaLabel: 'Согласие на использование cookie',
+    message: 'Этот сайт использует cookie для улучшения вашего опыта.',
+    privacyLink: 'Политика конфиденциальности',
+    close: 'Закрыть',
+    customize: 'Настроить',
+    acceptAll: 'Принять все',
+    settingsTitle: 'Настройки cookie',
+    essential: 'Необходимые',
+    essentialDesc: 'Обязательные для работы сайта',
+    analytics: 'Аналитика',
+    analyticsDesc: 'Помогают улучшить сайт',
+    marketing: 'Маркетинг',
+    marketingDesc: 'Персонализированная реклама',
+    back: 'Назад',
+    saveSettings: 'Сохранить настройки',
+  },
+};
+
+export default function CookieBanner({ lang = 'de' }: { lang?: Lang }) {
   const [visible, setVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [analytics, setAnalytics] = useState(true);
   const [marketing, setMarketing] = useState(false);
+
+  const s = t[lang];
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
@@ -38,7 +78,7 @@ export default function CookieBanner() {
     <div
       className="fixed bottom-[60px] sm:bottom-0 left-0 right-0 z-[60] animate-slideUp"
       role="dialog"
-      aria-label="Согласие на использование cookie"
+      aria-label={s.ariaLabel}
     >
       <div className="mx-auto max-w-3xl px-4 pb-4 sm:px-6 sm:pb-6">
         <div className="rounded-2xl bg-ocean-deep/95 backdrop-blur-md shadow-2xl border border-white/10 p-5 sm:p-6">
@@ -68,12 +108,12 @@ export default function CookieBanner() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-                    Этот сайт использует cookie для улучшения вашего опыта.{' '}
+                    {s.message}{' '}
                     <a
                       href="https://touragent.de/datenschutz"
                       className="text-gold hover:text-gold-light underline underline-offset-2 transition-colors"
                     >
-                      Политика конфиденциальности
+                      {s.privacyLink}
                     </a>
                   </p>
                 </div>
@@ -81,7 +121,7 @@ export default function CookieBanner() {
                 <button
                   onClick={() => setVisible(false)}
                   className="flex-shrink-0 text-white/50 hover:text-white transition-colors p-1"
-                  aria-label="Закрыть"
+                  aria-label={s.close}
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -93,13 +133,13 @@ export default function CookieBanner() {
                   onClick={() => setShowSettings(true)}
                   className="order-2 sm:order-1 px-5 py-2.5 text-sm font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition-all"
                 >
-                  Настроить
+                  {s.customize}
                 </button>
                 <button
                   onClick={accept}
                   className="order-1 sm:order-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-gold to-gold-light text-ocean-deep hover:shadow-lg hover:shadow-gold/20 transition-all gold-glow"
                 >
-                  Принять все
+                  {s.acceptAll}
                 </button>
               </div>
             </div>
@@ -109,11 +149,11 @@ export default function CookieBanner() {
           {showSettings && (
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-white font-serif text-lg font-semibold">Настройки cookie</h3>
+                <h3 className="text-white font-serif text-lg font-semibold">{s.settingsTitle}</h3>
                 <button
                   onClick={() => setVisible(false)}
                   className="text-white/50 hover:text-white transition-colors p-1"
-                  aria-label="Закрыть"
+                  aria-label={s.close}
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -125,8 +165,8 @@ export default function CookieBanner() {
                 {/* Essential - always on */}
                 <label className="flex items-center justify-between gap-3 p-3 rounded-xl bg-white/5">
                   <div>
-                    <p className="text-sm font-medium text-white">Необходимые</p>
-                    <p className="text-xs text-white/50 mt-0.5">Обязательные для работы сайта</p>
+                    <p className="text-sm font-medium text-white">{s.essential}</p>
+                    <p className="text-xs text-white/50 mt-0.5">{s.essentialDesc}</p>
                   </div>
                   <div className="relative">
                     <div className="w-10 h-6 bg-gold/80 rounded-full" />
@@ -137,8 +177,8 @@ export default function CookieBanner() {
                 {/* Analytics */}
                 <label className="flex items-center justify-between gap-3 p-3 rounded-xl bg-white/5 cursor-pointer">
                   <div>
-                    <p className="text-sm font-medium text-white">Аналитика</p>
-                    <p className="text-xs text-white/50 mt-0.5">Помогают улучшить сайт</p>
+                    <p className="text-sm font-medium text-white">{s.analytics}</p>
+                    <p className="text-xs text-white/50 mt-0.5">{s.analyticsDesc}</p>
                   </div>
                   <button
                     type="button"
@@ -160,8 +200,8 @@ export default function CookieBanner() {
                 {/* Marketing */}
                 <label className="flex items-center justify-between gap-3 p-3 rounded-xl bg-white/5 cursor-pointer">
                   <div>
-                    <p className="text-sm font-medium text-white">Маркетинг</p>
-                    <p className="text-xs text-white/50 mt-0.5">Персонализированная реклама</p>
+                    <p className="text-sm font-medium text-white">{s.marketing}</p>
+                    <p className="text-xs text-white/50 mt-0.5">{s.marketingDesc}</p>
                   </div>
                   <button
                     type="button"
@@ -186,13 +226,13 @@ export default function CookieBanner() {
                   onClick={() => setShowSettings(false)}
                   className="order-2 sm:order-1 px-5 py-2.5 text-sm font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition-all"
                 >
-                  Назад
+                  {s.back}
                 </button>
                 <button
                   onClick={saveCustom}
                   className="order-1 sm:order-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-gold to-gold-light text-ocean-deep hover:shadow-lg hover:shadow-gold/20 transition-all gold-glow"
                 >
-                  Сохранить настройки
+                  {s.saveSettings}
                 </button>
               </div>
             </div>

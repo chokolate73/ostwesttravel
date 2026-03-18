@@ -16,7 +16,6 @@ import Contact from '@/components/sections/Contact';
 import Instagram from '@/components/sections/Instagram';
 import Footer from '@/components/sections/Footer';
 
-// Heavy client components - lazy-loaded to reduce initial JS bundle
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials'));
 const Upcoming = dynamic(() => import('@/components/sections/Upcoming'));
 const FAQ = dynamic(() => import('@/components/sections/FAQ'));
@@ -24,45 +23,27 @@ const FAQ = dynamic(() => import('@/components/sections/FAQ'));
 export default function Home() {
   return (
     <>
-      <Header />
+      <Header lang="de" />
       <main>
-        {/* 1. Hero */}
-        <Hero />
-        {/* 2. About */}
-        <About />
-        {/* 3. Why Me */}
-        <WhyMe />
-        {/* 4. Cruises (Flagship) */}
-        <Cruises />
-        {/* 5. Individual */}
-        <Individual />
-        {/* 6. Family */}
-        <Family />
-        {/* 7. Gallery */}
-        <Gallery />
-        {/* 8. Testimonials */}
-        <Testimonials />
-        {/* 9. Upcoming Tours */}
-        <Upcoming />
-        {/* 10. Process */}
-        <Process />
-        {/* 11. Deposit */}
-        <Deposit />
-        {/* 12. FAQ */}
-        <FAQ />
-        {/* 13. Contact Form */}
-        <Contact />
-        {/* 14. Instagram */}
-        <Instagram />
+        <Hero lang="de" />
+        <About lang="de" />
+        <WhyMe lang="de" />
+        <Cruises lang="de" />
+        <Individual lang="de" />
+        <Family lang="de" />
+        <Gallery lang="de" />
+        <Testimonials lang="de" />
+        <Upcoming lang="de" />
+        <Process lang="de" />
+        <Deposit lang="de" />
+        <FAQ lang="de" />
+        <Contact lang="de" />
+        <Instagram lang="de" />
       </main>
-      {/* 15. Footer */}
-      <Footer />
-      {/* Sticky CTA Panel */}
-      <StickyPanel />
-      {/* Floating phone button */}
-      <FloatingPhone />
-      {/* Cookie consent banner */}
-      <CookieBanner />
+      <Footer lang="de" />
+      <StickyPanel lang="de" />
+      <FloatingPhone lang="de" />
+      <CookieBanner lang="de" />
     </>
   );
 }
