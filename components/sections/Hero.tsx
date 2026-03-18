@@ -69,7 +69,7 @@ export default function Hero({ lang = 'de' }: { lang?: Lang }) {
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl font-serif text-gold font-semibold drop-shadow-lg mb-4 sm:mb-6">
-          Василя Нигматова
+          {lang === 'de' ? 'Vasilya Nigmatova' : 'Василя Нигматова'}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
           {text.tags.map((tag) => (

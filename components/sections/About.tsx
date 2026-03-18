@@ -66,7 +66,7 @@ export default function About({ lang = 'de' }: { lang?: Lang }) {
             </div>
 
             <h2 id="about-heading" className="text-3xl md:text-4xl font-serif text-ocean-deep mb-6">
-              Василя Нигматова
+              {lang === 'de' ? 'Vasilya Nigmatova' : 'Василя Нигматова'}
             </h2>
 
             {/* Short facts */}
