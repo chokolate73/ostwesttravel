@@ -31,57 +31,110 @@ const t = {
   },
 };
 
-const testimonials = [
-  {
-    text: 'Лучший групповой тур в нашей жизни!🔥😁🔥 Василя подобрала нам идеальный маршрут по Средиземноморью. Просто каааждый день был наполнен впечатлениями!',
-    name: 'Ирина и Сергей',
-    city: 'Франкфурт',
-    type: 'Пакетный тур',
-    image: '/images/мексика.jpeg',
-  },
-  {
-    text: 'Спасибо, что организовала нам медовый месяц мечты😍 Каюта с балконом, романтический ужин от капитана - всё было идеально до мелочей.',
-    name: 'Анна',
-    city: 'Мюнхен',
-    type: 'Индивидуальный подбор',
-    image: '/images/Анна.webp',
-  },
-  {
-    text: 'Уже третий раз бронируем через Василю. Всегда находит лучшие предложения и каюты, которые не найдёшь на сайтах.',
-    name: 'Дмитрий и Ольга',
-    city: 'Берлин',
-    type: 'Круиз',
-    image: '/images/Дмитрий & Ольга.webp',
-  },
-  {
-    text: 'Первый круиз и сразу влюбились! Василя терпеливо объяснила все нюансы, помогла с визами и трансфером.',
-    name: 'Марина',
-    city: 'Вена',
-    type: 'Круиз',
-    image: '/images/Марина.webp',
-  },
-  {
-    text: 'Поддержка 24/7 - это не просто слова. Когда изменили расписание рейса, Василя решила всё за час.',
-    name: 'Алексей',
-    city: 'Цюрих',
-    type: 'Индивидуальный подбор',
-    image: '/images/Алексей.webp',
-  },
-  {
-    text: 'Брали круиз по Норвежским фьордам - зрелище невероятное. Василя посоветовала каюту именно по правому борту, чтобы видеть лучшие виды. Такое внимание к деталям дорогого стоит!',
-    name: 'Наталья и Виктор',
-    city: 'Дюссельдорф',
-    type: 'Круиз',
-    image: '/images/Наталья & Виктор.webp',
-  },
-  {
-    text: 'Летели с двумя детьми - переживали очень. Василя подобрала лайнер с детским клубом и аквапарком, дети были в восторге. Уже планируем следующий!',
-    name: 'Елена',
-    city: 'Штутгарт',
-    type: 'Пакетный тур',
-    image: '/images/Елена.webp',
-  },
-];
+const testimonials = {
+  de: [
+    {
+      text: 'Die beste Gruppenreise unseres Lebens!🔥😁🔥 Vasilya hat uns die perfekte Route durchs Mittelmeer zusammengestellt. Einfach jeder Tag war voller Eindrücke!',
+      name: 'Irina und Sergej',
+      city: 'Frankfurt',
+      type: 'Пакетный тур',
+      image: '/images/мексика.jpeg',
+    },
+    {
+      text: 'Danke, dass du uns die Traumflitterwochen organisiert hast😍 Kabine mit Balkon, romantisches Dinner vom Kapitän - alles war bis ins kleinste Detail perfekt.',
+      name: 'Anna',
+      city: 'München',
+      type: 'Индивидуальный подбор',
+      image: '/images/Анна.webp',
+    },
+    {
+      text: 'Wir buchen bereits zum dritten Mal über Vasilya. Sie findet immer die besten Angebote und Kabinen, die man auf keiner Website findet.',
+      name: 'Dmitrij und Olga',
+      city: 'Berlin',
+      type: 'Круиз',
+      image: '/images/Дмитрий & Ольга.webp',
+    },
+    {
+      text: 'Erste Kreuzfahrt und sofort verliebt! Vasilya hat geduldig alle Einzelheiten erklärt und bei Visa und Transfer geholfen.',
+      name: 'Marina',
+      city: 'Wien',
+      type: 'Круиз',
+      image: '/images/Марина.webp',
+    },
+    {
+      text: '24/7-Support - das sind nicht nur Worte. Als der Flugplan geändert wurde, hat Vasilya alles innerhalb einer Stunde gelöst.',
+      name: 'Alexej',
+      city: 'Zürich',
+      type: 'Индивидуальный подбор',
+      image: '/images/Алексей.webp',
+    },
+    {
+      text: 'Wir haben eine Kreuzfahrt durch die norwegischen Fjorde gemacht - ein unglaubliches Erlebnis. Vasilya hat uns eine Kabine auf der Steuerbordseite empfohlen, um die besten Aussichten zu genießen. Diese Liebe zum Detail ist unbezahlbar!',
+      name: 'Natalja und Viktor',
+      city: 'Düsseldorf',
+      type: 'Круиз',
+      image: '/images/Наталья & Виктор.webp',
+    },
+    {
+      text: 'Wir sind mit zwei Kindern gereist - hatten große Bedenken. Vasilya hat ein Schiff mit Kinderclub und Aquapark ausgewählt, die Kinder waren begeistert. Wir planen schon die nächste Reise!',
+      name: 'Elena',
+      city: 'Stuttgart',
+      type: 'Пакетный тур',
+      image: '/images/Елена.webp',
+    },
+  ],
+  ru: [
+    {
+      text: 'Лучший групповой тур в нашей жизни!🔥😁🔥 Василя подобрала нам идеальный маршрут по Средиземноморью. Просто каааждый день был наполнен впечатлениями!',
+      name: 'Ирина и Сергей',
+      city: 'Франкфурт',
+      type: 'Пакетный тур',
+      image: '/images/мексика.jpeg',
+    },
+    {
+      text: 'Спасибо, что организовала нам медовый месяц мечты😍 Каюта с балконом, романтический ужин от капитана - всё было идеально до мелочей.',
+      name: 'Анна',
+      city: 'Мюнхен',
+      type: 'Индивидуальный подбор',
+      image: '/images/Анна.webp',
+    },
+    {
+      text: 'Уже третий раз бронируем через Василю. Всегда находит лучшие предложения и каюты, которые не найдёшь на сайтах.',
+      name: 'Дмитрий и Ольга',
+      city: 'Берлин',
+      type: 'Круиз',
+      image: '/images/Дмитрий & Ольга.webp',
+    },
+    {
+      text: 'Первый круиз и сразу влюбились! Василя терпеливо объяснила все нюансы, помогла с визами и трансфером.',
+      name: 'Марина',
+      city: 'Вена',
+      type: 'Круиз',
+      image: '/images/Марина.webp',
+    },
+    {
+      text: 'Поддержка 24/7 - это не просто слова. Когда изменили расписание рейса, Василя решила всё за час.',
+      name: 'Алексей',
+      city: 'Цюрих',
+      type: 'Индивидуальный подбор',
+      image: '/images/Алексей.webp',
+    },
+    {
+      text: 'Брали круиз по Норвежским фьордам - зрелище невероятное. Василя посоветовала каюту именно по правому борту, чтобы видеть лучшие виды. Такое внимание к деталям дорогого стоит!',
+      name: 'Наталья и Виктор',
+      city: 'Дюссельдорф',
+      type: 'Круиз',
+      image: '/images/Наталья & Виктор.webp',
+    },
+    {
+      text: 'Летели с двумя детьми - переживали очень. Василя подобрала лайнер с детским клубом и аквапарком, дети были в восторге. Уже планируем следующий!',
+      name: 'Елена',
+      city: 'Штутгарт',
+      type: 'Пакетный тур',
+      image: '/images/Елена.webp',
+    },
+  ],
+};
 
 function useVisibleCount() {
   const [count, setCount] = useState(3);
@@ -118,18 +171,19 @@ const MutedStar = () => (
 export default function Testimonials({ lang = 'de' }: { lang?: Lang }) {
   const text = t[lang];
   const visibleCount = useVisibleCount();
-  const maxIndex = Math.max(0, testimonials.length - visibleCount);
+  const items = testimonials[lang];
+  const maxIndex = Math.max(0, items.length - visibleCount);
   const [current, setCurrent] = useState(0);
   const hovered = useRef(false);
 
   const goTo = useCallback((i: number) => {
     setCurrent((prev) => {
-      const max = Math.max(0, testimonials.length - visibleCount);
+      const max = Math.max(0, items.length - visibleCount);
       if (i < 0) return max;
       if (i > max) return 0;
       return i;
     });
-  }, [visibleCount]);
+  }, [visibleCount, items.length]);
 
   const next = useCallback(() => goTo(current + 1), [current, goTo]);
   const prev = useCallback(() => goTo(current - 1), [current, goTo]);
@@ -144,12 +198,12 @@ export default function Testimonials({ lang = 'de' }: { lang?: Lang }) {
     if (hovered.current) return;
     const interval = setInterval(() => {
       setCurrent((c) => {
-        const max = Math.max(0, testimonials.length - visibleCount);
+        const max = Math.max(0, items.length - visibleCount);
         return c >= max ? 0 : c + 1;
       });
     }, 5000);
     return () => clearInterval(interval);
-  }, [visibleCount]);
+  }, [visibleCount, items.length]);
 
   const dotCount = maxIndex + 1;
   const pct = (100 / visibleCount) * current;
@@ -173,7 +227,7 @@ export default function Testimonials({ lang = 'de' }: { lang?: Lang }) {
               className="flex transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{ transform: `translateX(-${pct}%)` }}
             >
-              {testimonials.map((item, i) => (
+              {items.map((item, i) => (
                 <div
                   key={i}
                   className="px-3 shrink-0"
