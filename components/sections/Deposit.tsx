@@ -3,7 +3,7 @@ import { Lang } from '@/lib/i18n';
 
 const t = {
   de: {
-    label: 'Persönliche Auswahl',
+    label: 'So starten wir',
     heading: 'Für Neukunden beginnt die Arbeit mit einer erstattbaren Kaution von\u00a069,90\u00a0\u20ac',
     paragraph1: 'So kann ich Ihrer Anfrage maximale Aufmerksamkeit widmen: aktuelle Preise bei Reiseveranstaltern prüfen, Verfügbarkeit, Aktionen und die besten Optionen für Ihre Termine, Ihr Budget und Ihre Wünsche finden.',
     bold: 'Wenn Sie eine Reise buchen – wird die Kaution vollständig erstattet.',

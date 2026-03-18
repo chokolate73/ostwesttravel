@@ -180,7 +180,7 @@ const faqDataDe: FAQCategory[] = [
       {
         id: "faq-deposit-why",
         q: "Warum wird die Reiseauswahl mit einer Kaution durchgeführt?",
-        a: "Ich gehe persönlich auf jede Anfrage ein – prüfe Optionen, überprüfe Hotels, bereite eine Auswahl vor. Die Kaution bestätigt einfach, dass wir zusammen arbeiten.",
+        a: "Ich widme mich jeder Anfrage persönlich – prüfe Optionen, überprüfe Hotels, bereite eine Auswahl vor. Die Kaution bestätigt einfach, dass wir zusammen arbeiten.",
       },
       {
         id: "faq-deposit-amount",
@@ -325,7 +325,7 @@ const faqDataDe: FAQCategory[] = [
       {
         id: "faq-gen-who",
         q: "Mit wem arbeiten Sie?",
-        a: "Mit deutschsprachigen Touristen in Deutschland und ganz Europa. Wir kommunizieren auf Deutsch – keine Sprachbarrieren.",
+        a: "Mit russischsprachigen Reisenden in Deutschland und ganz Europa. Kommunikation auf Deutsch und Russisch — ohne Sprachbarrieren.",
       },
       {
         id: "faq-gen-free",
