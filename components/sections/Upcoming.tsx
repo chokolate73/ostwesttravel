@@ -23,6 +23,7 @@ type Tour = {
     price: string;
     included: string[];
     itinerary: { day: string; desc: string }[];
+    route?: string[];
   };
 };
 
@@ -87,6 +88,19 @@ const toursRu: Tour[] = [
         { day: 'День 1', desc: 'Прямой перелёт из Германии, посадка на лайнер' },
         { day: 'День 2–13', desc: 'Круиз по Карибским островам — экскурсии, пляжи, шоу' },
         { day: 'День 14–15', desc: 'Возвращение, прямой перелёт в Германию' },
+      ],
+      route: [
+        'Ямайка',
+        'Панама',
+        'Колумбия',
+        'Доминиканская Республика',
+        'Синт-Мартен',
+        'Сент-Китс и Невис',
+        'Антигуа и Барбуда',
+        'Доминика',
+        'Сент-Люсия',
+        'Сент-Винсент и Гренадины',
+        'Барбадос',
       ],
     },
   },
@@ -154,6 +168,19 @@ const toursDe: Tour[] = [
         { day: 'Tag 2–13', desc: 'Kreuzfahrt durch die Karibik — Ausflüge, Strände, Shows' },
         { day: 'Tag 14–15', desc: 'Rückkehr, Direktflug nach Deutschland' },
       ],
+      route: [
+        'Jamaika',
+        'Panama',
+        'Kolumbien',
+        'Dominikanische Republik',
+        'Sint Maarten',
+        'St. Kitts und Nevis',
+        'Antigua und Barbuda',
+        'Dominica',
+        'St. Lucia',
+        'St. Vincent und die Grenadinen',
+        'Barbados',
+      ],
     },
   },
 ];
@@ -169,6 +196,7 @@ const t = {
     spotsLeft: 'Noch verfügbar',
     includedTitle: 'Inklusivleistungen',
     itineraryTitle: 'Tagesprogramm',
+    routeTitle: 'Route',
     requestProgram: 'Programm anfordern',
     moreDetails: 'Mehr erfahren',
     bookSpot: 'Platz buchen',
@@ -184,6 +212,7 @@ const t = {
     spotsLeft: 'Осталось',
     includedTitle: 'Что включено',
     itineraryTitle: 'Программа по дням',
+    routeTitle: 'Маршрут',
     requestProgram: 'Запросить программу',
     moreDetails: 'Подробнее',
     bookSpot: 'Забронировать место',
@@ -231,6 +260,7 @@ function Countdown({ targetDate, labels }: { targetDate: string; labels: string[
 function ProgramModal({ tour, lang, onClose }: { tour: Tour; lang: Lang; onClose: () => void }) {
   const p = tour.program;
   const s = t[lang];
+  const [tab, setTab] = useState<'itinerary' | 'route'>('itinerary');
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -306,19 +336,58 @@ function ProgramModal({ tour, lang, onClose }: { tour: Tour; lang: Lang; onClose
             </ul>
           </div>
 
-          {/* Itinerary */}
+          {/* Itinerary / Route tabs */}
           <div>
-            <h4 className="font-serif text-ocean-deep text-lg mb-3">{s.itineraryTitle}</h4>
-            <div className="space-y-3">
-              {p.itinerary.map((step) => (
-                <div key={step.day} className="flex gap-3">
-                  <span className="shrink-0 text-xs font-bold text-gold uppercase bg-gold/10 rounded-lg px-3 py-1.5 text-center whitespace-nowrap">
-                    {step.day}
-                  </span>
-                  <p className="text-sm text-gray-700 pt-1">{step.desc}</p>
-                </div>
-              ))}
-            </div>
+            {p.route && p.route.length > 0 ? (
+              <div className="flex gap-2 mb-4">
+                <button
+                  onClick={() => setTab('itinerary')}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                    tab === 'itinerary'
+                      ? 'bg-ocean-deep text-white'
+                      : 'bg-ocean-deep/5 text-ocean-deep hover:bg-ocean-deep/10'
+                  }`}
+                >
+                  {s.itineraryTitle}
+                </button>
+                <button
+                  onClick={() => setTab('route')}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                    tab === 'route'
+                      ? 'bg-ocean-deep text-white'
+                      : 'bg-ocean-deep/5 text-ocean-deep hover:bg-ocean-deep/10'
+                  }`}
+                >
+                  {s.routeTitle}
+                </button>
+              </div>
+            ) : (
+              <h4 className="font-serif text-ocean-deep text-lg mb-3">{s.itineraryTitle}</h4>
+            )}
+
+            {tab === 'itinerary' ? (
+              <div className="space-y-3">
+                {p.itinerary.map((step) => (
+                  <div key={step.day} className="flex gap-3">
+                    <span className="shrink-0 text-xs font-bold text-gold uppercase bg-gold/10 rounded-lg px-3 py-1.5 text-center whitespace-nowrap">
+                      {step.day}
+                    </span>
+                    <p className="text-sm text-gray-700 pt-1">{step.desc}</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-2">
+                {p.route?.map((port, idx) => (
+                  <div key={port} className="flex items-center gap-3">
+                    <span className="shrink-0 w-7 h-7 rounded-full bg-gold/10 text-gold text-xs font-bold flex items-center justify-center">
+                      {idx + 1}
+                    </span>
+                    <p className="text-sm text-gray-700">{port}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* CTA */}
