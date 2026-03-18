@@ -124,7 +124,7 @@ export default function DeLayout({
                   name: 'Warum wird die Reiseauswahl mit einer Kaution durchgeführt?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Ich gehe persönlich auf jede Anfrage ein – prüfe Optionen, überprüfe Hotels, bereite eine Auswahl vor. Die Kaution bestätigt einfach, dass wir zusammen arbeiten.',
+                    text: 'Ich widme mich jeder Anfrage persönlich – prüfe Optionen, überprüfe Hotels, bereite eine Auswahl vor. Die Kaution bestätigt einfach, dass wir zusammen arbeiten.',
                   },
                 },
                 {

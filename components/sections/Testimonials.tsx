@@ -41,7 +41,7 @@ const testimonials = {
       image: '/images/мексика.jpeg',
     },
     {
-      text: 'Danke, dass du uns die Traumflitterwochen organisiert hast😍 Kabine mit Balkon, romantisches Dinner vom Kapitän - alles war bis ins kleinste Detail perfekt.',
+      text: 'Danke, dass du uns die Traumflitterwochen organisiert hast😍 Kabine mit Balkon, Kapitänsdinner — alles war bis ins kleinste Detail perfekt.',
       name: 'Anna',
       city: 'München',
       type: 'Индивидуальный подбор',
