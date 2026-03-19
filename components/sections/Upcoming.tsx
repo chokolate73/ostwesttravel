@@ -36,7 +36,7 @@ const toursRu: Tour[] = [
     type: 'land',
     highlight: 'Шёлковый путь, 6 городов, 11 дней',
     spots: 'места ограничены',
-    image: '/images/узбекистан.jpeg',
+    image: '/images/usbekistan-seidenstrasse.jpeg',
     alt: 'Тур по Шёлковому пути — Узбекистан, сентябрь 2026',
     program: {
       ship: 'Ургенч → Хива → Бухара → Самарканд → Шахрисабз → Ташкент',
@@ -115,7 +115,7 @@ const toursDe: Tour[] = [
     type: 'land',
     highlight: 'Seidenstraße, 6 Städte, 11 Tage',
     spots: 'begrenzte Plätze',
-    image: '/images/узбекистан.jpeg',
+    image: '/images/usbekistan-seidenstrasse.jpeg',
     alt: 'Reise auf der Seidenstraße — Usbekistan, September 2026',
     program: {
       ship: 'Urgentsch → Chiwa → Buchara → Samarkand → Schachrisabs → Taschkent',
