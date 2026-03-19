@@ -83,30 +83,19 @@ export default function About({ lang = 'ru' }: { lang?: Lang }) {
             </ul>
 
             {/* Trust badges */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-4">
-              <div className="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-ocean-deep/5">
-                <svg className="w-6 h-6 text-gold mb-1.5 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
-                <span className="text-xs sm:text-sm font-medium text-ocean-deep">{text.badge1.split('\n').map((line, i) => <span key={i}>{line}<br /></span>)}</span>
-              </div>
-              <div className="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-ocean-deep/5">
-                <svg className="w-6 h-6 text-gold mb-1.5 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="7" width="20" height="13" rx="2" />
-                  <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
-                  <path d="M2 12h20" />
-                  <path d="M12 12v2" />
-                </svg>
-                <span className="text-xs sm:text-sm font-medium text-ocean-deep">{text.badge2.split('\n').map((line, i) => <span key={i}>{line}<br /></span>)}</span>
-              </div>
-              <div className="flex flex-col items-center text-center p-3 sm:p-4 rounded-xl bg-ocean-deep/5">
-                <svg className="w-6 h-6 text-gold mb-1.5 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="7" r="4" />
-                  <path d="M5.5 21a6.5 6.5 0 0113 0" />
-                </svg>
-                <span className="text-xs sm:text-sm font-medium text-ocean-deep whitespace-nowrap">{text.badge3.split('\n').map((line, i) => <span key={i}>{line}<br /></span>)}</span>
-              </div>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
+              {[
+                { icon: <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" /></>, text: text.badge1 },
+                { icon: <><rect x="2" y="7" width="20" height="13" rx="2" /><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" /><path d="M2 12h20" /><path d="M12 12v2" /></>, text: text.badge2 },
+                { icon: <><circle cx="12" cy="7" r="4" /><path d="M5.5 21a6.5 6.5 0 0113 0" /></>, text: text.badge3 },
+              ].map((badge, idx) => (
+                <div key={idx} className="flex flex-col items-center justify-center text-center p-2 sm:p-4 rounded-xl bg-ocean-deep/5 min-h-[100px] sm:min-h-[120px]">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gold mb-1.5 sm:mb-2 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
+                    {badge.icon}
+                  </svg>
+                  <span className="text-[11px] sm:text-sm font-medium text-ocean-deep leading-tight">{badge.text.split('\n').map((line, i) => <span key={i}>{line}<br /></span>)}</span>
+                </div>
+              ))}
             </div>
           </ScrollReveal>
         </div>
