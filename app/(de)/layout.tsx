@@ -16,10 +16,12 @@ const inter = Inter({
   display: 'swap',
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://touragent.de';
+
 export const metadata: Metadata = {
   title: 'OST-West Travel – Vasilya Nigmatova | Ihre persönliche Reiseexpertin in Deutschland',
   description:
-    'Vasilya Nigmatova – Ihre persönliche Reiseexpertin in Deutschland seit 2008. Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub. Malediven, Karibik, Mittelmeer.',
+    'Vasilya Nigmatova – Ihre persönliche Reiseexpertin in Deutschland seit 2007. Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub. Malediven, Karibik, Mittelmeer.',
   authors: [{ name: 'Vasilya Nigmatova' }],
   robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   openGraph: {
@@ -29,11 +31,11 @@ export const metadata: Metadata = {
     siteName: 'OST-West Travel',
     title: 'OST-West Travel – Ihre persönliche Reiseexpertin in Deutschland',
     description:
-      'Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub. Erfahrung seit 2008.',
-    url: 'https://touragent.de/de/',
+      'Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub. Erfahrung seit 2007.',
+    url: `${SITE_URL}/de/`,
     images: [
       {
-        url: 'https://ostwesttravel.vercel.app/images/preview.jpg?v=2',
+        url: `${SITE_URL}/images/preview.jpg`,
         width: 1200,
         height: 630,
         alt: 'OST-West Travel – Traumreisen',
@@ -43,21 +45,21 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'OST-West Travel – Ihre persönliche Reiseexpertin in Deutschland',
-    description: 'Kreuzfahrten, individuelle Reisen, Familienurlaub. Seit 2008.',
-    images: ['https://ostwesttravel.vercel.app/images/preview.jpg?v=2'],
+    description: 'Kreuzfahrten, individuelle Reisen, Familienurlaub. Seit 2007.',
+    images: [`${SITE_URL}/images/preview.jpg`],
   },
   other: {
     'geo.region': 'DE',
-    'geo.placename': 'Deutschland',
-    'geo.position': '51.1657;10.4515',
-    ICBM: '51.1657, 10.4515',
+    'geo.placename': 'Erftstadt',
+    'geo.position': '50.7848344;6.7577333',
+    ICBM: '50.7848344, 6.7577333',
   },
   alternates: {
-    canonical: 'https://touragent.de/de/',
+    canonical: `${SITE_URL}/de/`,
     languages: {
-      ru: 'https://touragent.de/',
-      de: 'https://touragent.de/de/',
-      'x-default': 'https://touragent.de/',
+      ru: `${SITE_URL}/`,
+      de: `${SITE_URL}/de/`,
+      'x-default': `${SITE_URL}/de/`,
     },
   },
 };
@@ -84,23 +86,26 @@ export default function DeLayout({
               name: 'OST-West Travel',
               alternateName: 'Touragent.de',
               description:
-                'Ihre persönliche Reiseexpertin in Deutschland. Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub seit 2008.',
+                'Ihre persönliche Reiseexpertin in Deutschland. Begleitete Gruppenkreuzfahrten, individuelle Reisen, Familienurlaub seit 2007.',
               url: 'https://touragent.de',
-              telephone: '+491631759956',
-              email: 'info@touragent.de',
+              telephone: '+4922127253591',
+              email: 'info@ostwesttravel.de',
               address: {
                 '@type': 'PostalAddress',
+                streetAddress: 'Franz-Xaver-Mauer-Straße 34',
+                postalCode: '50374',
+                addressLocality: 'Erftstadt',
+                addressRegion: 'Nordrhein-Westfalen',
                 addressCountry: 'DE',
               },
               geo: {
                 '@type': 'GeoCoordinates',
-                latitude: '51.1657',
-                longitude: '10.4515',
+                latitude: '50.7848344',
+                longitude: '6.7577333',
               },
-              image:
-                'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/69831101582afc7d27b64f2d/d6f042586_logo.png?width=1200&height=630&resize=contain',
+              image: 'https://touragent.de/images/preview.jpg',
               areaServed: { '@type': 'Country', name: 'Germany' },
-              knowsLanguage: ['de', 'ru', 'en'],
+              knowsLanguage: ['de', 'ru'],
               founder: {
                 '@type': 'Person',
                 name: 'Vasilya Nigmatova',
@@ -108,6 +113,14 @@ export default function DeLayout({
               },
               foundingDate: '2007',
               priceRange: '€€-€€€',
+              openingHoursSpecification: [
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                  opens: '10:00',
+                  closes: '18:00',
+                },
+              ],
               sameAs: ['https://instagram.com/touragent.de'],
             }),
           }}
@@ -129,10 +142,74 @@ export default function DeLayout({
                 },
                 {
                   '@type': 'Question',
+                  name: 'Wie hoch ist die Kaution?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: '69,90 € für die erste Anfrage.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Wird die Kaution erstattet?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Ja! Wenn Sie eine Reise buchen – wird die Kaution vollständig erstattet.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Begleiten Sie die Gruppen persönlich?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Ja, ich bin persönlich an Bord mit der Gruppe – von der Einschiffung bis zur Rückkehr.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Wie viele Personen in der Gruppe?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Normalerweise 20–50 Personen – eine gemütliche Gesellschaft.',
+                  },
+                },
+                {
+                  '@type': 'Question',
                   name: 'Welche Reiseziele bietet OST-West Travel an?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Begleitete Gruppenkreuzfahrten, individuelle Reisen (Malediven, Karibik, Europa, Asien) und Familienurlaub weltweit. Seit 2008.',
+                    text: 'Begleitete Gruppenkreuzfahrten (Karibik, Mittelmeer, Asien), individuelle Reisen (Malediven, Karibik, Europa, Asien) und Familienurlaub weltweit.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Bieten Sie Urlaub für Familien mit Kindern an?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Ja, das ist eines meiner Lieblingsthemen – ich verstehe selbst, wie wichtig das ist.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Wie wird die Buchung abgewickelt?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Offiziell, über deutsche Reiseveranstalter – Sie erhalten das komplette Dokumentenpaket und Versicherung.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Sind Sie während der Reise erreichbar?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Ja! Ich bin vor, während und nach der Reise erreichbar. Wenn etwas schiefgeht – lösen wir es gemeinsam.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Kann man zuerst Fragen stellen?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Natürlich! Schreiben Sie mir auf WhatsApp, fragen Sie alles – das verpflichtet zu nichts.',
                   },
                 },
               ],
