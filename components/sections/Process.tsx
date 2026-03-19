@@ -5,13 +5,13 @@ import { Lang } from '@/lib/i18n';
 const t = {
   de: {
     label: 'Ablauf der Zusammenarbeit',
-    title: 'So läuft die Zusammenarbeit',
+    title: 'So läuft unsere Zusammenarbeit ab',
     steps: [
-      { num: 1, title: 'Sie erzählen, wohin Sie reisen möchten', text: 'Über die Website oder WhatsApp' },
-      { num: 2, title: 'Ich kläre die Details', text: 'Urlaubsformat, Budget, Termine und weitere Nuancen' },
-      { num: 3, title: 'Vorbereitung der Optionen', text: 'Ich biete durchdachte Varianten mit Vor- und Nachteilen und ehrlichen Kommentaren' },
-      { num: 4, title: 'Buchung', text: 'Wir buchen die gewählte Option über einen offiziellen Reiseveranstalter' },
-      { num: 5, title: 'Unterstützung auf der Reise', text: 'Ich bin erreichbar – vor, während und nach der Reise. Wenn sich etwas ändert – Sie sind nicht allein' },
+      { num: 1, title: 'Sie teilen mir Ihren Reisewunsch mit', text: 'über das Kontaktformular auf der Website oder per WhatsApp melden.' },
+      { num: 2, title: 'Ich kläre alle wichtigen Details', text: 'Gemeinsam besprechen wir Format des Urlaubs, Budgetrahmen, Reisedaten und alle weiteren Wünsche.' },
+      { num: 3, title: 'Maßgeschneiderte Reisevorschläge', text: 'Ich erstelle Ihnen durchdachte, ehrliche Varianten – inklusive Vor- und Nachteilen sowie persönlichen Empfehlungen.' },
+      { num: 4, title: 'Reservierung & Buchung', text: 'Sobald Sie sich entschieden haben, buchen wir Ihre Wunschreise offiziell beim Veranstalter.' },
+      { num: 5, title: 'Persönliche Betreuung', text: 'Ich bin vor, während und nach der Reise für Sie erreichbar. Falls etwas nicht wie geplant läuft – Sie stehen nie allein da.' },
     ],
   },
   ru: {
