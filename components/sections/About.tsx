@@ -4,14 +4,14 @@ import { Lang } from '@/lib/i18n';
 
 const t = {
   de: {
-    label: 'Warum mir vertraut wird',
+    label: 'Warum mir Kund:innen vertrauen',
     alt: 'Vasilya Nigmatova - Ihre persönliche Reiseexpertin, OST-West Travel',
     facts: [
-      { title: 'Erfahrung im Tourismus seit 2007', desc: 'Fast 20 Jahre praktische Erfahrung – von der Auswahl bis zur Begleitung komplexer Routen' },
-      { title: 'Professionelle Ausbildung in Deutschland', desc: 'Tourismusausbildung und IHK-Zertifikat' },
-      { title: 'Eigenes Reisebüro', desc: 'Offiziell und nach EU-Recht tätig' },
-      { title: 'Verträge mit führenden Reiseveranstaltern', desc: 'Zusammenarbeit nur mit geprüften Partnern' },
-      { title: 'Persönliche Hotel- und Routenprüfung', desc: 'Nur Angebote, von deren Qualität ich überzeugt bin' },
+      { title: 'Erfahrung im Tourismus seit 2007', desc: 'Fast 20 Jahre praktische Erfahrung – von der individuellen Reiseplanung bis zur Begleitung anspruchsvoller Routen.' },
+      { title: 'Fachausbildung in Deutschland', desc: 'Ausbildung im Tourismusbereich sowie IHK-Zertifizierung.' },
+      { title: 'Eigenes Reisebüro', desc: 'Offiziell registriert und tätig nach EU-Recht.' },
+      { title: 'Zusammenarbeit mit führenden Reiseveranstaltern', desc: 'Buchungen ausschließlich über zuverlässige und geprüfte Partner.' },
+      { title: 'Persönlich geprüfte Hotels und Routen', desc: 'Ich empfehle nur Angebote, von deren Qualität ich selbst überzeugt bin.' },
     ],
     badge1: 'Offiziell\nin Deutschland\nund Europa',
     badge2: 'Geprüfte\nReiseveranstalter',

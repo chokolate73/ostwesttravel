@@ -4,11 +4,11 @@ import { Lang } from '@/lib/i18n';
 const t = {
   de: {
     label: 'So starten wir',
-    heading: 'Für Neukunden beginnt die Arbeit mit einer erstattbaren Kaution von\u00a069,90\u00a0\u20ac',
-    paragraph1: 'So kann ich Ihrer Anfrage maximale Aufmerksamkeit widmen: aktuelle Preise bei Reiseveranstaltern prüfen, Verfügbarkeit, Aktionen und die besten Optionen für Ihre Termine, Ihr Budget und Ihre Wünsche finden.',
+    heading: 'Für neue Kunden beginnt die intensive, persönliche Betreuung mit einem Deposit in Höhe von\u00a069,90\u00a0\u20ac.',
+    paragraph1: 'Diese Gebühr ermöglicht mir, mich voll und ganz Ihrem Wunsch zu widmen: Ich prüfe aktuelle Preise bei den Veranstaltern, prüfe Verfügbarkeiten und Aktionen und stelle die besten Reisevarianten genau auf Ihre Termine, Ihr Budget und Ihre Wünsche ab.',
     bold: 'Wenn Sie eine Reise buchen – wird die Kaution vollständig erstattet.',
-    notBook: 'Wenn Sie sich gegen eine Buchung entscheiden, bleibt die Kaution als Bezahlung für die persönliche Auswahl und die aufgewendete Zeit.',
-    regular: 'Für Stammkunden ist keine Kaution erforderlich.',
+    notBook: 'Entscheiden Sie sich gegen eine Buchung, bleibt die Anzahlung als faire Vergütung für die intensive Beratung und den Zeitaufwand.',
+    regular: 'Stammkunden benötigen keine Anzahlung.',
     link: 'Mehr zu den Bedingungen',
   },
   ru: {

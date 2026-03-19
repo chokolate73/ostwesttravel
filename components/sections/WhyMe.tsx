@@ -55,14 +55,14 @@ const icons = [
 const t = {
   de: {
     label: 'Vorteile',
-    title: 'Was Sie bei mir bekommen',
+    title: 'Ihre Vorteile bei einer Zusammenarbeit mit mir',
     values: [
-      { title: 'Persönliche Auswahl', text: 'Ich schicke Ihnen keine 20 zufälligen Angebote. Ich höre zu, kläre Details und wähle passend zu Ihrem Lebensstil, Budget und Erwartungen aus' },
-      { title: 'Geprüfte Hotels und Kreuzfahrten', text: 'Ich empfehle nur das, wovon ich überzeugt bin. Ich kenne die Details – wo die besten Kabinen sind, wo es laut ist, wo es sein Geld wirklich wert ist' },
-      { title: 'Zeitersparnis für Sie', text: 'Sie verbringen keine Abende mit Vergleichsseiten und Foren. Ich übernehme Auswahl, Prüfung und Buchung' },
-      { title: 'Support rund um die Uhr', text: 'Vor, während und nach der Reise. Wenn sich etwas ändert – Sie stehen nicht allein vor der Fluggesellschaft oder dem Hotel. Ich bin immer erreichbar' },
-      { title: 'Komfortable Kommunikation', text: 'Ohne Sprachbarrieren und komplizierte Formulierungen. Ich erkläre einfach und auf den Punkt' },
-      { title: 'Erfahrung seit 2007', text: 'Ich kenne den Markt von innen. Und weiß, wo Fallstricke lauern können' },
+      { title: 'Individuelle Reiseplanung', text: 'Statt unübersichtlicher Auswahl erhalten Sie maßgeschneiderte Vorschläge – abgestimmt auf Ihren Lebensstil, Ihr Budget und Ihre Wünsche.' },
+      { title: 'Geprüfte Hotels und Kreuzfahrten', text: 'Ich empfehle nur Angebote, die ich selbst sorgfältig ausgewählt habe. Ich kenne die Details – von ruhigen Lagen bis zu den wirklich lohnenswerten Optionen.' },
+      { title: 'Zeitersparnis', text: 'Kein stundenlanges Vergleichen von Webseiten und Bewertungen – ich übernehme Recherche, Auswahl und Buchung für Sie.' },
+      { title: 'Rund-um-die-Uhr-Betreuung (24/7)', text: 'Vor, während und nach Ihrer Reise. Bei Änderungen oder Problemen haben Sie immer eine direkte Ansprechpartnerin.' },
+      { title: 'Klare und unkomplizierte Kommunikation', text: 'Ohne Sprachbarrieren oder komplizierte Fachbegriffe – ich erkläre alles verständlich und transparent.' },
+      { title: 'Langjährige Erfahrung', text: 'Ich kenne den Markt aus erster Hand und weiß, worauf es wirklich ankommt – inklusive möglicher Fallstricke.' },
     ],
   },
   ru: {
