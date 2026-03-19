@@ -110,7 +110,7 @@ export default function CookieBanner({ lang = 'ru' }: { lang?: Lang }) {
                   <p className="text-sm sm:text-base text-white/90 leading-relaxed">
                     {s.message}{' '}
                     <a
-                      href="https://touragent.de/datenschutz"
+                      href="/de/datenschutz"
                       className="text-gold hover:text-gold-light underline underline-offset-2 transition-colors"
                     >
                       {s.privacyLink}
