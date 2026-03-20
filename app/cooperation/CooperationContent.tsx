@@ -2,7 +2,7 @@
 
 export default function CooperationContent() {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10 md:py-16">
+    <div className="max-w-3xl mx-auto px-6 py-10 md:py-16 pb-24 md:pb-32">
       <h1 className="text-3xl md:text-4xl font-bold text-ocean-deep mb-10">
         Сотрудничество с брендами
       </h1>
