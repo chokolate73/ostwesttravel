@@ -7,7 +7,7 @@ import { Lang } from '@/lib/i18n';
 const t = {
   de: {
     label: 'Angebot',
-    title: 'Persönliche Reisen',
+    title: 'Malediven, Karibik & Weltresorts – Persönliche Reiseplanung',
     subtitle: 'Ich finde die ideale Option über geprüfte Reiseveranstalter',
     destinations: [
       {

@@ -8,7 +8,7 @@ import { Lang } from '@/lib/i18n';
 const t = {
   de: {
     label: 'Exklusives Format',
-    title: 'Begleitete Gruppenkreuzfahrten',
+    title: 'Begleitete Gruppenkreuzfahrten ab Köln – AIDA, MSC, Costa & Mein Schiff',
     subtitle: 'Reisen Sie in Gesellschaft Gleichgesinnter – mit meiner persönlichen Begleitung an Bord',
     heading: 'Ein Reiseformat, das begeistert',
     description: 'Gruppen von 20 bis 50 Personen, 2–3 ausgewählte Kreuzfahrten pro Jahr. Persönliche Begleitung von der Einschiffung bis zum Abschlussabend.',
