@@ -3,14 +3,14 @@ import { Lang } from '@/lib/i18n';
 
 const t = {
   de: {
-    brandDescription: 'Ich\u00a0\u2014 Vasilya Nigmatova, Ihre persönliche Reiseexpertin in\u00a0Deutschland. Seit\u00a02007\u00a0begleite ich Reisende aus\u00a0Deutschland und\u00a0Europa bei\u00a0der Planung von Kreuzfahrten, Familien- und Individualreisen und\u00a0helfe, passende Angebote über geprüfte Reiseveranstalter zu\u00a0finden.',
+    brandDescription: 'Ich\u00a0- Vasilya Nigmatova, Ihre persönliche Reiseexpertin in\u00a0Deutschland. Seit\u00a02007\u00a0begleite ich Reisende aus\u00a0Deutschland und\u00a0Europa bei\u00a0der Planung von Kreuzfahrten, Familien- und Individualreisen und\u00a0helfe, passende Angebote über geprüfte Reiseveranstalter zu\u00a0finden.',
     contact: 'Kontakt',
     cooperation: 'Kooperation',
     cooperationHref: '/de/cooperation',
     copyright: '\u00a9 2026 OST-West Travel. Alle Rechte vorbehalten.',
   },
   ru: {
-    brandDescription: 'Я\u00a0\u2014 Василя Нигматова, ваш персональный эксперт по\u00a0путешествиям в\u00a0Германии. С\u00a02007\u00a0года я\u00a0сопровождаю путешественников из\u00a0Германии и\u00a0Европы при\u00a0планировании круизов, семейных и\u00a0индивидуальных поездок и\u00a0помогаю подобрать подходящие предложения через проверенных туроператоров.',
+    brandDescription: 'Я\u00a0- Василя Нигматова, ваш персональный эксперт по\u00a0путешествиям в\u00a0Германии. С\u00a02007\u00a0года я\u00a0сопровождаю путешественников из\u00a0Германии и\u00a0Европы при\u00a0планировании круизов, семейных и\u00a0индивидуальных поездок и\u00a0помогаю подобрать подходящие предложения через проверенных туроператоров.',
     contact: 'Контакт',
     cooperation: 'Сотрудничество',
     cooperationHref: '/cooperation',
