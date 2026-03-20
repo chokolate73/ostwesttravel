@@ -29,7 +29,7 @@ type Tour = {
 
 const toursRu: Tour[] = [
   {
-    title: 'Шёлковый путь — Узбекистан',
+    title: 'Шёлковый путь - Узбекистан',
     dates: '21 сентября - 1 октября 2026',
     startDate: '2026-09-21T00:00:00+02:00',
     format: 'Групповой тур',
@@ -37,7 +37,7 @@ const toursRu: Tour[] = [
     highlight: 'Шёлковый путь, 6 городов, 11 дней',
     spots: 'места ограничены',
     image: '/images/usbekistan-seidenstrasse.jpeg',
-    alt: 'Тур по Шёлковому пути — Узбекистан, сентябрь 2026',
+    alt: 'Тур по Шёлковому пути - Узбекистан, сентябрь 2026',
     program: {
       ship: 'Ургенч → Хива → Бухара → Самарканд → Шахрисабз → Ташкент',
       cabin: 'Отели 3–4 звезды (средний и повышенный класс)',
@@ -53,11 +53,11 @@ const toursRu: Tour[] = [
       ],
       itinerary: [
         { day: 'День 1', desc: 'Вылет из Германии, прибытие в Ургенч' },
-        { day: 'День 2–3', desc: 'Хива — древний город-музей, крепость Ичан-Кала' },
-        { day: 'День 4–5', desc: 'Бухара — мечети, медресе, торговые купола' },
-        { day: 'День 6–8', desc: 'Самарканд — Регистан, мавзолей Гур-Эмир, обсерватория Улугбека' },
-        { day: 'День 9', desc: 'Шахрисабз — дворец Тимура Ак-Сарай' },
-        { day: 'День 10–11', desc: 'Ташкент — столица, базары, перелёт домой' },
+        { day: 'День 2–3', desc: 'Хива - древний город-музей, крепость Ичан-Кала' },
+        { day: 'День 4–5', desc: 'Бухара - мечети, медресе, торговые купола' },
+        { day: 'День 6–8', desc: 'Самарканд - Регистан, мавзолей Гур-Эмир, обсерватория Улугбека' },
+        { day: 'День 9', desc: 'Шахрисабз - дворец Тимура Ак-Сарай' },
+        { day: 'День 10–11', desc: 'Ташкент - столица, базары, перелёт домой' },
       ],
     },
   },
@@ -70,23 +70,23 @@ const toursRu: Tour[] = [
     highlight: 'Карибы, All-Inclusive, VP+',
     spots: 'места ограничены',
     image: '/images/caribbean-cruise.jpg',
-    alt: 'Круиз по Карибским островам — ноябрь 2026',
+    alt: 'Круиз по Карибским островам - ноябрь 2026',
     program: {
       ship: 'AIDAdiva',
       cabin: '',
       price: 'от 2 450 € на человека',
       included: [
         'Прямой перелёт из Дюссельдорфа или Франкфурта',
-        'Трансфер аэропорт — порт — аэропорт',
+        'Трансфер аэропорт - порт - аэропорт',
         'Круиз по Карибским островам',
-        'Кабина выбранной категории — внутренняя, с окном или с балконом',
+        'Кабина выбранной категории - внутренняя, с окном или с балконом',
         'Питание VP+ (полный пансион плюс)',
         'Шоу, концерты и развлекательная программа',
         'Приятная компания новых друзей',
       ],
       itinerary: [
         { day: 'День 1', desc: 'Прямой перелёт из Германии, посадка на лайнер' },
-        { day: 'День 2–13', desc: 'Круиз по Карибским островам — экскурсии, пляжи, шоу' },
+        { day: 'День 2–13', desc: 'Круиз по Карибским островам - экскурсии, пляжи, шоу' },
         { day: 'День 14–15', desc: 'Возвращение, прямой перелёт в Германию' },
       ],
       route: [
@@ -108,7 +108,7 @@ const toursRu: Tour[] = [
 
 const toursDe: Tour[] = [
   {
-    title: 'Seidenstraße — Usbekistan',
+    title: 'Seidenstraße - Usbekistan',
     dates: '21. September - 1. Oktober 2026',
     startDate: '2026-09-21T00:00:00+02:00',
     format: 'Gruppenreise',
@@ -116,7 +116,7 @@ const toursDe: Tour[] = [
     highlight: 'Seidenstraße, 6 Städte, 11 Tage',
     spots: 'begrenzte Plätze',
     image: '/images/usbekistan-seidenstrasse.jpeg',
-    alt: 'Reise auf der Seidenstraße — Usbekistan, September 2026',
+    alt: 'Reise auf der Seidenstraße - Usbekistan, September 2026',
     program: {
       ship: 'Urgentsch → Chiwa → Buchara → Samarkand → Schachrisabs → Taschkent',
       cabin: 'Hotels 3–4 Sterne (Mittel- und gehobene Klasse)',
@@ -132,11 +132,11 @@ const toursDe: Tour[] = [
       ],
       itinerary: [
         { day: 'Tag 1', desc: 'Abflug aus Deutschland, Ankunft in Urgentsch' },
-        { day: 'Tag 2–3', desc: 'Chiwa — antike Museumsstadt, Festung Itschan-Kala' },
-        { day: 'Tag 4–5', desc: 'Buchara — Moscheen, Medressen, Handelskuppeln' },
-        { day: 'Tag 6–8', desc: 'Samarkand — Registan, Gur-Emir-Mausoleum, Observatorium von Ulugbek' },
-        { day: 'Tag 9', desc: 'Schachrisabs — Timurs Palast Ak-Sarai' },
-        { day: 'Tag 10–11', desc: 'Taschkent — Hauptstadt, Basare, Rückflug' },
+        { day: 'Tag 2–3', desc: 'Chiwa - antike Museumsstadt, Festung Itschan-Kala' },
+        { day: 'Tag 4–5', desc: 'Buchara - Moscheen, Medressen, Handelskuppeln' },
+        { day: 'Tag 6–8', desc: 'Samarkand - Registan, Gur-Emir-Mausoleum, Observatorium von Ulugbek' },
+        { day: 'Tag 9', desc: 'Schachrisabs - Timurs Palast Ak-Sarai' },
+        { day: 'Tag 10–11', desc: 'Taschkent - Hauptstadt, Basare, Rückflug' },
       ],
     },
   },
@@ -149,23 +149,23 @@ const toursDe: Tour[] = [
     highlight: 'Karibik, All-Inclusive, VP+',
     spots: 'begrenzte Plätze',
     image: '/images/caribbean-cruise.jpg',
-    alt: 'Kreuzfahrt durch die Karibik — November 2026',
+    alt: 'Kreuzfahrt durch die Karibik - November 2026',
     program: {
       ship: 'AIDAdiva',
       cabin: '',
       price: 'ab 2.450 € pro Person',
       included: [
         'Direktflug ab Düsseldorf oder Frankfurt',
-        'Transfer Flughafen — Hafen — Flughafen',
+        'Transfer Flughafen - Hafen - Flughafen',
         'Kreuzfahrt durch die Karibik',
-        'Kabine der gewählten Kategorie — Innen-, Außen- oder Balkonkabine',
+        'Kabine der gewählten Kategorie - Innen-, Außen- oder Balkonkabine',
         'Verpflegung VP+ (Vollpension plus)',
         'Shows, Konzerte und Unterhaltungsprogramm',
         'Angenehme Gesellschaft neuer Freunde',
       ],
       itinerary: [
         { day: 'Tag 1', desc: 'Direktflug aus Deutschland, Einschiffung' },
-        { day: 'Tag 2–13', desc: 'Kreuzfahrt durch die Karibik — Ausflüge, Strände, Shows' },
+        { day: 'Tag 2–13', desc: 'Kreuzfahrt durch die Karibik - Ausflüge, Strände, Shows' },
         { day: 'Tag 14–15', desc: 'Rückkehr, Direktflug nach Deutschland' },
       ],
       route: [
