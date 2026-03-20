@@ -27,7 +27,7 @@ export default function CooperationContent() {
           </ul>
         </div>
 
-        <p className="font-medium italic text-ocean-deep">
+        <p className="font-medium text-ocean-deep">
           Я рассматриваю только те проекты и бренды, которые действительно могут быть интересны моей аудитории. И которые я лично считаю достойными рекомендации.
         </p>
 
