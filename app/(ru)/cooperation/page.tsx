@@ -4,7 +4,7 @@ import Footer from '@/components/sections/Footer';
 import CooperationContent from '../../../app/cooperation/CooperationContent';
 
 export const metadata: Metadata = {
-  title: 'Сотрудничество — OST-West Travel',
+  title: 'Сотрудничество - OST-West Travel',
   description:
     'Сотрудничество с брендами, отелями и туристическими проектами. Партнёрство с OST-West Travel.',
 };

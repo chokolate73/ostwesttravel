@@ -13,7 +13,7 @@ export default function CooperationContent() {
         </p>
 
         <p>
-          Wenn Ihr Unternehmen im Bereich Reisen, Lifestyle oder Gastfreundschaft tätig ist und Sie an einer Zusammenarbeit interessiert sind — freue ich mich, mögliche Formate zu besprechen.
+          Wenn Ihr Unternehmen im Bereich Reisen, Lifestyle oder Gastfreundschaft tätig ist und Sie an einer Zusammenarbeit interessiert sind - freue ich mich, mögliche Formate zu besprechen.
         </p>
 
         <div>
@@ -27,7 +27,7 @@ export default function CooperationContent() {
           </ul>
         </div>
 
-        <p className="font-medium italic text-ocean-deep">
+        <p className="font-medium text-ocean-deep">
           Ich berücksichtige nur Projekte und Marken, die für meine Zielgruppe wirklich interessant sein können. Und die ich persönlich für empfehlenswert halte.
         </p>
 
