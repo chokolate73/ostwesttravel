@@ -118,8 +118,13 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
   const [direction, setDirection] = useState("");
   const [clientType, setClientType] = useState<"new" | "existing" | null>(null);
   const [showClientPopup, setShowClientPopup] = useState(false);
+  const [origin, setOrigin] = useState("");
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
 
   const text = t[lang];
   const directionOptions = lang === 'de' ? directionOptionsDe : directionOptionsRu;
@@ -144,18 +149,15 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
     return () => window.removeEventListener("hashchange", readDirection);
   }, []);
 
+  const thankYouPath = lang === 'de' ? '/de/thank-you' : '/thank-you';
+  const nextUrl = origin ? `${origin}${thankYouPath}${clientType === 'new' ? '?type=new' : ''}` : '';
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     if (!clientType) {
       e.preventDefault();
       setShowClientPopup(true);
       return;
     }
-    // Set _next redirect URL dynamically before native form submit
-    const form = e.currentTarget;
-    const nextInput = form.querySelector<HTMLInputElement>('input[name="_next"]');
-    const thankYouPath = lang === 'de' ? '/de/thank-you' : '/thank-you';
-    const nextUrl = `${window.location.origin}${thankYouPath}${clientType === 'new' ? '?type=new' : ''}`;
-    if (nextInput) nextInput.value = nextUrl;
     // Let the form submit naturally to Formspree
   }
 
@@ -178,7 +180,7 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
               onSubmit={handleSubmit}
               className="bg-white rounded-2xl p-6 md:p-8 shadow-sm space-y-5"
             >
-              <input type="hidden" name="_next" value="" />
+              <input type="hidden" name="_next" value={nextUrl} />
               <input type="hidden" name="client_type" value={clientType || ''} />
               {/* Name */}
               <div>
