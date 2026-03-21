@@ -7,7 +7,7 @@ import { Lang } from '@/lib/i18n';
 const t = {
   de: {
     label: 'Bewertungen',
-    title: 'Was meine Reisenden sagen',
+    title: 'Bewertungen meiner Kunden aus Köln, Bonn und NRW',
     prevAriaLabel: 'Vorherige Bewertung',
     nextAriaLabel: 'Nächste Bewertung',
     dotAriaLabel: 'Bewertung',
