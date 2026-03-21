@@ -184,15 +184,23 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
 
     const formData = new FormData(e.currentTarget);
     formData.set("client_type", clientType);
+    const data = Object.fromEntries(formData);
 
     try {
       const res = await fetch("https://formspree.io/f/xojkzjje", {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       });
 
-      if (!res.ok) throw new Error("submit failed");
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        console.error("Formspree error:", res.status, body);
+        throw new Error("submit failed");
+      }
 
       if (clientType === "new") {
         setShowPaymentChoice(true);
