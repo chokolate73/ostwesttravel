@@ -73,8 +73,19 @@ const t = {
     commentLabel: "Kommentar",
     commentPlaceholder: "Ihre Wünsche...",
     submit: "Absenden",
+    submitting: "Wird gesendet...",
     footerNote: "Die Auswahl für neue Reisende beginnt nach Einzahlung der Kaution.",
     faqLink: "Bedingungen in FAQ",
+    paymentTitle: "Anfrage angenommen!",
+    paymentSubtitle: "Wählen Sie eine bequeme Zahlungsmethode für die Kaution von 69,90\u00a0\u20ac",
+    paypalDesc: "Zahlung über PayPal",
+    stripeDesc: "Bankkarte, Bankkonto, Apple\u00a0Pay oder Google\u00a0Pay",
+    securePayment: "Sichere Online-Zahlung",
+    depositNote: "Die Kaution wird nach Buchung der Reise erstattet.",
+    depositLearnMore: "Mehr erfahren",
+    successTitle: "Anfrage gesendet!",
+    successMessage: "Vasilya wird sich in Kürze bei Ihnen melden.",
+    errorMessage: "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
     whatsappButton: "Zu WhatsApp wechseln",
     popupTitle: "Sind Sie Neukunde oder Stammkunde?",
     popupNote: "Für Neukunden beginnt die Auswahl nach Einzahlung der erstattbaren Kaution von 69,90\u00a0\u20ac",
@@ -104,8 +115,19 @@ const t = {
     commentLabel: "Комментарий",
     commentPlaceholder: "Ваши пожелания...",
     submit: "Отправить",
+    submitting: "Отправляем...",
     footerNote: "Подбор для новых путешественников начинается после внесения депозита.",
     faqLink: "Условия в FAQ",
+    paymentTitle: "Заявка принята!",
+    paymentSubtitle: "Выберите удобный способ оплаты депозита\u00a069,90\u00a0\u20ac",
+    paypalDesc: "оплата через PayPal",
+    stripeDesc: "банковская карта, банковский счёт, Apple\u00a0Pay или Google\u00a0Pay",
+    securePayment: "Безопасная онлайн-оплата",
+    depositNote: "Депозит возвращается после бронирования путешествия.",
+    depositLearnMore: "Подробнее",
+    successTitle: "Заявка отправлена!",
+    successMessage: "Василя скоро свяжется с вами.",
+    errorMessage: "Произошла ошибка при отправке. Пожалуйста, попробуйте ещё раз.",
     whatsappButton: "Перейти в WhatsApp",
     popupTitle: "Вы новый или постоянный клиент?",
     popupNote: "Для новых клиентов подбор начинается после внесения возвратного депозита\u00a069,90\u00a0\u20ac",
@@ -118,13 +140,16 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
   const [direction, setDirection] = useState("");
   const [clientType, setClientType] = useState<"new" | "existing" | null>(null);
   const [showClientPopup, setShowClientPopup] = useState(false);
-  const [origin, setOrigin] = useState("");
+  const [showPaymentChoice, setShowPaymentChoice] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    setOrigin(window.location.origin);
-  }, []);
+  const STRIPE_PAYMENT_LINK = lang === 'de'
+    ? 'https://buy.stripe.com/eVqbJ3bg50kafQD7OcaAw02?locale=de'
+    : 'https://buy.stripe.com/14AaEZck9ff47k7ecAaAw01?locale=ru';
+  const PAYPAL_PAYMENT_LINK = "https://paypal.me/touragentde?locale.x=de_DE&country.x=DE";
 
   const text = t[lang];
   const directionOptions = lang === 'de' ? directionOptionsDe : directionOptionsRu;
@@ -149,16 +174,44 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
     return () => window.removeEventListener("hashchange", readDirection);
   }, []);
 
-  const thankYouPath = lang === 'de' ? '/de/thank-you' : '/thank-you';
-  const nextUrl = origin ? `${origin}${thankYouPath}${clientType === 'new' ? '?type=new' : ''}` : '';
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     if (!clientType) {
-      e.preventDefault();
       setShowClientPopup(true);
       return;
     }
-    // Let the form submit naturally to Formspree
+    setIsSubmitting(true);
+    setSubmitError(false);
+
+    const formData = new FormData(e.currentTarget);
+    formData.set("client_type", clientType);
+    // Remove honeypot from visible data
+    const data = Object.fromEntries(formData);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xojkzjje", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!res.ok) throw new Error("submit failed");
+
+      if (clientType === "new") {
+        setShowPaymentChoice(true);
+        setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      } else {
+        setSubmitted(true);
+        setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -171,17 +224,71 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
           headingId="contact-heading"
         />
 
-        {(
+        {showPaymentChoice ? (
           <ScrollReveal>
-            <form
-              ref={formRef}
-              action="https://formspree.io/f/xojkzjje"
-              method="POST"
-              onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-sm space-y-5"
-            >
-              <input type="hidden" name="_next" value={nextUrl} />
-              <input type="hidden" name="client_type" value={clientType || ''} />
+            <div className="bg-white rounded-2xl p-8 md:p-12 text-center shadow-sm">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/10 flex items-center justify-center">
+                <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+              </div>
+              <h3 className="text-2xl font-serif text-ocean-deep mb-2">{text.paymentTitle}</h3>
+              <p className="text-gray-500 mb-8">{text.paymentSubtitle}</p>
+              <div className="flex flex-col gap-3 max-w-md mx-auto">
+                <a
+                  href={PAYPAL_PAYMENT_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 px-5 py-4 rounded-2xl border-2 border-gray-200 hover:border-[#0070ba] hover:bg-[#0070ba]/5 transition-all cursor-pointer group"
+                >
+                  <svg className="w-10 h-10 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 3.72a.77.77 0 01.757-.654h6.451c2.138 0 3.626.563 4.424 1.674.373.52.61 1.103.707 1.733.101.66.05 1.45-.153 2.35l-.005.025v.462l.36.204c.305.16.548.35.735.57.313.37.516.838.602 1.39.089.567.06 1.225-.084 1.956-.166.84-.434 1.572-.798 2.176a4.587 4.587 0 01-1.24 1.378 5.048 5.048 0 01-1.663.793c-.618.178-1.326.268-2.104.268h-.5a1.504 1.504 0 00-1.486 1.27l-.038.194-.643 4.074-.029.14a.15.15 0 01-.044.095.143.143 0 01-.096.036H7.076z" fill="#253B80"/>
+                    <path d="M19.438 8.086c-.01.065-.023.13-.037.2-.776 3.98-3.428 5.353-6.815 5.353H10.87a.838.838 0 00-.828.709l-.878 5.563-.249 1.577a.44.44 0 00.435.511h3.053c.363 0 .672-.264.73-.621l.03-.155.578-3.664.037-.202a.736.736 0 01.728-.623h.459c2.97 0 5.294-1.206 5.973-4.694.284-1.457.137-2.673-.614-3.527a2.927 2.927 0 00-.84-.627z" fill="#179BD7"/>
+                    <path d="M18.504 7.706a5.937 5.937 0 00-.733-.163 9.312 9.312 0 00-1.482-.109h-4.49a.73.73 0 00-.727.622l-.955 6.055-.028.175a.838.838 0 01.828-.709h1.724c3.387 0 6.039-1.374 6.815-5.352.023-.118.043-.233.06-.345a3.94 3.94 0 00-1.012-.174z" fill="#222D65"/>
+                  </svg>
+                  <div className="text-left">
+                    <span className="text-base font-semibold text-gray-700 group-hover:text-[#0070ba] transition-colors">PayPal</span>
+                    <span className="block text-sm text-gray-400 leading-snug">{text.paypalDesc}</span>
+                  </div>
+                </a>
+                <a
+                  href={STRIPE_PAYMENT_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 px-5 py-4 rounded-2xl border-2 border-gray-200 hover:border-[#635bff] hover:bg-[#635bff]/5 transition-all cursor-pointer group"
+                >
+                  <svg className="w-10 h-10 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <rect x="1" y="2" width="22" height="20" rx="2.5" fill="#635BFF"/>
+                    <text x="12" y="15" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="sans-serif">S</text>
+                  </svg>
+                  <div className="text-left">
+                    <span className="text-base font-semibold text-gray-700 group-hover:text-[#635bff] transition-colors">Stripe</span>
+                    <span className="block text-sm text-gray-400 leading-snug">{text.stripeDesc}</span>
+                  </div>
+                </a>
+              </div>
+              <div className="flex items-center justify-center gap-1.5 mt-6 text-sm text-gray-400">
+                <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                <span>{text.securePayment}</span>
+              </div>
+              <p className="text-sm text-gray-400 mt-2 text-center">{text.depositNote} <a href="#faq-deposit-why" className="text-gold hover:text-gold-dark underline">{text.depositLearnMore}</a></p>
+            </div>
+          </ScrollReveal>
+        ) : submitted ? (
+          <ScrollReveal>
+            <div className="bg-white rounded-2xl p-8 md:p-12 text-center shadow-sm">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+                <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <h3 className="text-2xl font-serif text-ocean-deep mb-3">{text.successTitle}</h3>
+              <p className="text-gray-500 mb-6">{text.successMessage}</p>
+              <WhatsAppButton>{text.whatsappButton}</WhatsAppButton>
+            </div>
+          </ScrollReveal>
+        ) : (
+          <ScrollReveal>
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 md:p-8 shadow-sm space-y-5">
+              {/* Honeypot - hidden from humans, bots fill it and get rejected */}
+              <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
               {/* Name */}
               <div>
                 <label htmlFor="c-name" className="block text-sm font-medium text-gray-700 mb-1">{text.nameLabel}</label>
@@ -298,11 +405,20 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
                   placeholder={text.commentPlaceholder} />
               </div>
 
+              {/* Error */}
+              {submitError && (
+                <p className="text-sm text-red-600 text-center">{text.errorMessage}</p>
+              )}
+
               {/* Submit */}
-              <button type="submit"
-                className="w-full h-14 bg-gradient-to-r from-gold to-gold-light text-ocean-deep rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all gold-glow">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
-                {text.submit}
+              <button type="submit" disabled={isSubmitting}
+                className="w-full h-14 bg-gradient-to-r from-gold to-gold-light text-ocean-deep rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all gold-glow disabled:opacity-50 disabled:cursor-not-allowed">
+                {isSubmitting ? (
+                  <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
+                )}
+                {isSubmitting ? text.submitting : text.submit}
               </button>
 
               <p className="text-xs text-gray-400 text-center">
