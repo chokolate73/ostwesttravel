@@ -36,8 +36,8 @@ export default function Home() {
         <Upcoming lang="de" />
         <Process lang="de" />
         <Deposit lang="de" />
-        <FAQ lang="de" />
         <Contact lang="de" />
+        <FAQ lang="de" />
         <Instagram lang="de" />
       </main>
       <Footer lang="de" />

@@ -104,7 +104,7 @@ export default function Family({ lang = 'ru' }: { lang?: Lang }) {
         </div>
 
         <ScrollReveal className="text-center">
-          <CTAButton href="#contact?direction=family" className="w-full sm:w-auto justify-center">
+          <CTAButton href="#process" className="w-full sm:w-auto justify-center">
             {text.cta}
           </CTAButton>
         </ScrollReveal>

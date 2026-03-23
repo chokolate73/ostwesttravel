@@ -109,7 +109,7 @@ export default function Cruises({ lang = 'ru' }: { lang?: Lang }) {
 
         <div className="flex flex-col sm:flex-row gap-3 md:ml-[calc(50%+1.25rem)] mb-12">
           <WhatsAppButton size="sm" className="w-full sm:w-auto justify-center">{text.whatsapp}</WhatsAppButton>
-          <CTAButton size="sm" href="#contact?direction=cruises" className="w-full sm:w-auto justify-center">
+          <CTAButton size="sm" href="#process" className="w-full sm:w-auto justify-center">
             {text.cta}
           </CTAButton>
         </div>

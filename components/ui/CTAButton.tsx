@@ -2,7 +2,7 @@
 
 export default function CTAButton({
   children = 'Заказать путешествие',
-  href = '#contact',
+  href = '#process',
   className = '',
   size = 'md',
   variant = 'gold',

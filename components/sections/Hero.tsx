@@ -83,7 +83,7 @@ export default function Hero({ lang = 'ru' }: { lang?: Lang }) {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <WhatsAppButton size="lg" className="w-full sm:w-auto justify-center">{text.whatsapp}</WhatsAppButton>
-          <CTAButton size="lg" href="#contact" className="w-full sm:w-auto justify-center">
+          <CTAButton size="lg" href="#process" className="w-full sm:w-auto justify-center">
             {text.cta}
           </CTAButton>
         </div>
