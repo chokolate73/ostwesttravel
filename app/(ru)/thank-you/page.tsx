@@ -2,16 +2,112 @@
 
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
-const STRIPE_LINK = 'https://buy.stripe.com/14AaEZck9ff47k7ecAaAw01?locale=ru';
-const PAYPAL_LINK = 'https://paypal.me/touragentde?locale.x=de_DE&country.x=DE';
+const FORMSPREE_URL = "https://formspree.io/f/xojkzjje";
 
 function ThankYouContent() {
   const searchParams = useSearchParams();
   const isNew = searchParams.get('type') === 'new';
+  const isStripeReturn = searchParams.get('payment') === 'stripe';
 
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  // Auto-submit form data from localStorage after Stripe payment return
+  useEffect(() => {
+    if (!isStripeReturn) return;
+
+    const stored = localStorage.getItem("ostwest_form_data");
+    if (!stored) {
+      setFormStatus('success'); // Already submitted or no data
+      return;
+    }
+
+    setFormStatus('submitting');
+    const data = JSON.parse(stored);
+
+    fetch(FORMSPREE_URL, {
+      method: "POST",
+      body: JSON.stringify({ ...data, payment_method: "stripe" }),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("submit failed");
+        localStorage.removeItem("ostwest_form_data");
+        setFormStatus('success');
+      })
+      .catch(() => {
+        setFormStatus('error');
+      });
+  }, [isStripeReturn]);
+
+  // Stripe return flow
+  if (isStripeReturn) {
+    return (
+      <div className="max-w-xl mx-auto px-6 py-16 md:py-24 text-center">
+        {formStatus === 'submitting' && (
+          <>
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gold/10 flex items-center justify-center">
+              <svg className="w-10 h-10 text-gold animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+            </div>
+            <h1 className="text-2xl font-bold text-ocean-deep mb-2">Отправляем заявку...</h1>
+            <p className="text-gray-500">Пожалуйста, подождите</p>
+          </>
+        )}
+
+        {(formStatus === 'success' || formStatus === 'idle') && formStatus !== 'submitting' && (
+          <>
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
+              <svg className="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-ocean-deep mb-4">
+              Оплата и заявка приняты!
+            </h1>
+            <p className="text-lg text-gray-600 mb-3">
+              Василя скоро свяжется с вами.
+            </p>
+            <p className="text-gray-500 mb-10">
+              Депозит 69,90&nbsp;&euro; получен. Я начну подбор вашего путешествия в ближайшее время.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <WhatsAppButton size="lg">Написать в WhatsApp</WhatsAppButton>
+              <Link href="/" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                Вернуться на главную
+              </Link>
+            </div>
+          </>
+        )}
+
+        {formStatus === 'error' && (
+          <>
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-red-100 flex items-center justify-center">
+              <svg className="w-10 h-10 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+              </svg>
+            </div>
+            <h1 className="text-2xl font-bold text-ocean-deep mb-4">
+              Оплата прошла, но заявка не отправилась
+            </h1>
+            <p className="text-gray-500 mb-6">
+              Пожалуйста, свяжитесь с нами через WhatsApp — мы всё оформим вручную.
+            </p>
+            <WhatsAppButton size="lg">Написать в WhatsApp</WhatsAppButton>
+          </>
+        )}
+      </div>
+    );
+  }
+
+  // Original flow (existing/new client redirect from old flow)
   return (
     <div className="max-w-xl mx-auto px-6 py-16 md:py-24 text-center">
       <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
@@ -29,51 +125,9 @@ function ThankYouContent() {
       </p>
 
       {isNew ? (
-        <>
-          <p className="text-gray-500 mb-8">
-            Для новых клиентов подбор начинается после внесения возвратного депозита 69,90&nbsp;&euro;
-          </p>
-
-          <div className="flex flex-col gap-3 max-w-md mx-auto mb-8">
-            <a
-              href={PAYPAL_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 px-5 py-4 rounded-2xl border-2 border-gray-200 hover:border-[#0070ba] hover:bg-[#0070ba]/5 transition-all cursor-pointer group"
-            >
-              <svg className="w-10 h-10 shrink-0" viewBox="0 0 24 24" fill="none">
-                <path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 3.72a.77.77 0 01.757-.654h6.451c2.138 0 3.626.563 4.424 1.674.373.52.61 1.103.707 1.733.101.66.05 1.45-.153 2.35l-.005.025v.462l.36.204c.305.16.548.35.735.57.313.37.516.838.602 1.39.089.567.06 1.225-.084 1.956-.166.84-.434 1.572-.798 2.176a4.587 4.587 0 01-1.24 1.378 5.048 5.048 0 01-1.663.793c-.618.178-1.326.268-2.104.268h-.5a1.504 1.504 0 00-1.486 1.27l-.038.194-.643 4.074-.029.14a.15.15 0 01-.044.095.143.143 0 01-.096.036H7.076z" fill="#253B80"/>
-                <path d="M19.438 8.086c-.01.065-.023.13-.037.2-.776 3.98-3.428 5.353-6.815 5.353H10.87a.838.838 0 00-.828.709l-.878 5.563-.249 1.577a.44.44 0 00.435.511h3.053c.363 0 .672-.264.73-.621l.03-.155.578-3.664.037-.202a.736.736 0 01.728-.623h.459c2.97 0 5.294-1.206 5.973-4.694.284-1.457.137-2.673-.614-3.527a2.927 2.927 0 00-.84-.627z" fill="#179BD7"/>
-                <path d="M18.504 7.706a5.937 5.937 0 00-.733-.163 9.312 9.312 0 00-1.482-.109h-4.49a.73.73 0 00-.727.622l-.955 6.055-.028.175a.838.838 0 01.828-.709h1.724c3.387 0 6.039-1.374 6.815-5.352.023-.118.043-.233.06-.345a3.94 3.94 0 00-1.012-.174z" fill="#222D65"/>
-              </svg>
-              <div className="text-left">
-                <span className="text-base font-semibold text-gray-700 group-hover:text-[#0070ba] transition-colors">PayPal</span>
-                <span className="block text-sm text-gray-400 leading-snug">оплата через PayPal</span>
-              </div>
-            </a>
-            <a
-              href={STRIPE_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 px-5 py-4 rounded-2xl border-2 border-gray-200 hover:border-[#635bff] hover:bg-[#635bff]/5 transition-all cursor-pointer group"
-            >
-              <svg className="w-10 h-10 shrink-0" viewBox="0 0 24 24" fill="none">
-                <rect x="1" y="2" width="22" height="20" rx="2.5" fill="#635BFF"/>
-                <text x="12" y="15" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="sans-serif">S</text>
-              </svg>
-              <div className="text-left">
-                <span className="text-base font-semibold text-gray-700 group-hover:text-[#635bff] transition-colors">Stripe</span>
-                <span className="block text-sm text-gray-400 leading-snug">банковская карта, банковский счёт, Apple&nbsp;Pay или Google&nbsp;Pay</span>
-              </div>
-            </a>
-          </div>
-
-          <div className="flex items-center justify-center gap-1.5 mb-2 text-sm text-gray-400">
-            <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-            <span>Безопасная онлайн-оплата</span>
-          </div>
-          <p className="text-sm text-gray-400 mb-8">Депозит возвращается после бронирования путешествия.</p>
-        </>
+        <p className="text-gray-500 mb-10">
+          Для новых клиентов подбор начинается после внесения возвратного депозита 69,90&nbsp;&euro;
+        </p>
       ) : (
         <p className="text-gray-500 mb-10">
           Я свяжусь с вами в WhatsApp в течение часа в рабочее время, чтобы начать подбор вашего идеального путешествия.
