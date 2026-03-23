@@ -85,6 +85,9 @@ const t = {
     securePayment: "Sichere Online-Zahlung",
     depositNote: "Die Kaution wird nach Buchung der Reise erstattet.",
     depositLearnMore: "Mehr erfahren",
+    paypalConfirmButton: "Ich habe bezahlt",
+    paypalConfirmNote: "Klicken Sie hier, nachdem Sie die Kaution über PayPal bezahlt haben",
+    stripeRedirectNote: "Sie werden zu Stripe weitergeleitet. Nach der Zahlung kehren Sie automatisch zurück.",
     successTitle: "Anfrage gesendet!",
     successMessage: "Vasilya wird sich in Kürze bei Ihnen melden.",
     errorMessage: "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
@@ -129,6 +132,9 @@ const t = {
     securePayment: "Безопасная онлайн-оплата",
     depositNote: "Депозит возвращается после бронирования путешествия.",
     depositLearnMore: "Подробнее",
+    paypalConfirmButton: "Я оплатил(а)",
+    paypalConfirmNote: "Нажмите здесь после оплаты депозита через PayPal",
+    stripeRedirectNote: "Вы будете перенаправлены на Stripe. После оплаты вернётесь автоматически.",
     successTitle: "Заявка отправлена!",
     successMessage: "Василя скоро свяжется с вами.",
     errorMessage: "Произошла ошибка при отправке. Пожалуйста, попробуйте ещё раз.",
@@ -184,14 +190,22 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
       setShowClientPopup(true);
       return;
     }
-    setIsSubmitting(true);
-    setSubmitError(false);
 
     const formData = new FormData(e.currentTarget);
     formData.set("client_type", clientType);
-    // Remove honeypot from visible data
     const data = Object.fromEntries(formData);
 
+    if (clientType === "new") {
+      // Save form data to localStorage — will be sent after payment
+      localStorage.setItem("ostwest_form_data", JSON.stringify(data));
+      setShowPaymentChoice(true);
+      setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      return;
+    }
+
+    // Existing client: submit to Formspree immediately
+    setIsSubmitting(true);
+    setSubmitError(false);
     try {
       const res = await fetch("https://formspree.io/f/xojkzjje", {
         method: "POST",
@@ -201,16 +215,36 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
           Accept: "application/json",
         },
       });
-
       if (!res.ok) throw new Error("submit failed");
+      setSubmitted(true);
+      setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
-      if (clientType === "new") {
-        setShowPaymentChoice(true);
-        setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
-      } else {
-        setSubmitted(true);
-        setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
-      }
+  async function handlePaypalConfirm() {
+    setIsSubmitting(true);
+    setSubmitError(false);
+    try {
+      const stored = localStorage.getItem("ostwest_form_data");
+      if (!stored) throw new Error("no data");
+      const data = JSON.parse(stored);
+      const res = await fetch("https://formspree.io/f/xojkzjje", {
+        method: "POST",
+        body: JSON.stringify({ ...data, payment_method: "paypal" }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+      if (!res.ok) throw new Error("submit failed");
+      localStorage.removeItem("ostwest_form_data");
+      setShowPaymentChoice(false);
+      setSubmitted(true);
+      setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
     } catch {
       setSubmitError(true);
     } finally {
@@ -235,7 +269,8 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
                 <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
               </div>
               <h3 className="text-2xl font-serif text-ocean-deep mb-2">{text.paymentTitle}</h3>
-              <p className="text-gray-500 mb-8">{text.paymentSubtitle}</p>
+              <p className="text-gray-500 mb-2">{text.paymentSubtitle}</p>
+              <p className="text-xs text-gray-400 mb-8">{text.stripeRedirectNote}</p>
               <div className="flex flex-col gap-3 max-w-md mx-auto">
                 <a
                   href={PAYPAL_PAYMENT_LINK}
@@ -255,8 +290,6 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
                 </a>
                 <a
                   href={STRIPE_PAYMENT_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-4 px-5 py-4 rounded-2xl border-2 border-gray-200 hover:border-[#635bff] hover:bg-[#635bff]/5 transition-all cursor-pointer group"
                 >
                   <svg className="w-10 h-10 shrink-0" viewBox="0 0 24 24" fill="none">
@@ -274,6 +307,25 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
                 <span>{text.securePayment}</span>
               </div>
               <p className="text-sm text-gray-400 mt-2 text-center">{text.depositNote} <a href="#faq-deposit-why" className="text-gold hover:text-gold-dark underline">{text.depositLearnMore}</a></p>
+
+              <div className="border-t border-gray-100 mt-8 pt-6">
+                <p className="text-sm text-gray-500 mb-3">{text.paypalConfirmNote}</p>
+                {submitError && (
+                  <p className="text-sm text-red-600 text-center mb-3">{text.errorMessage}</p>
+                )}
+                <button
+                  onClick={handlePaypalConfirm}
+                  disabled={isSubmitting}
+                  className="w-full max-w-md mx-auto h-12 bg-gradient-to-r from-gold to-gold-light text-ocean-deep rounded-xl font-bold text-base flex items-center justify-center gap-2 hover:shadow-xl transition-all gold-glow disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                  ) : (
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  )}
+                  {text.paypalConfirmButton}
+                </button>
+              </div>
             </div>
           </ScrollReveal>
         ) : submitted ? (
