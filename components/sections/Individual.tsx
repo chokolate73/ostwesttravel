@@ -104,7 +104,7 @@ export default function Individual({ lang = 'ru' }: { lang?: Lang }) {
         </div>
 
         <ScrollReveal className="text-center">
-          <CTAButton href="#contact?direction=individual" className="w-full sm:w-auto justify-center whitespace-nowrap">
+          <CTAButton href="#process" className="w-full sm:w-auto justify-center whitespace-nowrap">
             {text.cta}
           </CTAButton>
         </ScrollReveal>

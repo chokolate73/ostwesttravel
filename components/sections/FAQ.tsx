@@ -472,7 +472,7 @@ export default function FAQ({ lang = 'ru' }: { lang?: Lang }) {
         <ScrollReveal className="mt-10">
           <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-4">
             <WhatsAppButton className="w-full sm:w-auto justify-center">{text.whatsappButton}</WhatsAppButton>
-            <CTAButton href="#contact" className="w-full sm:w-auto justify-center">{text.ctaButton}</CTAButton>
+            <CTAButton href="#process" className="w-full sm:w-auto justify-center">{text.ctaButton}</CTAButton>
           </div>
         </ScrollReveal>
       </div>

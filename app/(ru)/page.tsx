@@ -36,8 +36,8 @@ export default function HomeRu() {
         <Upcoming lang="ru" />
         <Process lang="ru" />
         <Deposit lang="ru" />
-        <FAQ lang="ru" />
         <Contact lang="ru" />
+        <FAQ lang="ru" />
         <Instagram lang="ru" />
       </main>
       <Footer lang="ru" />
