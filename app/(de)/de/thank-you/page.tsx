@@ -62,7 +62,7 @@ function ThankYouContent() {
           </>
         )}
 
-        {(formStatus === 'success' || formStatus === 'idle') && formStatus !== 'submitting' && (
+        {(formStatus === 'success' || formStatus === 'idle') && (
           <>
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
               <svg className="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
