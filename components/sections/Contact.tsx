@@ -55,6 +55,8 @@ const t = {
     sectionSubtitle: "Füllen Sie das Formular aus und ich melde mich bei Ihnen in Kürze",
     nameLabel: "Vor- und Nachname *",
     namePlaceholder: "Ihr Name",
+    emailLabel: "E-Mail *",
+    emailPlaceholder: "Ihre E-Mail-Adresse",
     phoneLabel: "WhatsApp / Telefon *",
     cityLabel: "Stadt in Deutschland",
     cityPlaceholder: "z.B. München",
@@ -97,6 +99,8 @@ const t = {
     sectionSubtitle: "Заполните форму, и я свяжусь с вами в ближайшее время",
     nameLabel: "Имя и фамилия *",
     namePlaceholder: "Ваше имя и фамилия",
+    emailLabel: "E-Mail *",
+    emailPlaceholder: "Ваш e-mail",
     phoneLabel: "WhatsApp / Телефон *",
     cityLabel: "Город в Германии",
     cityPlaceholder: "Например, Мюнхен",
@@ -295,6 +299,14 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
                 <input id="c-name" name="name" type="text" required autoComplete="name"
                   className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                   placeholder={text.namePlaceholder} />
+              </div>
+
+              {/* E-Mail */}
+              <div>
+                <label htmlFor="c-email" className="block text-sm font-medium text-gray-700 mb-1">{text.emailLabel}</label>
+                <input id="c-email" name="email" type="email" required autoComplete="email"
+                  className="w-full h-12 px-4 border border-gray-200 rounded-xl text-base focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
+                  placeholder={text.emailPlaceholder} />
               </div>
 
               {/* WhatsApp / Phone */}
