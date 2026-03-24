@@ -135,7 +135,9 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
   const [submitError, setSubmitError] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/28EfZjfwld6WeMz9WkaAw00';
+  const STRIPE_PAYMENT_LINK = lang === 'ru'
+    ? 'https://buy.stripe.com/14AaEZck9ff47k7ecAaAw01'
+    : 'https://buy.stripe.com/28EfZjfwld6WeMz9WkaAw00';
 
   const text = t[lang];
   const directionOptions = lang === 'de' ? directionOptionsDe : directionOptionsRu;
