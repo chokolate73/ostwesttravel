@@ -32,7 +32,7 @@ const faqDataRu: FAQCategory[] = [
       {
         id: "faq-deposit-how",
         q: "Как происходит возврат?",
-        a: "Тем же способом, как оплачивали - PayPal, перевод и т.д.",
+        a: "Тем же способом, как оплачивали — на карту, банковский счёт и т.д.",
       },
       {
         id: "faq-deposit-no-book",
@@ -195,7 +195,7 @@ const faqDataDe: FAQCategory[] = [
       {
         id: "faq-deposit-how",
         q: "Wie erfolgt die Rückerstattung?",
-        a: "Auf demselben Weg wie die Zahlung (PayPal, Banküberweisung etc.).",
+        a: "Auf demselben Weg wie die Zahlung (Bankkarte, Banküberweisung etc.).",
       },
       {
         id: "faq-deposit-no-book",

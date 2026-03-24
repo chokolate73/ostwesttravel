@@ -71,23 +71,13 @@ const t = {
     clientTypeLabel: "Sind Sie unser Kunde? *",
     newClient: "Neukunde",
     existingClient: "Stammkunde",
-    newClientNote: "Nach dem Absenden können Sie die Zahlungsmethode für die Kaution von 69,90\u00a0\u20ac wählen",
+    newClientNote: "Nach dem Absenden werden Sie zur sicheren Zahlung der Kaution von 69,90\u00a0\u20ac weitergeleitet",
     commentLabel: "Kommentar",
     commentPlaceholder: "Ihre Wünsche...",
     submit: "Absenden",
     submitting: "Wird gesendet...",
     footerNote: "Die Auswahl für neue Reisende beginnt nach Einzahlung der Kaution.",
     faqLink: "Bedingungen in FAQ",
-    paymentTitle: "Anfrage angenommen!",
-    paymentSubtitle: "Wählen Sie eine bequeme Zahlungsmethode für die Kaution von 69,90\u00a0\u20ac",
-    paypalDesc: "Zahlung über PayPal",
-    stripeDesc: "Bankkarte, Bankkonto, Apple\u00a0Pay oder Google\u00a0Pay",
-    securePayment: "Sichere Online-Zahlung",
-    depositNote: "Die Kaution wird nach Buchung der Reise erstattet.",
-    depositLearnMore: "Mehr erfahren",
-    paypalConfirmButton: "Ich habe bezahlt",
-    paypalConfirmNote: "Klicken Sie hier, nachdem Sie die Kaution über PayPal bezahlt haben",
-    stripeRedirectNote: "Sie werden zu Stripe weitergeleitet. Nach der Zahlung kehren Sie automatisch zurück.",
     successTitle: "Anfrage gesendet!",
     successMessage: "Vasilya wird sich in Kürze bei Ihnen melden.",
     errorMessage: "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
@@ -118,23 +108,13 @@ const t = {
     clientTypeLabel: "Вы наш клиент? *",
     newClient: "Новый клиент",
     existingClient: "Постоянный клиент",
-    newClientNote: "После отправки заявки вы сможете выбрать способ оплаты депозита 69,90\u00a0\u20ac",
+    newClientNote: "После отправки вы будете перенаправлены на безопасную оплату депозита 69,90\u00a0\u20ac",
     commentLabel: "Комментарий",
     commentPlaceholder: "Ваши пожелания...",
     submit: "Отправить",
     submitting: "Отправляем...",
     footerNote: "Подбор для новых путешественников начинается после внесения депозита.",
     faqLink: "Условия в FAQ",
-    paymentTitle: "Заявка принята!",
-    paymentSubtitle: "Выберите удобный способ оплаты депозита\u00a069,90\u00a0\u20ac",
-    paypalDesc: "оплата через PayPal",
-    stripeDesc: "банковская карта, банковский счёт, Apple\u00a0Pay или Google\u00a0Pay",
-    securePayment: "Безопасная онлайн-оплата",
-    depositNote: "Депозит возвращается после бронирования путешествия.",
-    depositLearnMore: "Подробнее",
-    paypalConfirmButton: "Я оплатил(а)",
-    paypalConfirmNote: "Нажмите здесь после оплаты депозита через PayPal",
-    stripeRedirectNote: "Вы будете перенаправлены на Stripe. После оплаты вернётесь автоматически.",
     successTitle: "Заявка отправлена!",
     successMessage: "Василя скоро свяжется с вами.",
     errorMessage: "Произошла ошибка при отправке. Пожалуйста, попробуйте ещё раз.",
@@ -150,7 +130,6 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
   const [direction, setDirection] = useState("");
   const [clientType, setClientType] = useState<"new" | "existing" | null>(null);
   const [showClientPopup, setShowClientPopup] = useState(false);
-  const [showPaymentChoice, setShowPaymentChoice] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(false);
@@ -159,7 +138,6 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
   const STRIPE_PAYMENT_LINK = lang === 'de'
     ? 'https://buy.stripe.com/eVqbJ3bg50kafQD7OcaAw02?locale=de'
     : 'https://buy.stripe.com/14AaEZck9ff47k7ecAaAw01?locale=ru';
-  const PAYPAL_PAYMENT_LINK = "https://paypal.me/touragentde?locale.x=de_DE&country.x=DE";
 
   const text = t[lang];
   const directionOptions = lang === 'de' ? directionOptionsDe : directionOptionsRu;
@@ -196,10 +174,9 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
     const data = Object.fromEntries(formData);
 
     if (clientType === "new") {
-      // Save form data to localStorage — will be sent after payment
+      // Save form data to localStorage — will be sent after Stripe payment
       localStorage.setItem("ostwest_form_data", JSON.stringify(data));
-      setShowPaymentChoice(true);
-      setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      window.location.href = STRIPE_PAYMENT_LINK;
       return;
     }
 
@@ -225,32 +202,6 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
     }
   }
 
-  async function handlePaypalConfirm() {
-    setIsSubmitting(true);
-    setSubmitError(false);
-    try {
-      const stored = localStorage.getItem("ostwest_form_data");
-      if (!stored) throw new Error("no data");
-      const data = JSON.parse(stored);
-      const res = await fetch("https://formspree.io/f/xojkzjje", {
-        method: "POST",
-        body: JSON.stringify({ ...data, payment_method: "paypal" }),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      if (!res.ok) throw new Error("submit failed");
-      localStorage.removeItem("ostwest_form_data");
-      setShowPaymentChoice(false);
-      setSubmitted(true);
-      setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
-    } catch {
-      setSubmitError(true);
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
 
   return (
     <section ref={sectionRef} id="contact" className="py-20 md:py-24 bg-gray-50" aria-labelledby="contact-heading">
@@ -262,73 +213,7 @@ export default function Contact({ lang = 'ru' }: { lang?: Lang }) {
           headingId="contact-heading"
         />
 
-        {showPaymentChoice ? (
-          <ScrollReveal>
-            <div className="bg-white rounded-2xl p-8 md:p-12 text-center shadow-sm">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/10 flex items-center justify-center">
-                <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
-              </div>
-              <h3 className="text-2xl font-serif text-ocean-deep mb-2">{text.paymentTitle}</h3>
-              <p className="text-gray-500 mb-2">{text.paymentSubtitle}</p>
-              <p className="text-xs text-gray-400 mb-8">{text.stripeRedirectNote}</p>
-              <div className="flex flex-col gap-3 max-w-md mx-auto">
-                <a
-                  href={PAYPAL_PAYMENT_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 px-5 py-4 rounded-2xl border-2 border-gray-200 hover:border-[#0070ba] hover:bg-[#0070ba]/5 transition-all cursor-pointer group"
-                >
-                  <svg className="w-10 h-10 shrink-0" viewBox="0 0 24 24" fill="none">
-                    <path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 3.72a.77.77 0 01.757-.654h6.451c2.138 0 3.626.563 4.424 1.674.373.52.61 1.103.707 1.733.101.66.05 1.45-.153 2.35l-.005.025v.462l.36.204c.305.16.548.35.735.57.313.37.516.838.602 1.39.089.567.06 1.225-.084 1.956-.166.84-.434 1.572-.798 2.176a4.587 4.587 0 01-1.24 1.378 5.048 5.048 0 01-1.663.793c-.618.178-1.326.268-2.104.268h-.5a1.504 1.504 0 00-1.486 1.27l-.038.194-.643 4.074-.029.14a.15.15 0 01-.044.095.143.143 0 01-.096.036H7.076z" fill="#253B80"/>
-                    <path d="M19.438 8.086c-.01.065-.023.13-.037.2-.776 3.98-3.428 5.353-6.815 5.353H10.87a.838.838 0 00-.828.709l-.878 5.563-.249 1.577a.44.44 0 00.435.511h3.053c.363 0 .672-.264.73-.621l.03-.155.578-3.664.037-.202a.736.736 0 01.728-.623h.459c2.97 0 5.294-1.206 5.973-4.694.284-1.457.137-2.673-.614-3.527a2.927 2.927 0 00-.84-.627z" fill="#179BD7"/>
-                    <path d="M18.504 7.706a5.937 5.937 0 00-.733-.163 9.312 9.312 0 00-1.482-.109h-4.49a.73.73 0 00-.727.622l-.955 6.055-.028.175a.838.838 0 01.828-.709h1.724c3.387 0 6.039-1.374 6.815-5.352.023-.118.043-.233.06-.345a3.94 3.94 0 00-1.012-.174z" fill="#222D65"/>
-                  </svg>
-                  <div className="text-left">
-                    <span className="text-base font-semibold text-gray-700 group-hover:text-[#0070ba] transition-colors">PayPal</span>
-                    <span className="block text-sm text-gray-400 leading-snug">{text.paypalDesc}</span>
-                  </div>
-                </a>
-                <a
-                  href={STRIPE_PAYMENT_LINK}
-                  className="flex items-center gap-4 px-5 py-4 rounded-2xl border-2 border-gray-200 hover:border-[#635bff] hover:bg-[#635bff]/5 transition-all cursor-pointer group"
-                >
-                  <svg className="w-10 h-10 shrink-0" viewBox="0 0 24 24" fill="none">
-                    <rect x="1" y="2" width="22" height="20" rx="2.5" fill="#635BFF"/>
-                    <text x="12" y="15" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="sans-serif">S</text>
-                  </svg>
-                  <div className="text-left">
-                    <span className="text-base font-semibold text-gray-700 group-hover:text-[#635bff] transition-colors">Stripe</span>
-                    <span className="block text-sm text-gray-400 leading-snug">{text.stripeDesc}</span>
-                  </div>
-                </a>
-              </div>
-              <div className="flex items-center justify-center gap-1.5 mt-6 text-sm text-gray-400">
-                <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                <span>{text.securePayment}</span>
-              </div>
-              <p className="text-sm text-gray-400 mt-2 text-center">{text.depositNote} <a href="#faq-deposit-why" className="text-gold hover:text-gold-dark underline">{text.depositLearnMore}</a></p>
-
-              <div className="border-t border-gray-100 mt-8 pt-6">
-                <p className="text-sm text-gray-500 mb-3">{text.paypalConfirmNote}</p>
-                {submitError && (
-                  <p className="text-sm text-red-600 text-center mb-3">{text.errorMessage}</p>
-                )}
-                <button
-                  onClick={handlePaypalConfirm}
-                  disabled={isSubmitting}
-                  className="w-full max-w-md mx-auto h-12 bg-gradient-to-r from-gold to-gold-light text-ocean-deep rounded-xl font-bold text-base flex items-center justify-center gap-2 hover:shadow-xl transition-all gold-glow disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
-                  ) : (
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  )}
-                  {text.paypalConfirmButton}
-                </button>
-              </div>
-            </div>
-          </ScrollReveal>
-        ) : submitted ? (
+        {submitted ? (
           <ScrollReveal>
             <div className="bg-white rounded-2xl p-8 md:p-12 text-center shadow-sm">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
