@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Montserrat, Inter } from 'next/font/google';
 import '../globals.css';
 
@@ -76,6 +77,18 @@ export default function DeLayout({
 }) {
   return (
     <html lang="de" className={`${montserrat.variable} ${inter.variable}`}>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-203WLEQVDB"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-203WLEQVDB');
+        `}
+      </Script>
       <head>
         <link
           rel="icon"
