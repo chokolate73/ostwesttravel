@@ -77,6 +77,7 @@ export default function CookieBanner({ lang = 'ru' }: { lang?: Lang }) {
   return (
     <div
       className="fixed bottom-[60px] sm:bottom-0 left-0 right-0 z-[60] animate-slideUp"
+      style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}
       role="dialog"
       aria-label={s.ariaLabel}
     >

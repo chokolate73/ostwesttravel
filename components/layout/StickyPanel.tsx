@@ -26,7 +26,7 @@ export default function StickyPanel({ lang = 'ru' }: { lang?: Lang }) {
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+      <div className="bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-center gap-3">
           <a
             href="https://wa.me/491631759956"
