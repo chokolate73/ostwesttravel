@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Montserrat, Inter } from 'next/font/google';
 import '../globals.css';
@@ -18,6 +18,10 @@ const inter = Inter({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://touragent.de';
+
+export const viewport: Viewport = {
+  viewportFit: 'cover',
+};
 
 export const metadata: Metadata = {
   title: 'OST-West Travel - Василя Нигматова | Персональный эксперт по путешествиям в Германии',

@@ -117,6 +117,15 @@ img {
   animation: slideUp 0.5s ease-out forwards;
 }
 
+/* Safe area support for iPhones with home indicator */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  @media (max-width: 767px) {
+    footer {
+      padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+  }
+}
+
 /* Phone button pulse — GPU-composited with transform+opacity
    NOTE: no `position: relative` here — the parent already has `position: fixed`
    (via Tailwind's .fixed class) which establishes the containing block for ::before */
