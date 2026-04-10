@@ -13,7 +13,7 @@ const icons = [
 const t = {
   de: {
     label: 'Für Familien',
-    title: 'Familienurlaub mit Kindern – Reisebüro für NRW-Familien',
+    title: 'Familienurlaub mit Kindern – perfekt bis ins Detail geplant',
     subtitle: 'Ich wähle Hotels mit Kinderclubs, sicheren Stränden und bequemer Logistik',
     scenarios: [
       {
