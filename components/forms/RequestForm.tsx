@@ -66,14 +66,14 @@ const vacationTypeOptions: Record<Lang, Options> = {
 
 const dateFlexibilityOptions: Record<Lang, Options> = {
   de: [
-    { value: "", label: "Flexibilität bei Daten" },
+    { value: "", label: "Bitte wählen" },
     { value: "fixed", label: "Feste Daten" },
     { value: "+-3", label: "± 3 Tage" },
     { value: "+-1w", label: "± 1 Woche" },
     { value: "flexible", label: "Flexibel" },
   ],
   ru: [
-    { value: "", label: "Гибкость по датам" },
+    { value: "", label: "Выберите вариант" },
     { value: "fixed", label: "Фиксированные даты" },
     { value: "+-3", label: "± 3 дня" },
     { value: "+-1w", label: "± 1 неделя" },
@@ -108,7 +108,7 @@ const departureOptions: Record<Lang, Options> = {
 
 const hotelStarsOptions: Record<Lang, Options> = {
   de: [
-    { value: "", label: "Hotelkategorie" },
+    { value: "", label: "Bitte wählen" },
     { value: "3", label: "3 Sterne" },
     { value: "4", label: "4 Sterne" },
     { value: "5", label: "5 Sterne" },
@@ -116,7 +116,7 @@ const hotelStarsOptions: Record<Lang, Options> = {
     { value: "any", label: "Egal" },
   ],
   ru: [
-    { value: "", label: "Категория отеля" },
+    { value: "", label: "Выберите категорию" },
     { value: "3", label: "3 звезды" },
     { value: "4", label: "4 звезды" },
     { value: "5", label: "5 звёзд" },
@@ -127,7 +127,7 @@ const hotelStarsOptions: Record<Lang, Options> = {
 
 const mealPlanOptions: Record<Lang, Options> = {
   de: [
-    { value: "", label: "Verpflegung" },
+    { value: "", label: "Bitte wählen" },
     { value: "none", label: "Ohne Verpflegung" },
     { value: "BB", label: "Frühstück" },
     { value: "HB", label: "Halbpension" },
@@ -137,7 +137,7 @@ const mealPlanOptions: Record<Lang, Options> = {
     { value: "any", label: "Egal" },
   ],
   ru: [
-    { value: "", label: "Питание" },
+    { value: "", label: "Выберите вариант" },
     { value: "none", label: "Без питания" },
     { value: "BB", label: "Завтраки" },
     { value: "HB", label: "Полупансион" },
@@ -150,7 +150,7 @@ const mealPlanOptions: Record<Lang, Options> = {
 
 const budgetOptions: Record<Lang, Options> = {
   de: [
-    { value: "", label: "Ungefähres Budget" },
+    { value: "", label: "Bitte wählen" },
     { value: "1000-2000", label: "1 000 - 2 000 €" },
     { value: "2000-3000", label: "2 000 - 3 000 €" },
     { value: "3000-5000", label: "3 000 - 5 000 €" },
@@ -158,7 +158,7 @@ const budgetOptions: Record<Lang, Options> = {
     { value: "10000+", label: "10 000+ €" },
   ],
   ru: [
-    { value: "", label: "Примерный бюджет" },
+    { value: "", label: "Выберите диапазон" },
     { value: "1000-2000", label: "1 000 - 2 000 €" },
     { value: "2000-3000", label: "2 000 - 3 000 €" },
     { value: "3000-5000", label: "3 000 - 5 000 €" },
