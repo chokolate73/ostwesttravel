@@ -383,11 +383,16 @@ function FAQAccordionItem({ item, isOpen, toggle }: { item: FAQItem; isOpen: boo
   );
 }
 
-export default function FAQ({ lang = 'ru' }: { lang?: Lang }) {
+export default function FAQ({ lang = 'ru', onlyCategory }: { lang?: Lang; onlyCategory?: 'deposit' }) {
+  const allData = lang === 'de' ? faqDataDe : faqDataRu;
+  const faqData = onlyCategory === 'deposit'
+    ? allData.filter((cat) => cat.items[0]?.id.startsWith('faq-deposit-'))
+    : allData;
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-  const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
+  const [openCategories, setOpenCategories] = useState<Set<number>>(
+    onlyCategory ? new Set([0]) : new Set(),
+  );
 
-  const faqData = lang === 'de' ? faqDataDe : faqDataRu;
   const text = t[lang];
 
   // Deep-link support: open specific FAQ on hash navigation
@@ -469,12 +474,14 @@ export default function FAQ({ lang = 'ru' }: { lang?: Lang }) {
           })}
         </div>
 
-        <ScrollReveal className="mt-10">
-          <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-4">
-            <WhatsAppButton className="w-full sm:w-auto justify-center">{text.whatsappButton}</WhatsAppButton>
-            <CTAButton href="#process" className="w-full sm:w-auto justify-center">{text.ctaButton}</CTAButton>
-          </div>
-        </ScrollReveal>
+        {!onlyCategory && (
+          <ScrollReveal className="mt-10">
+            <div className="text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+              <WhatsAppButton className="w-full sm:w-auto justify-center">{text.whatsappButton}</WhatsAppButton>
+              <CTAButton href="#process" className="w-full sm:w-auto justify-center">{text.ctaButton}</CTAButton>
+            </div>
+          </ScrollReveal>
+        )}
       </div>
     </section>
   );
