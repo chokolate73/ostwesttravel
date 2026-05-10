@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import Footer from "@/components/sections/Footer";
+import Process from "@/components/sections/Process";
+import Deposit from "@/components/sections/Deposit";
+import FAQ from "@/components/sections/FAQ";
 import RequestFormClient from "./RequestFormClient";
 
 export const metadata: Metadata = {
@@ -11,7 +14,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function ZayavkaPageRu() {
+export default function ZayavkaPageRu({
+  searchParams,
+}: {
+  searchParams?: { from?: string };
+}) {
+  const fromLanding = searchParams?.from === "landing";
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <div className="bg-ocean-deep text-white">
@@ -43,6 +52,14 @@ export default function ZayavkaPageRu() {
           </Link>
         </div>
       </div>
+
+      {!fromLanding && (
+        <>
+          <Process lang="ru" />
+          <Deposit lang="ru" />
+          <FAQ lang="ru" onlyCategory="deposit" />
+        </>
+      )}
 
       <main className="flex-1 max-w-3xl w-full mx-auto px-6 py-10 md:py-16">
         <div className="mb-8 text-center">

@@ -34,7 +34,7 @@ const t = {
     sectionLabel: "Anfrage",
     sectionTitle: "In wenigen Schritten zur Reise",
     sectionSubtitle:
-      "Hinterlassen Sie 4 Angaben — auf der nächsten Seite können Sie weitere Details ergänzen",
+      "Füllen Sie 4 Felder aus — auf der nächsten Seite können Sie weitere Details ergänzen",
     nameLabel: "Vor- und Nachname *",
     namePlaceholder: "Ihr Name",
     phoneLabel: "WhatsApp / Telefon *",
@@ -51,7 +51,7 @@ const t = {
     sectionLabel: "Запрос на подбор",
     sectionTitle: "В несколько шагов к вашему путешествию",
     sectionSubtitle:
-      "Оставьте 4 поля — на следующей странице можно дополнить детали",
+      "Заполните 4 поля — на следующей странице можно дополнить детали",
     nameLabel: "Имя и фамилия *",
     namePlaceholder: "Ваше имя",
     phoneLabel: "WhatsApp / Телефон *",
@@ -103,6 +103,7 @@ export default function Contact({ lang = "ru" }: { lang?: Lang }) {
       const v = String(value).trim();
       if (v) params.set(key, v);
     });
+    params.set("from", "landing");
     window.location.href = `${targetPath}?${params.toString()}`;
   }
 
